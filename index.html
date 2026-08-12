@@ -390,6 +390,80 @@
     </p>
 
 </div>
+
+    <!-- ========================================
+     V5 — BUSINESS SYSTEM
+========================================= -->
+
+<div class="panel">
+
+    <h2>🏢 BUSINESS EMPIRE</h2>
+
+    <p>
+        Stop working only for money.
+        Build something that makes money for you.
+    </p>
+
+    <p>
+        💰 Business Cash:
+        <strong>$<span id="businessCash">0</span></strong>
+    </p>
+
+    <p>
+        🏢 Businesses:
+        <strong id="businessCount">0</strong>
+    </p>
+
+    <p>
+        📈 Daily Revenue:
+        $<strong id="dailyRevenue">0</strong>
+    </p>
+
+    <p>
+        💸 Daily Expenses:
+        $<strong id="dailyExpenses">0</strong>
+    </p>
+
+    <p>
+        💎 Business Value:
+        $<strong id="businessValue">0</strong>
+    </p>
+
+    <hr>
+
+    <h3>🚀 Start A Business</h3>
+
+    <button onclick="startBusiness('Food')">
+        🍔 Food Business — $1,000
+    </button>
+
+    <button onclick="startBusiness('Clothing')">
+        👕 Clothing Business — $5,000
+    </button>
+
+    <button onclick="startBusiness('Transport')">
+        🚕 Transport Business — $10,000
+    </button>
+
+    <button onclick="startBusiness('Technology')">
+        💻 Technology Company — $25,000
+    </button>
+
+    <hr>
+
+    <h3>🏢 Your Companies</h3>
+
+    <div id="businessList">
+        No businesses yet.
+    </div>
+
+    <br>
+
+    <button onclick="runBusinesses()">
+        ▶️ Run Businesses
+    </button>
+
+</div>
         
     <button onclick="work()">
         💼 Work
@@ -1313,6 +1387,297 @@ function updateNPCScreen() {
 
     document.getElementById("rivals").textContent =
         rivals;
+}
+
+  // ========================================
+// V5 — BUSINESS SYSTEM
+// ========================================
+
+let businesses = [];
+
+
+// ========================================
+// BUSINESS TYPES
+// ========================================
+
+const businessTypes = {
+
+    Food: {
+        cost: 1000,
+        revenue: 150,
+        expenses: 50
+    },
+
+    Clothing: {
+        cost: 5000,
+        revenue: 500,
+        expenses: 180
+    },
+
+    Transport: {
+        cost: 10000,
+        revenue: 1000,
+        expenses: 350
+    },
+
+    Technology: {
+        cost: 25000,
+        revenue: 3000,
+        expenses: 1000
+    }
+
+};
+
+
+// ========================================
+// START BUSINESS
+// ========================================
+
+function startBusiness(type) {
+
+    const business = businessTypes[type];
+
+    if (!business) {
+        return;
+    }
+
+    if (money < business.cost) {
+
+        showMessage(
+            "❌ You need $" +
+            business.cost +
+            " to start this business.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= business.cost;
+
+
+    businesses.push({
+
+        type: type,
+
+        revenue: business.revenue,
+
+        expenses: business.expenses,
+
+        value: business.cost
+
+    });
+
+
+    document.getElementById("story").textContent =
+        "You have started your first " +
+        type +
+        " business. Your journey as an entrepreneur has begun.";
+
+
+    showMessage(
+        "🏢 " +
+        type +
+        " business started!"
+    );
+
+
+    updateBusinessScreen();
+
+    if (typeof updateScreen === "function") {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// RUN BUSINESSES
+// ========================================
+
+function runBusinesses() {
+
+    if (businesses.length === 0) {
+
+        showMessage(
+            "You don't own a business yet.",
+            true
+        );
+
+        return;
+    }
+
+
+    let totalRevenue = 0;
+
+    let totalExpenses = 0;
+
+
+    businesses.forEach(function(business) {
+
+        totalRevenue += business.revenue;
+
+        totalExpenses += business.expenses;
+
+    });
+
+
+    let profit =
+        totalRevenue -
+        totalExpenses;
+
+
+    money += profit;
+
+
+    xp += 25;
+
+
+    document.getElementById("story").textContent =
+        "Your businesses operated for the day. " +
+        "After expenses, you made $" +
+        profit +
+        " profit.";
+
+
+    showMessage(
+        "📈 Business profit: +$" +
+        profit
+    );
+
+
+    if (typeof checkLevel === "function") {
+        checkLevel();
+    }
+
+
+    updateBusinessScreen();
+
+    if (typeof updateScreen === "function") {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// UPDATE BUSINESS SCREEN
+// ========================================
+
+function updateBusinessScreen() {
+
+    let revenue = 0;
+
+    let expenses = 0;
+
+    let value = 0;
+
+
+    businesses.forEach(function(business) {
+
+        revenue += business.revenue;
+
+        expenses += business.expenses;
+
+        value += business.value;
+
+    });
+
+
+    document.getElementById("businessCash").textContent =
+        money;
+
+
+    document.getElementById("businessCount").textContent =
+        businesses.length;
+
+
+    document.getElementById("dailyRevenue").textContent =
+        revenue;
+
+
+    document.getElementById("dailyExpenses").textContent =
+        expenses;
+
+
+    document.getElementById("businessValue").textContent =
+        value;
+
+
+    let list =
+        document.getElementById("businessList");
+
+
+    if (businesses.length === 0) {
+
+        list.innerHTML =
+            "No businesses yet.";
+
+        return;
+    }
+
+
+    list.innerHTML = "";
+
+
+    businesses.forEach(function(business, index) {
+
+        let profit =
+            business.revenue -
+            business.expenses;
+
+
+        let item =
+            document.createElement("div");
+
+
+        item.style.background =
+            "#303030";
+
+        item.style.padding =
+            "15px";
+
+        item.style.marginBottom =
+            "10px";
+
+        item.style.borderRadius =
+            "10px";
+
+
+        item.innerHTML =
+
+            "<strong>🏢 " +
+            business.type +
+            " Business #" +
+            (index + 1) +
+            "</strong>" +
+
+            "<br><br>" +
+
+            "📈 Revenue: $" +
+            business.revenue +
+
+            "<br>" +
+
+            "💸 Expenses: $" +
+            business.expenses +
+
+            "<br>" +
+
+            "💰 Profit: $" +
+            profit +
+
+            "<br>" +
+
+            "💎 Value: $" +
+            business.value;
+
+
+        list.appendChild(item);
+
+    });
+
 }
     
 </script>
