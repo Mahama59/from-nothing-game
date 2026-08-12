@@ -1153,7 +1153,725 @@
     </button>
 
 </div>
-        
+
+  <!-- =========================================
+     FROM NOTHING V12
+     ADVANCED COMPANY MANAGEMENT
+========================================= -->
+
+<div class="panel">
+
+<h2>🏢 ADVANCED COMPANY MANAGEMENT</h2>
+
+<p>
+Take control of each company, upgrade it,
+appoint managers and increase its value.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+margin-bottom:15px;
+">
+
+<h3>📊 EMPIRE OVERVIEW</h3>
+
+<p>
+🏢 Companies:
+<strong id="v12CompanyCount">0</strong>
+</p>
+
+<p>
+👥 Employees:
+<strong id="v12EmployeeCount">0</strong>
+</p>
+
+<p>
+💰 Total Company Value:
+$<strong id="v12TotalValue">0</strong>
+</p>
+
+<p>
+📈 Daily Revenue:
+$<strong id="v12Revenue">0</strong>
+</p>
+
+<p>
+💸 Daily Expenses:
+$<strong id="v12Expenses">0</strong>
+</p>
+
+<p>
+💎 Daily Profit:
+$<strong id="v12Profit">0</strong>
+</p>
+
+<p>
+⭐ Empire Level:
+<strong id="v12EmpireLevel">1</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h3>🏢 YOUR COMPANIES</h3>
+
+<div id="v12CompanyList">
+No companies available.
+</div>
+
+<hr>
+
+<h3>👔 COMPANY MANAGEMENT</h3>
+
+<button
+onclick="v12HireManager()"
+style="width:100%;margin-bottom:7px;">
+👔 Hire Company Manager — $2,500
+</button>
+
+<button
+onclick="v12UpgradeCompany()"
+style="width:100%;margin-bottom:7px;">
+🏭 Upgrade Selected Company — $10,000
+</button>
+
+<button
+onclick="v12TrainCompany()"
+style="width:100%;margin-bottom:7px;">
+🎓 Company Training — $5,000
+</button>
+
+<button
+onclick="v12ExpandCompany()"
+style="width:100%;">
+🌍 Open International Branch — $25,000
+</button>
+
+<hr>
+
+<h3>🏆 COMPANY RANKING</h3>
+
+<p id="v12CompanyRank">
+Your company is currently unranked.
+</p>
+
+</div>
+
+    <!-- =========================================
+     FROM NOTHING V13
+     ADVANCED EMPLOYEES & CAREERS
+========================================= -->
+
+<div class="panel">
+
+<h2>👥 ADVANCED EMPLOYEES & CAREERS</h2>
+
+<p>
+Build a powerful workforce and develop your career.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+margin-bottom:15px;
+">
+
+<h3>📊 WORKFORCE STATUS</h3>
+
+<p>
+👥 Employees:
+<strong id="v13EmployeeCount">0</strong>
+</p>
+
+<p>
+⚡ Average Productivity:
+<strong id="v13Productivity">0%</strong>
+</p>
+
+<p>
+😊 Employee Morale:
+<strong id="v13Morale">50</strong>
+</p>
+
+<p>
+💵 Daily Payroll:
+$<strong id="v13Payroll">0</strong>
+</p>
+
+<p>
+🎓 Average Skill:
+<strong id="v13Skill">0</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h3>👥 YOUR WORKFORCE</h3>
+
+<div id="v13EmployeeList">
+No employees yet.
+</div>
+
+<hr>
+
+<h3>🎓 EMPLOYEE DEVELOPMENT</h3>
+
+<button
+onclick="v13TrainEmployee()"
+style="width:100%;margin-bottom:7px;">
+📚 Train Selected Employee — $1,000
+</button>
+
+<button
+onclick="v13PromoteEmployee()"
+style="width:100%;margin-bottom:7px;">
+📈 Promote Selected Employee
+</button>
+
+<button
+onclick="v13RewardEmployee()"
+style="width:100%;">
+🎁 Reward Selected Employee — $500
+</button>
+
+<hr>
+
+<h3>🏢 ASSIGNMENT</h3>
+
+<button
+onclick="v13AssignEmployee()"
+style="width:100%;margin-bottom:7px;">
+🏢 Assign Employee To Company
+</button>
+
+<button
+onclick="v13TransferEmployee()"
+style="width:100%;">
+🔄 Transfer Employee
+</button>
+
+<hr>
+
+<h3>💼 PLAYER CAREER</h3>
+
+<p>
+Current Career:
+<strong id="v13CareerName">Unknown</strong>
+</p>
+
+<p>
+Career Level:
+<strong id="v13CareerLevel">1</strong>
+</p>
+
+<p>
+Career Experience:
+<strong id="v13CareerXP">0</strong>
+</p>
+
+<p>
+Career Salary:
+$<strong id="v13CareerSalary">0</strong>
+</p>
+
+<div style="
+background:#333;
+height:14px;
+border-radius:10px;
+overflow:hidden;
+">
+
+<div id="v13CareerBar"
+style="
+height:100%;
+width:0%;
+background:#ffd700;
+">
+</div>
+
+</div>
+
+<br>
+
+<button
+onclick="v13WorkCareer()"
+style="width:100%;margin-bottom:7px;">
+💼 Work Career
+</button>
+
+<button
+onclick="v13AdvanceCareer()"
+style="width:100%;">
+🚀 Advance Career
+</button>
+
+</div>
+
+        <!-- =========================================
+     FROM NOTHING V14
+     ADVANCED ECONOMY & INVESTMENTS
+========================================= -->
+
+<div class="panel">
+
+<h2>📈 ADVANCED ECONOMY</h2>
+
+<p>
+Build wealth through investments and economic opportunities.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+">
+
+<h3>💰 FINANCIAL STATUS</h3>
+
+<p>
+💵 Cash:
+<strong id="v14Cash">$0</strong>
+</p>
+
+<p>
+🏦 Bank:
+<strong id="v14Bank">$0</strong>
+</p>
+
+<p>
+📈 Investments:
+<strong id="v14Investments">$0</strong>
+</p>
+
+<p>
+💳 Debt:
+<strong id="v14Debt">$0</strong>
+</p>
+
+<p>
+💎 Total Wealth:
+<strong id="v14Wealth">$0</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h3>📊 ECONOMIC MARKET</h3>
+
+<p>
+Market Condition:
+<strong id="v14MarketCondition">
+Stable
+</strong>
+</p>
+
+<p>
+Market Index:
+<strong id="v14MarketIndex">
+100
+</strong>
+</p>
+
+<p>
+Interest Rate:
+<strong id="v14InterestRate">
+2%
+</strong>
+</p>
+
+<p id="v14EconomicNews">
+The economy is currently stable.
+</p>
+
+<button
+onclick="v14UpdateMarket()"
+style="width:100%;margin-bottom:7px;">
+📊 Update Market
+</button>
+
+<button
+onclick="v14EconomicEvent()"
+style="width:100%;">
+📰 Economic News
+</button>
+
+<hr>
+
+<h3>📈 INVESTMENT MARKET</h3>
+
+<div id="v14InvestmentList">
+No investments available.
+</div>
+
+<hr>
+
+<h3>💰 INVEST</h3>
+
+<input
+id="v14InvestmentAmount"
+type="number"
+placeholder="Enter investment amount"
+style="
+width:100%;
+padding:12px;
+margin-bottom:7px;
+border-radius:8px;
+border:none;
+">
+
+<button
+onclick="v14Invest()"
+style="width:100%;margin-bottom:7px;">
+📈 Invest Money
+</button>
+
+<button
+onclick="v14SellInvestments()"
+style="width:100%;">
+💵 Sell Investments
+</button>
+
+<hr>
+
+<h3>🏦 BANK</h3>
+
+<input
+id="v14BankAmount"
+type="number"
+placeholder="Enter bank amount"
+style="
+width:100%;
+padding:12px;
+margin-bottom:7px;
+border-radius:8px;
+border:none;
+">
+
+<button
+onclick="v14Deposit()"
+style="width:100%;margin-bottom:7px;">
+🏦 Deposit Money
+</button>
+
+<button
+onclick="v14Withdraw()"
+style="width:100%;">
+💵 Withdraw Money
+</button>
+
+<hr>
+
+<h3>💎 WEALTH RANK</h3>
+
+<h2 id="v14WealthRank">
+Street Beginner
+</h2>
+
+<div style="
+background:#333;
+height:15px;
+border-radius:10px;
+overflow:hidden;
+">
+
+<div
+id="v14WealthBar"
+style="
+height:100%;
+width:0%;
+background:#ffd700;
+">
+</div>
+
+</div>
+
+</div>
+
+        <!-- =========================================
+     FROM NOTHING V15
+     STORY & CHOICES
+========================================= -->
+
+<div id="v15Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:20000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:700px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V15
+</div>
+
+<h1 id="v15Chapter"
+style="color:#ffd700;">
+Chapter 1
+</h1>
+
+<h2 id="v15MissionTitle">
+The Beginning
+</h2>
+
+<p id="v15StoryText"
+style="line-height:1.8;">
+Your journey is about to begin.
+</p>
+
+<div id="v15Choices"></div>
+
+<div style="
+background:#101010;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+">
+
+<p>
+❤️ Reputation:
+<strong id="v15Reputation">0</strong>
+</p>
+
+<p>
+⚖️ Morality:
+<strong id="v15Morality">50</strong>
+</p>
+
+<p>
+👥 Friends:
+<strong id="v15Friends">0</strong>
+</p>
+
+<p>
+😡 Rivals:
+<strong id="v15Rivals">0</strong>
+</p>
+
+<p>
+📖 Story Progress:
+<strong id="v15Progress">0 / 10</strong>
+</p>
+
+</div>
+
+<button
+onclick="v15CloseStory()"
+style="
+width:100%;
+margin-top:15px;
+">
+Close Story
+</button>
+
+</div>
+</div>
+
+
+<!-- V15 STORY BUTTON -->
+
+<div class="panel">
+
+<h2>📖 STORY MODE</h2>
+
+<p>
+Your choices shape your future.
+Every decision can create friends, rivals,
+opportunities and consequences.
+</p>
+
+<h3 id="v15MainChapter">
+Chapter 1 — The Beginning
+</h3>
+
+<p id="v15MainMission">
+Your journey has just begun.
+</p>
+
+<p>
+Progress:
+<strong id="v15MainProgress">
+0 / 10
+</strong>
+</p>
+
+<button
+onclick="v15StartStory()"
+style="width:100%;">
+📖 Continue Story
+</button>
+
+</div>
+
+        <!-- =========================================
+     FROM NOTHING V16
+     CHOICES & CONSEQUENCES
+========================================= -->
+
+<div id="v16Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:21000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:700px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V16
+</div>
+
+<h1 id="v16Title" style="color:#ffd700;">
+Choices & Consequences
+</h1>
+
+<p id="v16Description" style="line-height:1.8;">
+Your decisions will affect your future.
+</p>
+
+<div id="v16Choices"></div>
+
+<hr>
+
+<h2>⚖️ YOUR STATUS</h2>
+
+<p>
+⭐ Reputation:
+<strong id="v16Reputation">0</strong>
+</p>
+
+<p>
+⚖️ Morality:
+<strong id="v16Morality">50</strong>
+</p>
+
+<p>
+❤️ Friends:
+<strong id="v16Friends">0</strong>
+</p>
+
+<p>
+😡 Rivals:
+<strong id="v16Rivals">0</strong>
+</p>
+
+<p>
+🚨 Police Heat:
+<strong id="v16PoliceHeat">0</strong>
+</p>
+
+<p>
+🏆 Achievements:
+<strong id="v16AchievementCount">0</strong>
+</p>
+
+<button
+onclick="v16Close()"
+style="width:100%;margin-top:15px;">
+Close
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V16 STATUS PANEL
+========================================= -->
+
+<div class="panel">
+
+<h2>⚖️ CHOICES & CONSEQUENCES</h2>
+
+<p>
+Every decision can change your reputation,
+relationships, money and future.
+</p>
+
+<div class="grid">
+
+<div>
+⭐ Reputation:
+<strong id="v16MainReputation">0</strong>
+</div>
+
+<div>
+⚖️ Morality:
+<strong id="v16MainMorality">50</strong>
+</div>
+
+<div>
+❤️ Friends:
+<strong id="v16MainFriends">0</strong>
+</div>
+
+<div>
+😡 Rivals:
+<strong id="v16MainRivals">0</strong>
+</div>
+
+<div>
+🚨 Police Heat:
+<strong id="v16MainHeat">0</strong>
+</div>
+
+</div>
+
+<button
+onclick="v16OpenChoice()"
+style="width:100%;margin-top:12px;">
+⚖️ Make A Decision
+</button>
+
+</div>
+
+
+<!-- =========================================
+     V16 ACHIEVEMENTS
+========================================= -->
+
+<div class="panel">
+
+<h2>🏆 V16 ACHIEVEMENTS</h2>
+
+<div id="v16AchievementList">
+No achievements yet.
+</div>
+
+</div>
+   
     <button onclick="work()">
         💼 Work
     </button>
@@ -5977,6 +6695,4716 @@ function v11UpdateScreen() {
 // ========================================
 
 v11UpdateScreen();
+
+// ========================================
+// FROM NOTHING V12
+// ADVANCED COMPANY MANAGEMENT
+// ========================================
+
+// IMPORTANT:
+// V12 uses ONLY v12_ variables.
+// Do not redeclare money, heat, career,
+// playerName, storyFlags, or other old variables.
+
+let v12SelectedCompany = -1;
+
+let v12Managers = [];
+
+let v12CompanyUpgrades = {};
+
+
+// ========================================
+// SELECT COMPANY
+// ========================================
+
+function v12SelectCompany(index) {
+
+    if (
+        index < 0 ||
+        index >= v11Companies.length
+    ) {
+        return;
+    }
+
+    v12SelectedCompany = index;
+
+    v12UpdateScreen();
+
+    showMessage(
+        "🏢 Selected " +
+        v11Companies[index].name
+    );
+}
+
+
+// ========================================
+// HIRE MANAGER
+// ========================================
+
+function v12HireManager() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ Create a company first.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v12SelectedCompany < 0
+    ) {
+
+        v12SelectedCompany = 0;
+
+    }
+
+    const cost = 2500;
+
+    if (money < cost) {
+
+        showMessage(
+            "❌ You need $2,500.",
+            true
+        );
+
+        return;
+    }
+
+    const company =
+        v11Companies[
+            v12SelectedCompany
+        ];
+
+    if (
+        v12Managers.some(
+            function(manager) {
+
+                return manager.companyId ===
+                    company.id;
+
+            }
+        )
+    ) {
+
+        showMessage(
+            "❌ This company already has a manager.",
+            true
+        );
+
+        return;
+    }
+
+    money -= cost;
+
+    v12Managers.push({
+
+        companyId:
+            company.id,
+
+        name:
+            "Manager " +
+            (
+                v12Managers.length + 1
+            ),
+
+        skill:
+            10
+
+    });
+
+    company.revenue =
+        Math.floor(
+            company.revenue * 1.15
+        );
+
+    company.level++;
+
+    v11CompanyReputation += 5;
+
+    showMessage(
+        "👔 Manager hired successfully!"
+    );
+
+    v12UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+}
+
+
+// ========================================
+// UPGRADE COMPANY
+// ========================================
+
+function v12UpgradeCompany() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ You don't own a company.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v12SelectedCompany < 0
+    ) {
+        v12SelectedCompany = 0;
+    }
+
+    const company =
+        v11Companies[
+            v12SelectedCompany
+        ];
+
+    const cost =
+        10000 *
+        company.level;
+
+    if (
+        money < cost
+    ) {
+
+        showMessage(
+            "❌ You need $" +
+            cost.toLocaleString() +
+            " to upgrade.",
+            true
+        );
+
+        return;
+    }
+
+    money -= cost;
+
+    company.level++;
+
+    company.revenue =
+        Math.floor(
+            company.revenue * 1.25
+        );
+
+    company.expenses =
+        Math.floor(
+            company.expenses * 1.10
+        );
+
+    v11CompanyReputation += 10;
+
+    showMessage(
+        "🏭 " +
+        company.name +
+        " upgraded to Level " +
+        company.level +
+        "!"
+    );
+
+    v12UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+}
+
+
+// ========================================
+// COMPANY TRAINING
+// ========================================
+
+function v12TrainCompany() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ Create a company first.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v12SelectedCompany < 0
+    ) {
+        v12SelectedCompany = 0;
+    }
+
+    const cost = 5000;
+
+    if (
+        money < cost
+    ) {
+
+        showMessage(
+            "❌ You need $5,000.",
+            true
+        );
+
+        return;
+    }
+
+    money -= cost;
+
+    const company =
+        v11Companies[
+            v12SelectedCompany
+        ];
+
+    company.revenue =
+        Math.floor(
+            company.revenue * 1.10
+        );
+
+    company.expenses =
+        Math.floor(
+            company.expenses * 0.95
+        );
+
+    v11CompanyReputation += 5;
+
+    showMessage(
+        "🎓 " +
+        company.name +
+        " has completed advanced training!"
+    );
+
+    v12UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+}
+
+
+// ========================================
+// INTERNATIONAL BRANCH
+// ========================================
+
+function v12ExpandCompany() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ Create a company first.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v12SelectedCompany < 0
+    ) {
+        v12SelectedCompany = 0;
+    }
+
+    const cost = 25000;
+
+    if (
+        money < cost
+    ) {
+
+        showMessage(
+            "❌ You need $25,000.",
+            true
+        );
+
+        return;
+    }
+
+    const company =
+        v11Companies[
+            v12SelectedCompany
+        ];
+
+    money -= cost;
+
+    if (
+        !company.branches
+    ) {
+
+        company.branches = 0;
+
+    }
+
+    company.branches++;
+
+    company.revenue =
+        Math.floor(
+            company.revenue * 1.30
+        );
+
+    company.level++;
+
+    v11CompanyReputation += 20;
+
+    showMessage(
+        "🌍 International branch opened for " +
+        company.name +
+        "!"
+    );
+
+    v12UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+}
+
+
+// ========================================
+// COMPANY VALUE
+// ========================================
+
+function v12CompanyValue(company) {
+
+    if (!company) {
+        return 0;
+    }
+
+    const branches =
+        company.branches || 0;
+
+    const value =
+        (
+            company.revenue *
+            100
+        ) +
+        (
+            company.level *
+            10000
+        ) +
+        (
+            company.employees *
+            500
+        ) +
+        (
+            branches *
+            25000
+        );
+
+    return Math.floor(value);
+}
+
+
+// ========================================
+// EMPIRE LEVEL
+// ========================================
+
+function v12GetEmpireLevel() {
+
+    const value =
+        v11Companies.reduce(
+            function(total, company) {
+
+                return total +
+                    v12CompanyValue(
+                        company
+                    );
+
+            },
+            0
+        );
+
+    if (value >= 10000000) {
+        return 10;
+    }
+
+    if (value >= 5000000) {
+        return 9;
+    }
+
+    if (value >= 1000000) {
+        return 8;
+    }
+
+    if (value >= 500000) {
+        return 7;
+    }
+
+    if (value >= 250000) {
+        return 6;
+    }
+
+    if (value >= 100000) {
+        return 5;
+    }
+
+    if (value >= 50000) {
+        return 4;
+    }
+
+    if (value >= 25000) {
+        return 3;
+    }
+
+    if (value >= 10000) {
+        return 2;
+    }
+
+    return 1;
+}
+
+
+// ========================================
+// COMPANY RANK
+// ========================================
+
+function v12GetCompanyRank() {
+
+    const value =
+        v11Companies.reduce(
+            function(total, company) {
+
+                return total +
+                    v12CompanyValue(
+                        company
+                    );
+
+            },
+            0
+        );
+
+    if (value >= 10000000) {
+        return "🌎 Global Corporation";
+    }
+
+    if (value >= 5000000) {
+        return "🏆 International Corporation";
+    }
+
+    if (value >= 1000000) {
+        return "💎 Major Corporation";
+    }
+
+    if (value >= 500000) {
+        return "🏢 Large Company";
+    }
+
+    if (value >= 100000) {
+        return "📈 Established Company";
+    }
+
+    if (value >= 25000) {
+        return "🚀 Growing Company";
+    }
+
+    if (value > 0) {
+        return "🏪 Small Business";
+    }
+
+    return "Unranked";
+}
+
+
+// ========================================
+// COMPANY LIST
+// ========================================
+
+function v12UpdateCompanyList() {
+
+    const container =
+        document.getElementById(
+            "v12CompanyList"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        container.innerHTML =
+            "No companies available.";
+
+        return;
+    }
+
+    let html = "";
+
+    v11Companies.forEach(
+        function(company, index) {
+
+            const selected =
+                index ===
+                v12SelectedCompany;
+
+            const manager =
+                v12Managers.find(
+                    function(item) {
+
+                        return item.companyId ===
+                            company.id;
+
+                    }
+                );
+
+            const branches =
+                company.branches || 0;
+
+            html +=
+                "<div style=\"" +
+                "background:#303030;" +
+                "padding:15px;" +
+                "border-radius:10px;" +
+                "margin-bottom:10px;" +
+                "border:2px solid " +
+                (
+                    selected
+                    ? "#ffd700"
+                    : "#444"
+                ) +
+                ";\">" +
+
+                "<h3>" +
+                company.name +
+                "</h3>" +
+
+                "<p>🏢 Type: " +
+                company.type +
+                "</p>" +
+
+                "<p>📍 City: " +
+                company.city +
+                "</p>" +
+
+                "<p>⭐ Level: " +
+                company.level +
+                "</p>" +
+
+                "<p>👥 Employees: " +
+                company.employees +
+                "</p>" +
+
+                "<p>👔 Manager: " +
+                (
+                    manager
+                    ? manager.name
+                    : "None"
+                ) +
+                "</p>" +
+
+                "<p>🌍 Branches: " +
+                branches +
+                "</p>" +
+
+                "<p>💰 Company Value: $" +
+                v12CompanyValue(
+                    company
+                ).toLocaleString() +
+                "</p>" +
+
+                "<button " +
+                "onclick=\"v12SelectCompany(" +
+                index +
+                ")\"" +
+                " style=\"width:100%;\">" +
+
+                (
+                    selected
+                    ? "✅ Selected"
+                    : "🏢 Manage Company"
+                ) +
+
+                "</button>" +
+
+                "</div>";
+        }
+    );
+
+    container.innerHTML =
+        html;
+}
+
+
+// ========================================
+// UPDATE V12 SCREEN
+// ========================================
+
+function v12UpdateScreen() {
+
+    if (
+        typeof v11Companies === "undefined"
+    ) {
+        return;
+    }
+
+    let totalValue = 0;
+    let totalRevenue = 0;
+    let totalExpenses = 0;
+    let totalEmployees = 0;
+
+
+    v11Companies.forEach(
+        function(company) {
+
+            totalValue +=
+                v12CompanyValue(
+                    company
+                );
+
+            totalRevenue +=
+                company.revenue || 0;
+
+            totalExpenses +=
+                company.expenses || 0;
+
+            totalEmployees +=
+                company.employees || 0;
+
+        }
+    );
+
+
+    const profit =
+        totalRevenue -
+        totalExpenses;
+
+
+    const companyCount =
+        document.getElementById(
+            "v12CompanyCount"
+        );
+
+    const employeeCount =
+        document.getElementById(
+            "v12EmployeeCount"
+        );
+
+    const value =
+        document.getElementById(
+            "v12TotalValue"
+        );
+
+    const revenue =
+        document.getElementById(
+            "v12Revenue"
+        );
+
+    const expenses =
+        document.getElementById(
+            "v12Expenses"
+        );
+
+    const profitElement =
+        document.getElementById(
+            "v12Profit"
+        );
+
+    const empireLevel =
+        document.getElementById(
+            "v12EmpireLevel"
+        );
+
+    const rank =
+        document.getElementById(
+            "v12CompanyRank"
+        );
+
+
+    if (companyCount) {
+
+        companyCount.textContent =
+            v11Companies.length;
+
+    }
+
+
+    if (employeeCount) {
+
+        employeeCount.textContent =
+            totalEmployees;
+
+    }
+
+
+    if (value) {
+
+        value.textContent =
+            totalValue.toLocaleString();
+
+    }
+
+
+    if (revenue) {
+
+        revenue.textContent =
+            totalRevenue.toLocaleString();
+
+    }
+
+
+    if (expenses) {
+
+        expenses.textContent =
+            totalExpenses.toLocaleString();
+
+    }
+
+
+    if (profitElement) {
+
+        profitElement.textContent =
+            profit.toLocaleString();
+
+    }
+
+
+    if (empireLevel) {
+
+        empireLevel.textContent =
+            v12GetEmpireLevel();
+
+    }
+
+
+    if (rank) {
+
+        rank.textContent =
+            "🏆 " +
+            v12GetCompanyRank();
+
+    }
+
+
+    v12UpdateCompanyList();
+}
+
+
+// ========================================
+// V12 STARTUP
+// ========================================
+
+v12UpdateScreen();
+
+   // ========================================
+// FROM NOTHING V13
+// ADVANCED EMPLOYEES & CAREERS
+// ========================================
+
+// IMPORTANT:
+// V13 uses the v13_ prefix.
+// Do NOT redeclare old variables such as
+// money, heat, career, playerName, etc.
+
+let v13SelectedEmployee = -1;
+
+let v13EmployeeData = {};
+
+let v13Morale = 50;
+
+let v13CareerXP = 0;
+
+let v13CareerLevel = 1;
+
+
+// ========================================
+// EMPLOYEE ROLES
+// ========================================
+
+const v13Roles = {
+
+    Worker: {
+        salary: 100,
+        productivity: 10
+    },
+
+    Manager: {
+        salary: 300,
+        productivity: 25
+    },
+
+    Executive: {
+        salary: 800,
+        productivity: 50
+    }
+
+};
+
+
+// ========================================
+// GET EMPLOYEE DATA
+// ========================================
+
+function v13GetData(employee) {
+
+    if (!employee) {
+        return null;
+    }
+
+    if (
+        !v13EmployeeData[employee.id]
+    ) {
+
+        v13EmployeeData[employee.id] = {
+
+            skill: 1,
+
+            experience: 0,
+
+            morale: 50,
+
+            promotions: 0,
+
+            training: 0
+
+        };
+
+    }
+
+    return v13EmployeeData[
+        employee.id
+    ];
+
+}
+
+
+// ========================================
+// SELECT EMPLOYEE
+// ========================================
+
+function v13SelectEmployee(index) {
+
+    if (
+        index < 0 ||
+        index >= v11Employees.length
+    ) {
+        return;
+    }
+
+    v13SelectedEmployee = index;
+
+    v13UpdateScreen();
+
+    showMessage(
+        "👥 Selected employee."
+    );
+
+}
+
+
+// ========================================
+// TRAIN EMPLOYEE
+// ========================================
+
+function v13TrainEmployee() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    if (
+        v11Employees.length === 0
+    ) {
+
+        showMessage(
+            "❌ You have no employees.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v13SelectedEmployee < 0
+    ) {
+        v13SelectedEmployee = 0;
+    }
+
+    const cost = 1000;
+
+    if (
+        money < cost
+    ) {
+
+        showMessage(
+            "❌ You need $1,000.",
+            true
+        );
+
+        return;
+    }
+
+    const employee =
+        v11Employees[
+            v13SelectedEmployee
+        ];
+
+    const data =
+        v13GetData(employee);
+
+    money -= cost;
+
+    data.skill++;
+
+    data.training++;
+
+    employee.productivity += 5;
+
+    v13Morale =
+        Math.min(
+            100,
+            v13Morale + 2
+        );
+
+    showMessage(
+        "📚 Employee training completed!"
+    );
+
+    v13UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// PROMOTE EMPLOYEE
+// ========================================
+
+function v13PromoteEmployee() {
+
+    if (
+        v11Employees.length === 0
+    ) {
+
+        showMessage(
+            "❌ You have no employees.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v13SelectedEmployee < 0
+    ) {
+        v13SelectedEmployee = 0;
+    }
+
+    const employee =
+        v11Employees[
+            v13SelectedEmployee
+        ];
+
+    const data =
+        v13GetData(employee);
+
+
+    if (
+        employee.level >= 3
+    ) {
+
+        showMessage(
+            "🏆 This employee is already an Executive.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (
+        data.experience < 5
+    ) {
+
+        showMessage(
+            "❌ Employee needs 5 experience points before promotion.",
+            true
+        );
+
+        return;
+    }
+
+
+    employee.level++;
+
+    if (
+        employee.level === 2
+    ) {
+
+        employee.role =
+            "Manager";
+
+    } else if (
+        employee.level === 3
+    ) {
+
+        employee.role =
+            "Executive";
+
+    }
+
+
+    employee.productivity +=
+        15;
+
+    data.promotions++;
+
+    v13Morale =
+        Math.min(
+            100,
+            v13Morale + 5
+        );
+
+
+    showMessage(
+        "📈 Employee promoted to " +
+        employee.role +
+        "!"
+    );
+
+
+    v13UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// REWARD EMPLOYEE
+// ========================================
+
+function v13RewardEmployee() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    if (
+        v11Employees.length === 0
+    ) {
+
+        showMessage(
+            "❌ You have no employees.",
+            true
+        );
+
+        return;
+    }
+
+    const cost = 500;
+
+    if (
+        money < cost
+    ) {
+
+        showMessage(
+            "❌ You need $500.",
+            true
+        );
+
+        return;
+    }
+
+    money -= cost;
+
+    v13Morale =
+        Math.min(
+            100,
+            v13Morale + 10
+        );
+
+    if (
+        v13SelectedEmployee >= 0
+    ) {
+
+        const employee =
+            v11Employees[
+                v13SelectedEmployee
+            ];
+
+        const data =
+            v13GetData(employee);
+
+        data.morale =
+            Math.min(
+                100,
+                data.morale + 20
+            );
+
+    }
+
+    showMessage(
+        "🎁 Employee rewarded! Morale increased."
+    );
+
+    v13UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// ASSIGN EMPLOYEE
+// ========================================
+
+function v13AssignEmployee() {
+
+    if (
+        v11Employees.length === 0
+    ) {
+
+        showMessage(
+            "❌ You have no employees.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ You don't own a company.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v13SelectedEmployee < 0
+    ) {
+        v13SelectedEmployee = 0;
+    }
+
+    const employee =
+        v11Employees[
+            v13SelectedEmployee
+        ];
+
+    const company =
+        v11Companies[0];
+
+    employee.company =
+        company.id;
+
+    showMessage(
+        "🏢 Employee assigned to " +
+        company.name +
+        "."
+    );
+
+    v13UpdateScreen();
+
+}
+
+
+// ========================================
+// TRANSFER EMPLOYEE
+// ========================================
+
+function v13TransferEmployee() {
+
+    if (
+        v11Employees.length === 0
+    ) {
+        return;
+    }
+
+    if (
+        v11Companies.length < 2
+    ) {
+
+        showMessage(
+            "❌ You need at least two companies to transfer an employee.",
+            true
+        );
+
+        return;
+    }
+
+    if (
+        v13SelectedEmployee < 0
+    ) {
+        v13SelectedEmployee = 0;
+    }
+
+    const employee =
+        v11Employees[
+            v13SelectedEmployee
+        ];
+
+    const current =
+        employee.company;
+
+    let nextCompany =
+        v11Companies.find(
+            function(company) {
+
+                return company.id !==
+                    current;
+
+            }
+        );
+
+    if (!nextCompany) {
+        nextCompany = v11Companies[0];
+    }
+
+    employee.company =
+        nextCompany.id;
+
+    showMessage(
+        "🔄 Employee transferred to " +
+        nextCompany.name +
+        "."
+    );
+
+    v13UpdateScreen();
+
+}
+
+
+// ========================================
+// PLAYER CAREER
+// ========================================
+
+function v13WorkCareer() {
+
+    if (
+        typeof energy !== "undefined" &&
+        energy < 10
+    ) {
+
+        showMessage(
+            "❌ You are too tired to work.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (
+        typeof energy !== "undefined"
+    ) {
+
+        energy -= 10;
+
+    }
+
+
+    v13CareerXP += 1;
+
+
+    if (
+        typeof money !== "undefined"
+    ) {
+
+        const salary =
+            v13GetCareerSalary();
+
+        money += salary;
+
+    }
+
+
+    showMessage(
+        "💼 You worked and gained career experience!"
+    );
+
+
+    v13UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// CAREER SALARY
+// ========================================
+
+function v13GetCareerSalary() {
+
+    const base = 100;
+
+    return (
+        base +
+        (
+            v13CareerLevel *
+            50
+        )
+    );
+
+}
+
+
+// ========================================
+// ADVANCE CAREER
+// ========================================
+
+function v13AdvanceCareer() {
+
+    const requiredXP =
+        v13CareerLevel * 5;
+
+
+    if (
+        v13CareerXP < requiredXP
+    ) {
+
+        showMessage(
+            "❌ You need " +
+            requiredXP +
+            " career XP.",
+            true
+        );
+
+        return;
+    }
+
+
+    v13CareerXP -=
+        requiredXP;
+
+    v13CareerLevel++;
+
+
+    v13Morale =
+        Math.min(
+            100,
+            v13Morale + 3
+        );
+
+
+    showMessage(
+        "🚀 Career advanced to Level " +
+        v13CareerLevel +
+        "!"
+    );
+
+
+    v13UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// CAREER NAME
+// ========================================
+
+function v13GetCareerName() {
+
+    if (
+        v13CareerLevel >= 10
+    ) {
+        return "👑 Corporate Executive";
+    }
+
+    if (
+        v13CareerLevel >= 7
+    ) {
+        return "💼 Senior Manager";
+    }
+
+    if (
+        v13CareerLevel >= 5
+    ) {
+        return "📈 Department Manager";
+    }
+
+    if (
+        v13CareerLevel >= 3
+    ) {
+        return "⭐ Senior Employee";
+    }
+
+    if (
+        v13CareerLevel >= 2
+    ) {
+        return "📚 Experienced Employee";
+    }
+
+    return "👷 Entry-Level Worker";
+
+}
+
+
+// ========================================
+// UPDATE EMPLOYEE LIST
+// ========================================
+
+function v13UpdateEmployeeList() {
+
+    const container =
+        document.getElementById(
+            "v13EmployeeList"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        v11Employees.length === 0
+    ) {
+
+        container.innerHTML =
+            "No employees yet.";
+
+        return;
+    }
+
+
+    let html = "";
+
+
+    v11Employees.forEach(
+        function(employee, index) {
+
+            const data =
+                v13GetData(employee);
+
+
+            const selected =
+                index ===
+                v13SelectedEmployee;
+
+
+            let companyName =
+                "Unassigned";
+
+
+            const company =
+                v11Companies.find(
+                    function(item) {
+
+                        return item.id ===
+                            employee.company;
+
+                    }
+                );
+
+
+            if (company) {
+
+                companyName =
+                    company.name;
+
+            }
+
+
+            html +=
+
+                "<div style=\"" +
+                "background:#303030;" +
+                "padding:15px;" +
+                "border-radius:10px;" +
+                "margin-bottom:10px;" +
+                "border:2px solid " +
+                (
+                    selected
+                    ? "#ffd700"
+                    : "#444"
+                ) +
+                ";\">" +
+
+                "<h3>" +
+                "👤 " +
+                employee.role +
+                "</h3>" +
+
+                "<p>🏢 Company: " +
+                companyName +
+                "</p>" +
+
+                "<p>⭐ Skill: " +
+                data.skill +
+                "</p>" +
+
+                "<p>📚 Experience: " +
+                data.experience +
+                "</p>" +
+
+                "<p>⚡ Productivity: " +
+                employee.productivity +
+                "%</p>" +
+
+                "<p>😊 Morale: " +
+                data.morale +
+                "</p>" +
+
+                "<p>📈 Promotions: " +
+                data.promotions +
+                "</p>" +
+
+                "<button " +
+                "onclick=\"v13SelectEmployee(" +
+                index +
+                ")\"" +
+                " style=\"width:100%;\">" +
+
+                (
+                    selected
+                    ? "✅ Selected"
+                    : "👤 Select Employee"
+                ) +
+
+                "</button>" +
+
+                "</div>";
+
+        }
+    );
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+// ========================================
+// UPDATE SCREEN
+// ========================================
+
+function v13UpdateScreen() {
+
+    if (
+        typeof v11Employees === "undefined"
+    ) {
+        return;
+    }
+
+
+    let totalProductivity = 0;
+
+    let totalSkill = 0;
+
+    let totalPayroll = 0;
+
+
+    v11Employees.forEach(
+        function(employee) {
+
+            const data =
+                v13GetData(employee);
+
+            totalProductivity +=
+                employee.productivity || 0;
+
+            totalSkill +=
+                data.skill || 0;
+
+
+            const role =
+                v13Roles[
+                    employee.role
+                ];
+
+
+            if (role) {
+
+                totalPayroll +=
+                    role.salary;
+
+            }
+
+        }
+    );
+
+
+    const count =
+        v11Employees.length;
+
+
+    const averageProductivity =
+        count > 0
+        ? Math.floor(
+            totalProductivity /
+            count
+        )
+        : 0;
+
+
+    const averageSkill =
+        count > 0
+        ? Math.floor(
+            totalSkill /
+            count
+        )
+        : 0;
+
+
+    const employeeCount =
+        document.getElementById(
+            "v13EmployeeCount"
+        );
+
+    const productivity =
+        document.getElementById(
+            "v13Productivity"
+        );
+
+    const morale =
+        document.getElementById(
+            "v13Morale"
+        );
+
+    const payroll =
+        document.getElementById(
+            "v13Payroll"
+        );
+
+    const skill =
+        document.getElementById(
+            "v13Skill"
+        );
+
+
+    if (employeeCount) {
+
+        employeeCount.textContent =
+            count;
+
+    }
+
+
+    if (productivity) {
+
+        productivity.textContent =
+            averageProductivity +
+            "%";
+
+    }
+
+
+    if (morale) {
+
+        morale.textContent =
+            v13Morale;
+
+    }
+
+
+    if (payroll) {
+
+        payroll.textContent =
+            payrollValue(totalPayroll);
+
+    }
+
+
+    if (skill) {
+
+        skill.textContent =
+            averageSkill;
+
+    }
+
+
+    const careerName =
+        document.getElementById(
+            "v13CareerName"
+        );
+
+    const careerLevel =
+        document.getElementById(
+            "v13CareerLevel"
+        );
+
+    const careerXP =
+        document.getElementById(
+            "v13CareerXP"
+        );
+
+    const careerSalary =
+        document.getElementById(
+            "v13CareerSalary"
+        );
+
+    const careerBar =
+        document.getElementById(
+            "v13CareerBar"
+        );
+
+
+    if (careerName) {
+
+        careerName.textContent =
+            v13GetCareerName();
+
+    }
+
+
+    if (careerLevel) {
+
+        careerLevel.textContent =
+            v13CareerLevel;
+
+    }
+
+
+    if (careerXP) {
+
+        careerXP.textContent =
+            v13CareerXP;
+
+    }
+
+
+    if (careerSalary) {
+
+        careerSalary.textContent =
+            v13GetCareerSalary()
+            .toLocaleString();
+
+    }
+
+
+    if (careerBar) {
+
+        const required =
+            v13CareerLevel * 5;
+
+        const percentage =
+            Math.min(
+                100,
+                (
+                    v13CareerXP /
+                    required
+                ) * 100
+            );
+
+        careerBar.style.width =
+            percentage + "%";
+
+    }
+
+
+    v13UpdateEmployeeList();
+
+}
+
+
+// ========================================
+// PAYROLL FORMAT
+// ========================================
+
+function payrollValue(value) {
+
+    return Number(value)
+        .toLocaleString();
+
+}
+
+
+// ========================================
+// V13 STARTUP
+// ========================================
+
+v13UpdateScreen();
+
+    // ========================================
+// FROM NOTHING V14
+// ADVANCED ECONOMY & INVESTMENTS
+// ========================================
+
+// V14 VARIABLES USE THE v14_ PREFIX
+// TO AVOID CONFLICTS WITH PREVIOUS VERSIONS.
+
+let v14MarketIndex = 100;
+
+let v14InterestRate = 2;
+
+let v14MarketCondition = "Stable";
+
+let v14InvestmentValue = 0;
+
+let v14InvestmentPrincipal = 0;
+
+let v14LastMarketChange = 0;
+
+
+// ========================================
+// MONEY FORMAT
+// ========================================
+
+function v14Money(value) {
+
+    return "$" + Number(value || 0)
+        .toLocaleString();
+
+}
+
+
+// ========================================
+// GET BANK BALANCE
+// ========================================
+
+function v14GetBank() {
+
+    if (
+        typeof bankBalance !== "undefined"
+    ) {
+        return Number(bankBalance || 0);
+    }
+
+    if (
+        typeof bank !== "undefined"
+    ) {
+        return Number(bank || 0);
+    }
+
+    return 0;
+
+}
+
+
+// ========================================
+// SET BANK BALANCE
+// ========================================
+
+function v14SetBank(value) {
+
+    if (
+        typeof bankBalance !== "undefined"
+    ) {
+
+        bankBalance = Math.max(
+            0,
+            Number(value)
+        );
+
+        return;
+
+    }
+
+    if (
+        typeof bank !== "undefined"
+    ) {
+
+        bank = Math.max(
+            0,
+            Number(value)
+        );
+
+    }
+
+}
+
+
+// ========================================
+// GET DEBT
+// ========================================
+
+function v14GetDebt() {
+
+    if (
+        typeof debt !== "undefined"
+    ) {
+        return Number(debt || 0);
+    }
+
+    return 0;
+
+}
+
+
+// ========================================
+// INVEST MONEY
+// ========================================
+
+function v14Invest() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+    const input =
+        document.getElementById(
+            "v14InvestmentAmount"
+        );
+
+    if (!input) {
+        return;
+    }
+
+    const amount =
+        Number(input.value);
+
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+
+        showMessage(
+            "❌ Enter a valid investment amount.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    if (
+        money < amount
+    ) {
+
+        showMessage(
+            "❌ You don't have enough money.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    money -= amount;
+
+    v14InvestmentPrincipal +=
+        amount;
+
+    v14InvestmentValue +=
+        amount;
+
+
+    input.value = "";
+
+
+    showMessage(
+        "📈 You invested " +
+        v14Money(amount) +
+        "."
+    );
+
+
+    v14UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// SELL INVESTMENTS
+// ========================================
+
+function v14SellInvestments() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+
+    if (
+        v14InvestmentValue <= 0
+    ) {
+
+        showMessage(
+            "❌ You have no investments to sell.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    const amount =
+        v14InvestmentValue;
+
+
+    money += amount;
+
+    v14InvestmentValue = 0;
+
+    v14InvestmentPrincipal = 0;
+
+
+    showMessage(
+        "💵 Investments sold for " +
+        v14Money(amount) +
+        "."
+    );
+
+
+    v14UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// DEPOSIT MONEY
+// ========================================
+
+function v14Deposit() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+
+    const input =
+        document.getElementById(
+            "v14BankAmount"
+        );
+
+    if (!input) {
+        return;
+    }
+
+
+    const amount =
+        Number(input.value);
+
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+
+        showMessage(
+            "❌ Enter a valid amount.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    if (
+        money < amount
+    ) {
+
+        showMessage(
+            "❌ You don't have enough cash.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    money -= amount;
+
+    v14SetBank(
+        v14GetBank() + amount
+    );
+
+
+    input.value = "";
+
+
+    showMessage(
+        "🏦 Deposited " +
+        v14Money(amount) +
+        "."
+    );
+
+
+    v14UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// WITHDRAW MONEY
+// ========================================
+
+function v14Withdraw() {
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+
+    const input =
+        document.getElementById(
+            "v14BankAmount"
+        );
+
+    if (!input) {
+        return;
+    }
+
+
+    const amount =
+        Number(input.value);
+
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+
+        showMessage(
+            "❌ Enter a valid amount.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    if (
+        v14GetBank() < amount
+    ) {
+
+        showMessage(
+            "❌ You don't have enough money in the bank.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    v14SetBank(
+        v14GetBank() - amount
+    );
+
+    money += amount;
+
+
+    input.value = "";
+
+
+    showMessage(
+        "💵 Withdrawn " +
+        v14Money(amount) +
+        "."
+    );
+
+
+    v14UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// UPDATE MARKET
+// ========================================
+
+function v14UpdateMarket() {
+
+    const change =
+        Math.floor(
+            Math.random() * 21
+        ) - 10;
+
+
+    v14LastMarketChange =
+        change;
+
+
+    v14MarketIndex =
+        Math.max(
+            50,
+            Math.min(
+                200,
+                v14MarketIndex + change
+            )
+        );
+
+
+    if (
+        change >= 7
+    ) {
+
+        v14MarketCondition =
+            "📈 Boom";
+
+    } else if (
+        change >= 2
+    ) {
+
+        v14MarketCondition =
+            "📈 Growing";
+
+    } else if (
+        change <= -7
+    ) {
+
+        v14MarketCondition =
+            "📉 Recession";
+
+    } else if (
+        change <= -2
+    ) {
+
+        v14MarketCondition =
+            "📉 Falling";
+
+    } else {
+
+        v14MarketCondition =
+            "Stable";
+
+    }
+
+
+    const investmentChange =
+        1 + (
+            change / 100
+        );
+
+
+    v14InvestmentValue =
+        Math.max(
+            0,
+            Math.round(
+                v14InvestmentValue *
+                investmentChange
+            )
+        );
+
+
+    showMessage(
+        "📊 Market changed by " +
+        (change >= 0 ? "+" : "") +
+        change +
+        "%."
+    );
+
+
+    v14UpdateScreen();
+
+}
+
+
+// ========================================
+// ECONOMIC EVENT
+// ========================================
+
+function v14EconomicEvent() {
+
+    const events = [
+
+        {
+            text:
+                "🏦 Central bank lowers interest rates.",
+            interest: -1
+        },
+
+        {
+            text:
+                "📈 Businesses report strong growth.",
+            interest: 1
+        },
+
+        {
+            text:
+                "📉 Consumer spending falls.",
+            interest: 1
+        },
+
+        {
+            text:
+                "🌍 Global trade is improving.",
+            interest: -1
+        },
+
+        {
+            text:
+                "💰 Investors are becoming more confident.",
+            interest: -1
+        },
+
+        {
+            text:
+                "⚠️ Economic uncertainty increases.",
+            interest: 1
+        }
+
+    ];
+
+
+    const event =
+        events[
+            Math.floor(
+                Math.random() *
+                events.length
+            )
+        ];
+
+
+    v14InterestRate =
+        Math.max(
+            0,
+            Math.min(
+                10,
+                v14InterestRate +
+                event.interest
+            )
+        );
+
+
+    const news =
+        document.getElementById(
+            "v14EconomicNews"
+        );
+
+
+    if (news) {
+
+        news.textContent =
+            event.text;
+
+    }
+
+
+    v14UpdateScreen();
+
+}
+
+
+// ========================================
+// BANK INTEREST
+// ========================================
+
+function v14CollectInterest() {
+
+    const balance =
+        v14GetBank();
+
+
+    if (
+        balance <= 0
+    ) {
+
+        showMessage(
+            "❌ You have no money in the bank.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    const interest =
+        Math.floor(
+            balance *
+            (
+                v14InterestRate /
+                100
+            )
+        );
+
+
+    if (
+        typeof money !== "undefined"
+    ) {
+
+        money += interest;
+
+    }
+
+
+    showMessage(
+        "🏦 Bank interest earned: " +
+        v14Money(interest)
+    );
+
+
+    v14UpdateScreen();
+
+}
+
+
+// ========================================
+// WEALTH RANK
+// ========================================
+
+function v14GetWealthRank(
+    wealth
+) {
+
+    if (
+        wealth >= 1000000000
+    ) {
+        return "👑 BILLIONAIRE";
+    }
+
+    if (
+        wealth >= 100000000
+    ) {
+        return "🌎 GLOBAL TYCOON";
+    }
+
+    if (
+        wealth >= 10000000
+    ) {
+        return "💎 BUSINESS TYCOON";
+    }
+
+    if (
+        wealth >= 1000000
+    ) {
+        return "🏆 MILLIONAIRE";
+    }
+
+    if (
+        wealth >= 100000
+    ) {
+        return "💼 BUSINESS OWNER";
+    }
+
+    if (
+        wealth >= 10000
+    ) {
+        return "💰 INVESTOR";
+    }
+
+    if (
+        wealth >= 1000
+    ) {
+        return "📈 BEGINNER INVESTOR";
+    }
+
+    return "🚶 STREET BEGINNER";
+
+}
+
+
+// ========================================
+// UPDATE SCREEN
+// ========================================
+
+function v14UpdateScreen() {
+
+    const cash =
+        typeof money !== "undefined"
+        ? Number(money || 0)
+        : 0;
+
+
+    const bankValue =
+        v14GetBank();
+
+
+    const debtValue =
+        v14GetDebt();
+
+
+    const wealth =
+        Math.max(
+            0,
+            cash +
+            bankValue +
+            v14InvestmentValue -
+            debtValue
+        );
+
+
+    const cashElement =
+        document.getElementById(
+            "v14Cash"
+        );
+
+    const bankElement =
+        document.getElementById(
+            "v14Bank"
+        );
+
+    const investmentElement =
+        document.getElementById(
+            "v14Investments"
+        );
+
+    const debtElement =
+        document.getElementById(
+            "v14Debt"
+        );
+
+    const wealthElement =
+        document.getElementById(
+            "v14Wealth"
+        );
+
+
+    if (cashElement) {
+
+        cashElement.textContent =
+            v14Money(cash);
+
+    }
+
+
+    if (bankElement) {
+
+        bankElement.textContent =
+            v14Money(bankValue);
+
+    }
+
+
+    if (investmentElement) {
+
+        investmentElement.textContent =
+            v14Money(
+                v14InvestmentValue
+            );
+
+    }
+
+
+    if (debtElement) {
+
+        debtElement.textContent =
+            v14Money(debtValue);
+
+    }
+
+
+    if (wealthElement) {
+
+        wealthElement.textContent =
+            v14Money(wealth);
+
+    }
+
+
+    const marketCondition =
+        document.getElementById(
+            "v14MarketCondition"
+        );
+
+    const marketIndex =
+        document.getElementById(
+            "v14MarketIndex"
+        );
+
+    const interestRate =
+        document.getElementById(
+            "v14InterestRate"
+        );
+
+
+    if (marketCondition) {
+
+        marketCondition.textContent =
+            v14MarketCondition;
+
+    }
+
+
+    if (marketIndex) {
+
+        marketIndex.textContent =
+            v14MarketIndex;
+
+    }
+
+
+    if (interestRate) {
+
+        interestRate.textContent =
+            v14InterestRate +
+            "%";
+
+    }
+
+
+    const rank =
+        document.getElementById(
+            "v14WealthRank"
+        );
+
+    if (rank) {
+
+        rank.textContent =
+            v14GetWealthRank(
+                wealth
+            );
+
+    }
+
+
+    const bar =
+        document.getElementById(
+            "v14WealthBar"
+        );
+
+
+    if (bar) {
+
+        const target =
+            1000000000;
+
+        const percent =
+            Math.min(
+                100,
+                (
+                    wealth /
+                    target
+                ) * 100
+            );
+
+        bar.style.width =
+            percent + "%";
+
+    }
+
+
+    const investmentList =
+        document.getElementById(
+            "v14InvestmentList"
+        );
+
+
+    if (investmentList) {
+
+        if (
+            v14InvestmentValue > 0
+        ) {
+
+            const profit =
+                v14InvestmentValue -
+                v14InvestmentPrincipal;
+
+
+            investmentList.innerHTML =
+                "<div style=\"" +
+                "background:#303030;" +
+                "padding:15px;" +
+                "border-radius:10px;" +
+                "\">" +
+
+                "<h3>📈 Market Investment</h3>" +
+
+                "<p>Original Investment: " +
+                v14Money(
+                    v14InvestmentPrincipal
+                ) +
+                "</p>" +
+
+                "<p>Current Value: " +
+                v14Money(
+                    v14InvestmentValue
+                ) +
+                "</p>" +
+
+                "<p>Profit/Loss: " +
+                (
+                    profit >= 0
+                    ? "+"
+                    : ""
+                ) +
+                v14Money(profit) +
+                "</p>" +
+
+                "</div>";
+
+        } else {
+
+            investmentList.innerHTML =
+                "Your investments are waiting.";
+
+        }
+
+    }
+
+}
+
+
+// ========================================
+// START V14
+// ========================================
+
+v14UpdateScreen();
+
+    // ========================================
+// FROM NOTHING V15
+// STORY & CHOICES SYSTEM
+// ========================================
+
+// IMPORTANT:
+// V15 uses ONLY v15_ variables.
+// Do not redeclare old variables.
+
+let v15StoryStep = 0;
+
+let v15StoryCompleted = false;
+
+let v15ReputationValue = 0;
+
+let v15MoralityValue = 50;
+
+let v15FriendsValue = 0;
+
+let v15RivalsValue = 0;
+
+let v15StoryReward = 0;
+
+
+// ========================================
+// STORY CHAPTERS
+// ========================================
+
+const v15StoryChapters = [
+
+    {
+        chapter: "Chapter 1",
+        title: "The Beginning",
+
+        text:
+        "You wake up with almost nothing. " +
+        "The city is moving around you. " +
+        "You have no wealth, no property and no powerful connections. " +
+        "But you have one thing: determination.",
+
+        choices: [
+
+            {
+                text: "💪 Work hard",
+
+                effect: function() {
+
+                    v15ReputationValue += 5;
+
+                    v15MoralityValue += 5;
+
+                    v15StoryReward += 50;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🧠 Look for an opportunity",
+
+                effect: function() {
+
+                    v15ReputationValue += 2;
+
+                    v15StoryReward += 25;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 2",
+        title: "A Stranger's Offer",
+
+        text:
+        "A stranger approaches you with an offer. " +
+        "He says you can earn quick money, but you are not sure " +
+        "whether his business is completely honest.",
+
+        choices: [
+
+            {
+                text: "✅ Ask questions first",
+
+                effect: function() {
+
+                    v15MoralityValue += 5;
+
+                    v15ReputationValue += 5;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "💰 Accept immediately",
+
+                effect: function() {
+
+                    v15RivalsValue += 1;
+
+                    v15ReputationValue -= 2;
+
+                    v15StoryReward += 100;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🚶 Walk away",
+
+                effect: function() {
+
+                    v15MoralityValue += 3;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 3",
+        title: "Ama Needs Help",
+
+        text:
+        "Ama, someone you recently met, is struggling. " +
+        "She asks whether you can help her find work.",
+
+        choices: [
+
+            {
+                text: "❤️ Help Ama",
+
+                effect: function() {
+
+                    v15FriendsValue += 1;
+
+                    v15ReputationValue += 5;
+
+                    v15MoralityValue += 5;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "💼 Help only if there is a reward",
+
+                effect: function() {
+
+                    v15FriendsValue += 1;
+
+                    v15StoryReward += 75;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "❌ Refuse",
+
+                effect: function() {
+
+                    v15ReputationValue -= 3;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 4",
+        title: "Your First Rival",
+
+        text:
+        "Kojo laughs at your ambitions. " +
+        "He says you will never become successful. " +
+        "You have a choice.",
+
+        choices: [
+
+            {
+                text: "💪 Prove him wrong through hard work",
+
+                effect: function() {
+
+                    v15ReputationValue += 10;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "😡 Challenge him",
+
+                effect: function() {
+
+                    v15RivalsValue += 1;
+
+                    v15ReputationValue += 3;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🤝 Try to become friends",
+
+                effect: function() {
+
+                    v15RivalsValue =
+                        Math.max(
+                            0,
+                            v15RivalsValue - 1
+                        );
+
+                    v15FriendsValue += 1;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 5",
+        title: "The First Big Opportunity",
+
+        text:
+        "Johnson, a businessman, notices your determination. " +
+        "He offers you an opportunity to work with him.",
+
+        choices: [
+
+            {
+                text: "💼 Accept the opportunity",
+
+                effect: function() {
+
+                    v15ReputationValue += 10;
+
+                    v15StoryReward += 250;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🧠 Ask for a better deal",
+
+                effect: function() {
+
+                    v15ReputationValue += 5;
+
+                    v15StoryReward += 150;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🚶 Continue alone",
+
+                effect: function() {
+
+                    v15ReputationValue += 2;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 6",
+        title: "A Difficult Decision",
+
+        text:
+        "You discover that a business competitor is planning " +
+        "to damage Johnson's company. You can warn him or stay silent.",
+
+        choices: [
+
+            {
+                text: "📢 Warn Johnson",
+
+                effect: function() {
+
+                    v15FriendsValue += 1;
+
+                    v15ReputationValue += 10;
+
+                    v15MoralityValue += 5;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🤫 Stay silent",
+
+                effect: function() {
+
+                    v15MoralityValue -= 5;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "💰 Sell the information",
+
+                effect: function() {
+
+                    v15MoralityValue -= 10;
+
+                    v15StoryReward += 500;
+
+                    v15RivalsValue += 1;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 7",
+        title: "Your First Business",
+
+        text:
+        "You finally have enough experience to think about " +
+        "building something of your own.",
+
+        choices: [
+
+            {
+                text: "🍔 Start a small business",
+
+                effect: function() {
+
+                    v15ReputationValue += 10;
+
+                    v15StoryReward += 500;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "💼 Keep working for someone else",
+
+                effect: function() {
+
+                    v15ReputationValue += 3;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "📈 Save and invest",
+
+                effect: function() {
+
+                    v15ReputationValue += 5;
+
+                    v15StoryReward += 250;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 8",
+        title: "The Big Risk",
+
+        text:
+        "Your business has an opportunity to expand. " +
+        "The expansion could make you wealthy, but failure " +
+        "could cost you everything.",
+
+        choices: [
+
+            {
+                text: "🚀 Take the risk",
+
+                effect: function() {
+
+                    v15StoryReward += 1000;
+
+                    v15ReputationValue += 15;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "🛡️ Play it safe",
+
+                effect: function() {
+
+                    v15ReputationValue += 5;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 9",
+        title: "Power & Responsibility",
+
+        text:
+        "Your success is beginning to attract attention. " +
+        "People now look to you for leadership.",
+
+        choices: [
+
+            {
+                text: "🤝 Help others succeed",
+
+                effect: function() {
+
+                    v15MoralityValue += 10;
+
+                    v15ReputationValue += 15;
+
+                    v15FriendsValue += 1;
+
+                    v15Next();
+
+                }
+            },
+
+            {
+                text: "💰 Focus only on yourself",
+
+                effect: function() {
+
+                    v15StoryReward += 1000;
+
+                    v15MoralityValue -= 5;
+
+                    v15Next();
+
+                }
+            }
+
+        ]
+    },
+
+
+    {
+        chapter: "Chapter 10",
+        title: "The Future",
+
+        text:
+        "You look back at where you started. " +
+        "You are no longer the person who woke up with nothing. " +
+        "Your journey is only beginning.",
+
+        choices: [
+
+            {
+                text: "👑 Build an empire",
+
+                effect: function() {
+
+                    v15ReputationValue += 25;
+
+                    v15StoryReward += 2500;
+
+                    v15Finish();
+
+                }
+            },
+
+            {
+                text: "❤️ Build a better life",
+
+                effect: function() {
+
+                    v15MoralityValue += 15;
+
+                    v15FriendsValue += 1;
+
+                    v15Finish();
+
+                }
+            }
+
+        ]
+    }
+
+];
+
+
+// ========================================
+// START STORY
+// ========================================
+
+function v15StartStory() {
+
+    if (
+        v15StoryCompleted
+    ) {
+
+        showMessage(
+            "🏆 You completed the main V15 story!"
+        );
+
+        return;
+
+    }
+
+    v15OpenCurrentChapter();
+
+}
+
+
+// ========================================
+// OPEN CURRENT CHAPTER
+// ========================================
+
+function v15OpenCurrentChapter() {
+
+    const story =
+        v15StoryChapters[
+            v15StoryStep
+        ];
+
+
+    if (!story) {
+
+        v15Finish();
+
+        return;
+
+    }
+
+
+    const panel =
+        document.getElementById(
+            "v15Panel"
+        );
+
+    if (panel) {
+
+        panel.style.display =
+            "flex";
+
+    }
+
+
+    const chapter =
+        document.getElementById(
+            "v15Chapter"
+        );
+
+    const title =
+        document.getElementById(
+            "v15MissionTitle"
+        );
+
+    const text =
+        document.getElementById(
+            "v15StoryText"
+        );
+
+    const choices =
+        document.getElementById(
+            "v15Choices"
+        );
+
+
+    if (chapter) {
+
+        chapter.textContent =
+            story.chapter;
+
+    }
+
+
+    if (title) {
+
+        title.textContent =
+            story.title;
+
+    }
+
+
+    if (text) {
+
+        text.textContent =
+            story.text;
+
+    }
+
+
+    if (choices) {
+
+        choices.innerHTML = "";
+
+
+        story.choices.forEach(
+            function(choice) {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+                button.textContent =
+                    choice.text;
+
+                button.style.width =
+                    "100%";
+
+                button.style.marginBottom =
+                    "8px";
+
+                button.onclick =
+                    function() {
+
+                        choice.effect();
+
+                    };
+
+
+                choices.appendChild(
+                    button
+                );
+
+            }
+        );
+
+    }
+
+
+    v15UpdateScreen();
+
+}
+
+
+// ========================================
+// NEXT CHAPTER
+// ========================================
+
+function v15Next() {
+
+    v15StoryStep++;
+
+    v15OpenCurrentChapter();
+
+}
+
+
+// ========================================
+// FINISH STORY
+// ========================================
+
+function v15Finish() {
+
+    v15StoryCompleted =
+        true;
+
+
+    v15StoryStep =
+        v15StoryChapters.length;
+
+
+    if (
+        typeof money !== "undefined"
+    ) {
+
+        money +=
+            v15StoryReward;
+
+    }
+
+
+    showMessage(
+        "🏆 STORY COMPLETE! Reward: $" +
+        v15StoryReward.toLocaleString()
+    );
+
+
+    v15UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// CLOSE STORY
+// ========================================
+
+function v15CloseStory() {
+
+    const panel =
+        document.getElementById(
+            "v15Panel"
+        );
+
+    if (panel) {
+
+        panel.style.display =
+            "none";
+
+    }
+
+}
+
+
+// ========================================
+// UPDATE V15 SCREEN
+// ========================================
+
+function v15UpdateScreen() {
+
+    const reputation =
+        document.getElementById(
+            "v15Reputation"
+        );
+
+    const morality =
+        document.getElementById(
+            "v15Morality"
+        );
+
+    const friends =
+        document.getElementById(
+            "v15Friends"
+        );
+
+    const rivals =
+        document.getElementById(
+            "v15Rivals"
+        );
+
+    const progress =
+        document.getElementById(
+            "v15Progress"
+        );
+
+    const mainProgress =
+        document.getElementById(
+            "v15MainProgress"
+        );
+
+    const mainChapter =
+        document.getElementById(
+            "v15MainChapter"
+        );
+
+    const mainMission =
+        document.getElementById(
+            "v15MainMission"
+        );
+
+
+    if (reputation) {
+
+        reputation.textContent =
+            v15ReputationValue;
+
+    }
+
+
+    if (morality) {
+
+        morality.textContent =
+            v15MoralityValue;
+
+    }
+
+
+    if (friends) {
+
+        friends.textContent =
+            v15FriendsValue;
+
+    }
+
+
+    if (rivals) {
+
+        rivals.textContent =
+            v15RivalsValue;
+
+    }
+
+
+    const total =
+        v15StoryChapters.length;
+
+
+    const current =
+        Math.min(
+            v15StoryStep,
+            total
+        );
+
+
+    if (progress) {
+
+        progress.textContent =
+            current +
+            " / " +
+            total;
+
+    }
+
+
+    if (mainProgress) {
+
+        mainProgress.textContent =
+            current +
+            " / " +
+            total;
+
+    }
+
+
+    if (
+        v15StoryCompleted
+    ) {
+
+        if (mainChapter) {
+
+            mainChapter.textContent =
+                "🏆 Story Complete";
+
+        }
+
+        if (mainMission) {
+
+            mainMission.textContent =
+                "You completed the V15 main story.";
+
+        }
+
+    } else {
+
+        const story =
+            v15StoryChapters[
+                v15StoryStep
+            ];
+
+        if (story) {
+
+            if (mainChapter) {
+
+                mainChapter.textContent =
+                    story.chapter +
+                    " — " +
+                    story.title;
+
+            }
+
+            if (mainMission) {
+
+                mainMission.textContent =
+                    story.text;
+
+            }
+
+        }
+
+    }
+
+}
+
+
+// ========================================
+// STARTUP
+// ========================================
+
+v15UpdateScreen();
+
+// ========================================
+// FROM NOTHING V16
+// CHOICES & CONSEQUENCES
+// ========================================
+
+// IMPORTANT:
+// V16 uses unique variable names.
+// Do NOT redeclare money, heat,
+// playerName, career, storyFlags, etc.
+
+let v16ChoiceStep = 0;
+
+let v16ReputationValue = 0;
+
+let v16MoralityValue = 50;
+
+let v16FriendsValue = 0;
+
+let v16RivalsValue = 0;
+
+let v16PoliceHeatValue = 0;
+
+let v16Achievements = [];
+
+let v16Completed = false;
+
+
+// ========================================
+// V16 DECISIONS
+// ========================================
+
+const v16Decisions = [
+
+{
+title: "The Lost Wallet",
+
+description:
+"You find a wallet containing $500 on the street. " +
+"No one appears to be watching.",
+
+choices: [
+
+{
+text: "❤️ Return the wallet",
+
+effect: function() {
+
+v16MoralityValue += 10;
+v16ReputationValue += 10;
+v16FriendsValue += 1;
+
+v16Achievement("Honest Citizen");
+
+v16Next();
+
+}
+},
+
+{
+text: "💰 Keep the money",
+
+effect: function() {
+
+v16MoralityValue -= 10;
+v16PoliceHeatValue += 5;
+
+v16GiveMoney(500);
+
+v16Next();
+
+}
+},
+
+{
+text: "🤝 Find the owner and ask for a reward",
+
+effect: function() {
+
+v16MoralityValue += 5;
+v16ReputationValue += 5;
+
+v16GiveMoney(100);
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "Kojo's Challenge",
+
+description:
+"Kojo challenges you in front of other people. " +
+"He says you will never become successful.",
+
+choices: [
+
+{
+text: "💪 Ignore him and keep working",
+
+effect: function() {
+
+v16ReputationValue += 10;
+
+v16Achievement("Focused");
+
+v16Next();
+
+}
+},
+
+{
+text: "😡 Insult Kojo",
+
+effect: function() {
+
+v16RivalsValue += 1;
+v16ReputationValue += 3;
+
+v16Next();
+
+}
+},
+
+{
+text: "🤝 Challenge him peacefully",
+
+effect: function() {
+
+v16RivalsValue += 1;
+v16ReputationValue += 7;
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "The Illegal Offer",
+
+description:
+"A businessman offers you $2,000 to help him hide suspicious goods.",
+
+choices: [
+
+{
+text: "❌ Refuse",
+
+effect: function() {
+
+v16MoralityValue += 10;
+v16ReputationValue += 8;
+
+v16Next();
+
+}
+},
+
+{
+text: "💰 Accept",
+
+effect: function() {
+
+v16MoralityValue -= 20;
+v16PoliceHeatValue += 15;
+
+v16GiveMoney(2000);
+
+v16Next();
+
+}
+},
+
+{
+text: "👮 Report the businessman",
+
+effect: function() {
+
+v16MoralityValue += 15;
+v16ReputationValue += 15;
+v16PoliceHeatValue -= 5;
+
+v16Achievement("Law Keeper");
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "Ama Needs Help",
+
+description:
+"Ama needs money to solve an important problem. " +
+"She asks you for help.",
+
+choices: [
+
+{
+text: "❤️ Help Ama",
+
+effect: function() {
+
+v16FriendsValue += 1;
+v16MoralityValue += 10;
+
+v16GiveMoney(-100);
+
+v16Achievement("Good Friend");
+
+v16Next();
+
+}
+},
+
+{
+text: "💼 Help her find work instead",
+
+effect: function() {
+
+v16FriendsValue += 1;
+v16ReputationValue += 5;
+
+v16Next();
+
+}
+},
+
+{
+text: "🚶 Refuse",
+
+effect: function() {
+
+v16FriendsValue -= 1;
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "Business Rival",
+
+description:
+"A rival business is spreading lies about your company.",
+
+choices: [
+
+{
+text: "🤝 Talk to them peacefully",
+
+effect: function() {
+
+v16ReputationValue += 10;
+
+v16Next();
+
+}
+},
+
+{
+text: "📢 Expose the truth publicly",
+
+effect: function() {
+
+v16ReputationValue += 15;
+v16RivalsValue += 1;
+
+v16Next();
+
+}
+},
+
+{
+text: "😈 Threaten them",
+
+effect: function() {
+
+v16ReputationValue += 5;
+v16RivalsValue += 2;
+v16PoliceHeatValue += 10;
+v16MoralityValue -= 10;
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "The Investment",
+
+description:
+"Someone offers you an investment opportunity promising " +
+"huge returns. You don't know whether it is legitimate.",
+
+choices: [
+
+{
+text: "🔎 Investigate first",
+
+effect: function() {
+
+v16ReputationValue += 5;
+
+v16Achievement("Smart Investor");
+
+v16Next();
+
+}
+},
+
+{
+text: "💰 Invest immediately",
+
+effect: function() {
+
+v16GiveMoney(-250);
+
+v16Next();
+
+}
+},
+
+{
+text: "🚫 Walk away",
+
+effect: function() {
+
+v16MoralityValue += 2;
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "Police Stop",
+
+description:
+"The police stop you because of increased suspicion in the area.",
+
+choices: [
+
+{
+text: "👮 Cooperate",
+
+effect: function() {
+
+v16PoliceHeatValue =
+Math.max(0, v16PoliceHeatValue - 5);
+
+v16ReputationValue += 3;
+
+v16Next();
+
+}
+},
+
+{
+text: "🏃 Run away",
+
+effect: function() {
+
+v16PoliceHeatValue += 20;
+v16MoralityValue -= 5;
+
+v16Next();
+
+}
+},
+
+{
+text: "📄 Explain everything",
+
+effect: function() {
+
+v16PoliceHeatValue =
+Math.max(0, v16PoliceHeatValue - 10);
+
+v16ReputationValue += 8;
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "Your First Employee",
+
+description:
+"Your growing business needs someone to help you.",
+
+choices: [
+
+{
+text: "🤝 Treat employees fairly",
+
+effect: function() {
+
+v16ReputationValue += 10;
+v16MoralityValue += 5;
+
+v16Achievement("Fair Boss");
+
+v16Next();
+
+}
+},
+
+{
+text: "💰 Pay as little as possible",
+
+effect: function() {
+
+v16ReputationValue -= 5;
+v16MoralityValue -= 5;
+
+v16Next();
+
+}
+},
+
+{
+text: "📚 Train your employees",
+
+effect: function() {
+
+v16ReputationValue += 12;
+
+v16Achievement("Great Leader");
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "A Major Opportunity",
+
+description:
+"You receive an opportunity that could completely change your future.",
+
+choices: [
+
+{
+text: "🚀 Take the opportunity",
+
+effect: function() {
+
+v16ReputationValue += 20;
+
+v16GiveMoney(1000);
+
+v16Achievement("Risk Taker");
+
+v16Next();
+
+}
+},
+
+{
+text: "🛡️ Wait until you are ready",
+
+effect: function() {
+
+v16ReputationValue += 5;
+
+v16Next();
+
+}
+},
+
+{
+text: "🤝 Ask your friends for advice",
+
+effect: function() {
+
+v16FriendsValue += 1;
+v16ReputationValue += 8;
+
+v16Next();
+
+}
+}
+
+]
+},
+
+
+{
+title: "The Final Decision",
+
+description:
+"You now have enough experience to decide what kind of person " +
+"you want to become.",
+
+choices: [
+
+{
+text: "👑 Become a powerful leader",
+
+effect: function() {
+
+v16ReputationValue += 25;
+
+v16Achievement("Natural Leader");
+
+v16Finish();
+
+}
+},
+
+{
+text: "❤️ Help people around you",
+
+effect: function() {
+
+v16MoralityValue += 20;
+v16FriendsValue += 2;
+
+v16Achievement("Community Leader");
+
+v16Finish();
+
+}
+},
+
+{
+text: "💰 Focus entirely on wealth",
+
+effect: function() {
+
+v16MoralityValue -= 5;
+
+v16GiveMoney(5000);
+
+v16Achievement("Money Maker");
+
+v16Finish();
+
+}
+}
+
+]
+
+}
+
+];
+
+
+// ========================================
+// GIVE / REMOVE MONEY
+// ========================================
+
+function v16GiveMoney(amount) {
+
+if (
+typeof money !== "undefined"
+) {
+
+money += amount;
+
+if (money < 0) {
+
+money = 0;
+
+}
+
+}
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// ACHIEVEMENTS
+// ========================================
+
+function v16Achievement(name) {
+
+if (
+!v16Achievements.includes(name)
+) {
+
+v16Achievements.push(name);
+
+v16UpdateAchievements();
+
+showMessage(
+"🏆 Achievement: " + name
+);
+
+}
+
+}
+
+
+// ========================================
+// OPEN DECISION
+// ========================================
+
+function v16OpenChoice() {
+
+if (v16Completed) {
+
+showMessage(
+"🏆 You have completed V16."
+);
+
+return;
+
+}
+
+v16OpenCurrent();
+
+}
+
+
+// ========================================
+// OPEN CURRENT DECISION
+// ========================================
+
+function v16OpenCurrent() {
+
+const decision =
+v16Decisions[v16ChoiceStep];
+
+if (!decision) {
+
+v16Finish();
+
+return;
+
+}
+
+
+const panel =
+document.getElementById(
+"v16Panel"
+);
+
+if (panel) {
+
+panel.style.display =
+"flex";
+
+}
+
+
+const title =
+document.getElementById(
+"v16Title"
+);
+
+const description =
+document.getElementById(
+"v16Description"
+);
+
+const choices =
+document.getElementById(
+"v16Choices"
+);
+
+
+if (title) {
+
+title.textContent =
+decision.title;
+
+}
+
+
+if (description) {
+
+description.textContent =
+decision.description;
+
+}
+
+
+if (choices) {
+
+choices.innerHTML = "";
+
+
+decision.choices.forEach(
+function(choice) {
+
+const button =
+document.createElement(
+"button"
+);
+
+button.textContent =
+choice.text;
+
+button.style.width =
+"100%";
+
+button.style.marginBottom =
+"8px";
+
+button.onclick =
+function() {
+
+choice.effect();
+
+};
+
+
+choices.appendChild(
+button
+);
+
+}
+
+);
+
+}
+
+
+v16Update();
+
+}
+
+
+// ========================================
+// NEXT DECISION
+// ========================================
+
+function v16Next() {
+
+v16ChoiceStep++;
+
+v16Update();
+
+v16OpenCurrent();
+
+}
+
+
+// ========================================
+// FINISH V16
+// ========================================
+
+function v16Finish() {
+
+v16Completed = true;
+
+v16ChoiceStep =
+v16Decisions.length;
+
+v16Achievement(
+"V16 Survivor"
+);
+
+showMessage(
+"🏆 V16 COMPLETE! Your choices have shaped your future."
+);
+
+v16Update();
+
+}
+
+
+// ========================================
+// CLOSE V16
+// ========================================
+
+function v16Close() {
+
+const panel =
+document.getElementById(
+"v16Panel"
+);
+
+if (panel) {
+
+panel.style.display =
+"none";
+
+}
+
+}
+
+
+// ========================================
+// UPDATE V16
+// ========================================
+
+function v16Update() {
+
+const ids = {
+
+"v16Reputation":
+v16ReputationValue,
+
+"v16MainReputation":
+v16ReputationValue,
+
+"v16Morality":
+v16MoralityValue,
+
+"v16MainMorality":
+v16MoralityValue,
+
+"v16Friends":
+v16FriendsValue,
+
+"v16MainFriends":
+v16FriendsValue,
+
+"v16Rivals":
+v16RivalsValue,
+
+"v16MainRivals":
+v16RivalsValue,
+
+"v16PoliceHeat":
+v16PoliceHeatValue,
+
+"v16MainHeat":
+v16PoliceHeatValue,
+
+"v16AchievementCount":
+v16Achievements.length
+
+};
+
+
+Object.keys(ids).forEach(
+function(id) {
+
+const element =
+document.getElementById(id);
+
+if (element) {
+
+element.textContent =
+ids[id];
+
+}
+
+}
+
+);
+
+
+v16UpdateAchievements();
+
+}
+
+
+// ========================================
+// UPDATE ACHIEVEMENT DISPLAY
+// ========================================
+
+function v16UpdateAchievements() {
+
+const element =
+document.getElementById(
+"v16AchievementList"
+);
+
+if (!element) {
+
+return;
+
+}
+
+
+if (v16Achievements.length === 0) {
+
+element.textContent =
+"No achievements yet.";
+
+return;
+
+}
+
+
+element.innerHTML =
+v16Achievements
+.map(
+function(name) {
+
+return (
+"<p>🏆 " +
+name +
+"</p>"
+);
+
+}
+)
+.join("");
+
+}
+
+
+// ========================================
+// STARTUP
+// ========================================
+
+v16Update();
     
 </script>
 
