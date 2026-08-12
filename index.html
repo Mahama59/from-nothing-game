@@ -245,6 +245,10 @@
 
 </div>
 
+    <div class="panel">
+
+    <h2>⚡ ACTIONS</h2>
+    
 <!-- ========================================
      V2 — JOBS & CAREER
 ========================================= -->
@@ -290,7 +294,55 @@
 
 </div>
 
-    <h2>⚡ ACTIONS</h2>
+<!-- ========================================
+     V3 — SURVIVAL & HOUSING
+========================================= -->
+
+<div class="panel">
+
+    <h2>🏠 SURVIVAL & HOME</h2>
+
+    <p>
+        🍞 Food:
+        <strong id="food">0</strong>
+    </p>
+
+    <p>
+        🍽️ Hunger:
+        <strong id="hunger">100</strong>%
+    </p>
+
+    <p>
+        🏠 Home:
+        <strong id="home">Street</strong>
+    </p>
+
+    <p>
+        💵 Daily Rent:
+        $<strong id="rent">0</strong>
+    </p>
+
+    <button onclick="buyFood()">
+        🍞 Buy Food — $10
+    </button>
+
+    <button onclick="eatFood()">
+        🍽️ Eat Food
+    </button>
+
+    <button onclick="rentHome()">
+        🏠 Rent A Home
+    </button>
+
+    <button onclick="sleepAtHome()">
+        🛏️ Sleep
+    </button>
+
+    <button onclick="newDay()">
+        🌅 Start New Day
+    </button>
+
+</div>
 
     <button onclick="work()">
         💼 Work
@@ -855,6 +907,243 @@ function updateJobScreen() {
 
     document.getElementById("jobXP").textContent =
         jobXP;
+}
+
+    // ========================================
+// V3 — SURVIVAL & HOUSING
+// ========================================
+
+let food = 0;
+let hunger = 100;
+
+let home = "Street";
+let rent = 0;
+
+
+// ========================================
+// BUY FOOD
+// ========================================
+
+function buyFood() {
+
+    if (money < 10) {
+
+        showMessage(
+            "You need $10 to buy food."
+        );
+
+        return;
+    }
+
+    money -= 10;
+
+    food++;
+
+    showMessage(
+        "🍞 You bought food."
+    );
+
+    updateSurvivalScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// EAT FOOD
+// ========================================
+
+function eatFood() {
+
+    if (food <= 0) {
+
+        showMessage(
+            "You don't have any food."
+        );
+
+        return;
+    }
+
+    food--;
+
+    hunger += 30;
+
+    if (hunger > 100) {
+        hunger = 100;
+    }
+
+    health += 5;
+
+    if (health > 100) {
+        health = 100;
+    }
+
+    showMessage(
+        "🍽️ You ate food. Hunger restored."
+    );
+
+    updateSurvivalScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// RENT HOME
+// ========================================
+
+function rentHome() {
+
+    if (home !== "Street") {
+
+        showMessage(
+            "You already have a home."
+        );
+
+        return;
+    }
+
+    if (money < 100) {
+
+        showMessage(
+            "You need $100 to rent a room."
+        );
+
+        return;
+    }
+
+    money -= 100;
+
+    home = "Small Room";
+
+    rent = 20;
+
+    showMessage(
+        "🏠 You rented your first room!"
+    );
+
+    document.getElementById("story").textContent =
+        "For the first time, you have a place you can call home.";
+
+    updateSurvivalScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// SLEEP
+// ========================================
+
+function sleepAtHome() {
+
+    if (home === "Street") {
+
+        energy += 30;
+
+        health -= 5;
+
+        showMessage(
+            "You slept on the street. It wasn't comfortable."
+        );
+
+    } else {
+
+        energy += 60;
+
+        health += 5;
+
+        showMessage(
+            "🛏️ You slept safely at home."
+        );
+    }
+
+    if (energy > 100) {
+        energy = 100;
+    }
+
+    if (health > 100) {
+        health = 100;
+    }
+
+    if (health < 0) {
+        health = 0;
+    }
+
+    updateSurvivalScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// NEW DAY
+// ========================================
+
+function newDay() {
+
+    day++;
+
+    hunger -= 20;
+
+    if (hunger < 0) {
+        hunger = 0;
+    }
+
+    if (hunger <= 20) {
+
+        health -= 10;
+
+        showMessage(
+            "⚠️ You are very hungry. Your health decreased."
+        );
+
+    } else {
+
+        showMessage(
+            "🌅 Day " + day + " has begun."
+        );
+    }
+
+    if (rent > 0) {
+
+        if (money >= rent) {
+
+            money -= rent;
+
+        } else {
+
+            health -= 5;
+
+            showMessage(
+                "⚠️ You couldn't pay your rent."
+            );
+        }
+    }
+
+    updateSurvivalScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// UPDATE SURVIVAL DISPLAY
+// ========================================
+
+function updateSurvivalScreen() {
+
+    document.getElementById("food").textContent =
+        food;
+
+    document.getElementById("hunger").textContent =
+        hunger;
+
+    document.getElementById("home").textContent =
+        home;
+
+    document.getElementById("rent").textContent =
+        rent;
 }
     
 </script>
