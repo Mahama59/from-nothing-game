@@ -464,6 +464,114 @@
     </button>
 
 </div>
+
+    <!-- ========================================
+     FROM NOTHING V6
+     EMPLOYEE & COMPANY MANAGEMENT
+========================================= -->
+
+<div class="panel">
+
+    <h2>👥 EMPLOYEE MANAGEMENT</h2>
+
+    <p>
+        Your business is growing.
+        You can now hire people to work for you.
+    </p>
+
+    <div style="
+        background:#101010;
+        padding:18px;
+        border-radius:12px;
+        margin-bottom:15px;
+    ">
+
+        <h3>🏢 COMPANY PERFORMANCE</h3>
+
+        <p>
+            👥 Employees:
+            <strong id="v6EmployeeCount">0</strong>
+        </p>
+
+        <p>
+            📈 Productivity:
+            <strong id="v6Productivity">0%</strong>
+        </p>
+
+        <p>
+            💰 Daily Revenue:
+            $<strong id="v6Revenue">0</strong>
+        </p>
+
+        <p>
+            💸 Daily Salaries:
+            $<strong id="v6Salaries">0</strong>
+        </p>
+
+        <p>
+            💎 Daily Profit:
+            $<strong id="v6Profit">0</strong>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>👥 YOUR TEAM</h3>
+
+    <div id="v6EmployeeList">
+        <p>No employees hired yet.</p>
+    </div>
+
+    <hr>
+
+    <h3>➕ HIRE EMPLOYEES</h3>
+
+    <button
+        onclick="v6HireEmployee('worker')"
+        style="width:100%;margin-bottom:7px;">
+        👷 Hire Worker — $500
+    </button>
+
+    <button
+        onclick="v6HireEmployee('manager')"
+        style="width:100%;margin-bottom:7px;">
+        👨‍💼 Hire Manager — $2,500
+    </button>
+
+    <button
+        onclick="v6HireEmployee('executive')"
+        style="width:100%;">
+        💼 Hire Executive — $10,000
+    </button>
+
+    <hr>
+
+    <h3>🎓 EMPLOYEE TRAINING</h3>
+
+    <button
+        onclick="v6TrainEmployees()"
+        style="width:100%;">
+        📚 Train Employees — $1,000
+    </button>
+
+    <hr>
+
+    <h3>📊 COMPANY ACTIONS</h3>
+
+    <button
+        onclick="v6RunCompany()"
+        style="width:100%;margin-bottom:7px;">
+        ▶️ Run Company
+    </button>
+
+    <button
+        onclick="v6PaySalaries()"
+        style="width:100%;">
+        💵 Pay Salaries
+    </button>
+
+</div> 
         
     <button onclick="work()">
         💼 Work
@@ -1677,6 +1785,640 @@ function updateBusinessScreen() {
         list.appendChild(item);
 
     });
+
+}
+
+// ========================================
+// FROM NOTHING V6
+// EMPLOYEE MANAGEMENT SYSTEM
+// ========================================
+
+// IMPORTANT:
+// All V6 variables start with v6_
+// to avoid duplicate-variable errors.
+
+// ========================================
+// EMPLOYEE DATA
+// ========================================
+
+let v6Employees = [];
+
+
+// ========================================
+// EMPLOYEE TYPES
+// ========================================
+
+const v6EmployeeTypes = {
+
+    worker: {
+        name: "Worker",
+        hiringCost: 500,
+        salary: 50,
+        productivity: 5
+    },
+
+    manager: {
+        name: "Manager",
+        hiringCost: 2500,
+        salary: 150,
+        productivity: 15
+    },
+
+    executive: {
+        name: "Executive",
+        hiringCost: 10000,
+        salary: 500,
+        productivity: 40
+    }
+
+};
+
+
+// ========================================
+// HIRE EMPLOYEE
+// ========================================
+
+function v6HireEmployee(type) {
+
+    const employee =
+        v6EmployeeTypes[type];
+
+    if (!employee) {
+
+        showMessage(
+            "Employee type not found.",
+            true
+        );
+
+        return;
+    }
+
+
+    // Check player's money
+
+    if (typeof money === "undefined") {
+
+        showMessage(
+            "Game money system was not found.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (money < employee.hiringCost) {
+
+        showMessage(
+            "❌ You need $" +
+            employee.hiringCost +
+            " to hire a " +
+            employee.name +
+            ".",
+            true
+        );
+
+        return;
+    }
+
+
+    // Pay hiring cost
+
+    money -= employee.hiringCost;
+
+
+    // Add employee
+
+    v6Employees.push({
+
+        type: type,
+
+        name: employee.name,
+
+        salary: employee.salary,
+
+        productivity: employee.productivity,
+
+        trained: false
+
+    });
+
+
+    showMessage(
+        "👥 You hired a " +
+        employee.name +
+        "!"
+    );
+
+
+    document.getElementById("story").textContent =
+        "You hired a " +
+        employee.name +
+        ". Your company is becoming more professional.";
+
+
+    v6UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// CALCULATE PRODUCTIVITY
+// ========================================
+
+function v6GetProductivity() {
+
+    let productivity = 0;
+
+
+    v6Employees.forEach(function(employee) {
+
+        productivity +=
+            employee.productivity;
+
+    });
+
+
+    // Maximum displayed productivity
+
+    if (productivity > 100) {
+
+        productivity = 100;
+
+    }
+
+
+    return productivity;
+
+}
+
+
+// ========================================
+// CALCULATE REVENUE
+// ========================================
+
+function v6GetRevenue() {
+
+    let revenue = 0;
+
+
+    v6Employees.forEach(function(employee) {
+
+        revenue +=
+            employee.productivity * 20;
+
+    });
+
+
+    return revenue;
+
+}
+
+
+// ========================================
+// CALCULATE SALARIES
+// ========================================
+
+function v6GetSalaries() {
+
+    let salaries = 0;
+
+
+    v6Employees.forEach(function(employee) {
+
+        salaries +=
+            employee.salary;
+
+    });
+
+
+    return salaries;
+
+}
+
+
+// ========================================
+// RUN COMPANY
+// ========================================
+
+function v6RunCompany() {
+
+    if (v6Employees.length === 0) {
+
+        showMessage(
+            "❌ You need employees before you can run the company.",
+            true
+        );
+
+        return;
+    }
+
+
+    const revenue =
+        v6GetRevenue();
+
+    const salaries =
+        v6GetSalaries();
+
+
+    const profit =
+        revenue - salaries;
+
+
+    money += profit;
+
+
+    if (
+        typeof xp !== "undefined"
+    ) {
+
+        xp += 20;
+
+    }
+
+
+    document.getElementById("story").textContent =
+        "Your employees operated the company. " +
+        "The company generated $" +
+        revenue +
+        " and paid $" +
+        salaries +
+        " in salaries. " +
+        "Your profit was $" +
+        profit +
+        ".";
+
+
+    if (profit >= 0) {
+
+        showMessage(
+            "🏢 Company ran successfully! +" +
+            "$" +
+            profit
+        );
+
+    } else {
+
+        showMessage(
+            "⚠️ Your company lost $" +
+            Math.abs(profit),
+            true
+        );
+
+    }
+
+
+    v6UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+
+    if (
+        typeof checkLevel === "function"
+    ) {
+
+        checkLevel();
+
+    }
+
+}
+
+
+// ========================================
+// PAY SALARIES
+// ========================================
+
+function v6PaySalaries() {
+
+    if (v6Employees.length === 0) {
+
+        showMessage(
+            "You don't have employees.",
+            true
+        );
+
+        return;
+    }
+
+
+    const salaries =
+        v6GetSalaries();
+
+
+    if (money < salaries) {
+
+        showMessage(
+            "❌ You don't have enough money to pay salaries.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= salaries;
+
+
+    showMessage(
+        "💵 Salaries paid: -$" +
+        salaries
+    );
+
+
+    document.getElementById("story").textContent =
+        "You paid your employees. " +
+        "A good business owner takes care of their team.";
+
+
+    v6UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// TRAIN EMPLOYEES
+// ========================================
+
+function v6TrainEmployees() {
+
+    if (v6Employees.length === 0) {
+
+        showMessage(
+            "You need employees to train.",
+            true
+        );
+
+        return;
+    }
+
+
+    const trainingCost = 1000;
+
+
+    if (money < trainingCost) {
+
+        showMessage(
+            "❌ You need $1,000 for employee training.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= trainingCost;
+
+
+    let trainedCount = 0;
+
+
+    v6Employees.forEach(function(employee) {
+
+        if (!employee.trained) {
+
+            employee.trained = true;
+
+            employee.productivity += 5;
+
+            trainedCount++;
+
+        }
+
+    });
+
+
+    if (trainedCount === 0) {
+
+        showMessage(
+            "All your employees are already trained."
+        );
+
+        money += trainingCost;
+
+        return;
+    }
+
+
+    showMessage(
+        "🎓 " +
+        trainedCount +
+        " employees completed training!"
+    );
+
+
+    document.getElementById("story").textContent =
+        "You invested in your employees. " +
+        "Their skills have improved and your company is becoming stronger.";
+
+
+    v6UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// UPDATE V6 SCREEN
+// ========================================
+
+function v6UpdateScreen() {
+
+    const employeeCount =
+        v6Employees.length;
+
+
+    const productivity =
+        v6GetProductivity();
+
+
+    const revenue =
+        v6GetRevenue();
+
+
+    const salaries =
+        v6GetSalaries();
+
+
+    const profit =
+        revenue - salaries;
+
+
+    document.getElementById(
+        "v6EmployeeCount"
+    ).textContent =
+        employeeCount;
+
+
+    document.getElementById(
+        "v6Productivity"
+    ).textContent =
+        productivity + "%";
+
+
+    document.getElementById(
+        "v6Revenue"
+    ).textContent =
+        revenue;
+
+
+    document.getElementById(
+        "v6Salaries"
+    ).textContent =
+        salaries;
+
+
+    document.getElementById(
+        "v6Profit"
+    ).textContent =
+        profit;
+
+
+    v6UpdateEmployeeList();
+
+}
+
+
+// ========================================
+// EMPLOYEE LIST
+// ========================================
+
+function v6UpdateEmployeeList() {
+
+    const list =
+        document.getElementById(
+            "v6EmployeeList"
+        );
+
+
+    if (v6Employees.length === 0) {
+
+        list.innerHTML =
+            "<p>No employees hired yet.</p>";
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    v6Employees.forEach(
+        function(employee, index) {
+
+            const employeeBox =
+                document.createElement("div");
+
+
+            employeeBox.style.background =
+                "#303030";
+
+
+            employeeBox.style.padding =
+                "15px";
+
+
+            employeeBox.style.marginBottom =
+                "10px";
+
+
+            employeeBox.style.borderRadius =
+                "10px";
+
+
+            employeeBox.innerHTML =
+
+                "<strong>" +
+
+                employee.name +
+
+                " #" +
+
+                (index + 1) +
+
+                "</strong>" +
+
+                "<br><br>" +
+
+                "💰 Salary: $" +
+
+                employee.salary +
+
+                " / day" +
+
+                "<br>" +
+
+                "📈 Productivity: " +
+
+                employee.productivity +
+
+                "%" +
+
+                "<br>" +
+
+                "🎓 Training: " +
+
+                (
+                    employee.trained
+                    ? "Completed"
+                    : "Not trained"
+                );
+
+
+            list.appendChild(
+                employeeBox
+            );
+
+        }
+    );
+
+}
+
+
+// ========================================
+// INITIALIZE V6
+// ========================================
+
+if (
+    document.getElementById(
+        "v6EmployeeCount"
+    )
+) {
+
+    v6UpdateScreen();
 
 }
     
