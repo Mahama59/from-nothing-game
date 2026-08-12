@@ -344,6 +344,53 @@
 
 </div>
 
+<!-- ========================================
+     V4 — NPCS & RELATIONSHIPS
+========================================= -->
+
+<div class="panel">
+
+    <h2>👥 PEOPLE</h2>
+
+    <p>
+        Build relationships that can change your future.
+    </p>
+
+    <button onclick="meetNPC('Ama')">
+        👩 Meet Ama — Friend
+    </button>
+
+    <button onclick="meetNPC('Johnson')">
+        👨 Meet Johnson — Businessman
+    </button>
+
+    <button onclick="meetNPC('Kojo')">
+        👷 Meet Kojo — Rival
+    </button>
+
+    <button onclick="meetNPC('Kwame')">
+        👨‍💼 Meet Kwame — Investor
+    </button>
+
+    <hr>
+
+    <p>
+        ❤️ Friends:
+        <strong id="friends">0</strong>
+    </p>
+
+    <p>
+        🤝 Contacts:
+        <strong id="contacts">0</strong>
+    </p>
+
+    <p>
+        😡 Rivals:
+        <strong id="rivals">0</strong>
+    </p>
+
+</div>
+        
     <button onclick="work()">
         💼 Work
     </button>
@@ -1144,6 +1191,128 @@ function updateSurvivalScreen() {
 
     document.getElementById("rent").textContent =
         rent;
+}
+
+    // ========================================
+// V4 — NPC & RELATIONSHIP SYSTEM
+// ========================================
+
+let friends = 0;
+let contacts = 0;
+let rivals = 0;
+
+let npcRelationships = {
+    Ama: 0,
+    Johnson: 0,
+    Kojo: 0,
+    Kwame: 0
+};
+
+
+// ========================================
+// MEET NPC
+// ========================================
+
+function meetNPC(name) {
+
+    if (name === "Ama") {
+
+        npcRelationships.Ama += 10;
+
+        friends++;
+
+        if (friends > 1) {
+            friends = 1;
+        }
+
+        showMessage(
+            "👩 Ama became your friend. +10 Relationship"
+        );
+
+        document.getElementById("story").textContent =
+            "Ama believes in you and encourages you to keep going.";
+
+    }
+
+
+    else if (name === "Johnson") {
+
+        npcRelationships.Johnson += 10;
+
+        contacts++;
+
+        if (contacts > 1) {
+            contacts = 1;
+        }
+
+        showMessage(
+            "👨 Johnson became a business contact."
+        );
+
+        document.getElementById("story").textContent =
+            "Johnson is a businessman. He tells you that opportunities come to people who build strong networks.";
+
+    }
+
+
+    else if (name === "Kojo") {
+
+        npcRelationships.Kojo -= 10;
+
+        rivals++;
+
+        if (rivals > 1) {
+            rivals = 1;
+        }
+
+        showMessage(
+            "😡 Kojo has become your rival."
+        );
+
+        document.getElementById("story").textContent =
+            "Kojo doesn't believe you can become successful. He challenges you to prove him wrong.";
+
+    }
+
+
+    else if (name === "Kwame") {
+
+        npcRelationships.Kwame += 10;
+
+        contacts++;
+
+        if (contacts > 2) {
+            contacts = 2;
+        }
+
+        showMessage(
+            "👨‍💼 You met an investor."
+        );
+
+        document.getElementById("story").textContent =
+            "Kwame is interested in ambitious people. He may become important later in your journey.";
+
+    }
+
+
+    updateNPCScreen();
+}
+
+
+// ========================================
+// UPDATE NPC SCREEN
+// ========================================
+
+function updateNPCScreen() {
+
+    document.getElementById("friends").textContent =
+        friends;
+
+    document.getElementById("contacts").textContent =
+        contacts;
+
+    document.getElementById("rivals").textContent =
+        rivals;
 }
     
 </script>
