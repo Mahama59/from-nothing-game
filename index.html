@@ -572,6 +572,95 @@
     </button>
 
 </div> 
+
+    <!-- ========================================
+     FROM NOTHING V7
+     VEHICLES & TRANSPORTATION
+========================================= -->
+
+<div class="panel">
+
+    <h2>🚗 VEHICLE GARAGE</h2>
+
+    <p>
+        Your success is growing. Better transportation
+        can unlock new opportunities.
+    </p>
+
+    <div style="
+        background:#101010;
+        padding:18px;
+        border-radius:12px;
+        margin-bottom:15px;
+    ">
+
+        <h3>🚘 CURRENT VEHICLE</h3>
+
+        <p>
+            Vehicle:
+            <strong id="v7Vehicle">None</strong>
+        </p>
+
+        <p>
+            💎 Vehicle Value:
+            $<strong id="v7VehicleValue">0</strong>
+        </p>
+
+        <p>
+            ⚡ Transportation Level:
+            <strong id="v7TransportLevel">0</strong>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>🛒 VEHICLE DEALERSHIP</h3>
+
+    <button
+        onclick="v7BuyVehicle('Bicycle',100)"
+        style="width:100%;margin-bottom:7px;">
+        🚲 Bicycle — $100
+    </button>
+
+    <button
+        onclick="v7BuyVehicle('Motorcycle',2000)"
+        style="width:100%;margin-bottom:7px;">
+        🏍️ Motorcycle — $2,000
+    </button>
+
+    <button
+        onclick="v7BuyVehicle('Car',10000)"
+        style="width:100%;margin-bottom:7px;">
+        🚗 Car — $10,000
+    </button>
+
+    <button
+        onclick="v7BuyVehicle('Luxury Car',100000)"
+        style="width:100%;margin-bottom:7px;">
+        🏎️ Luxury Car — $100,000
+    </button>
+
+    <button
+        onclick="v7BuyVehicle('Supercar',1000000)"
+        style="width:100%;">
+        🏁 Supercar — $1,000,000
+    </button>
+
+    <hr>
+
+    <h3>🔓 VEHICLE OPPORTUNITIES</h3>
+
+    <div id="v7Opportunities">
+
+        <p>
+            Buy a vehicle to unlock transportation
+            opportunities.
+        </p>
+
+    </div>
+
+</div>
         
     <button onclick="work()">
         💼 Work
@@ -2421,6 +2510,331 @@ if (
     v6UpdateScreen();
 
 }
+
+// ========================================
+// FROM NOTHING V7
+// VEHICLE & TRANSPORTATION SYSTEM
+// ========================================
+
+// IMPORTANT:
+// V7 variables use the v7_ prefix.
+// Do NOT create another money variable.
+
+let v7Vehicle = "None";
+let v7VehicleValue = 0;
+let v7TransportLevel = 0;
+
+
+// ========================================
+// VEHICLE INFORMATION
+// ========================================
+
+const v7VehicleData = {
+
+    Bicycle: {
+        price: 100,
+        level: 1,
+        opportunity: "You can now travel around the city faster."
+    },
+
+    Motorcycle: {
+        price: 2000,
+        level: 2,
+        opportunity: "You can now take delivery and transport jobs."
+    },
+
+    Car: {
+        price: 10000,
+        level: 3,
+        opportunity: "You can now meet important business contacts."
+    },
+
+    "Luxury Car": {
+        price: 100000,
+        level: 4,
+        opportunity: "Your reputation with wealthy business owners increases."
+    },
+
+    Supercar: {
+        price: 1000000,
+        level: 5,
+        opportunity: "You have entered the world of elite entrepreneurs."
+    }
+
+};
+
+
+// ========================================
+// BUY VEHICLE
+// ========================================
+
+function v7BuyVehicle(vehicleName, price) {
+
+    const vehicle =
+        v7VehicleData[vehicleName];
+
+
+    if (!vehicle) {
+
+        showMessage(
+            "Vehicle not found.",
+            true
+        );
+
+        return;
+    }
+
+
+    // Make sure the existing money
+    // variable is available.
+
+    if (typeof money === "undefined") {
+
+        showMessage(
+            "Game money system could not be found.",
+            true
+        );
+
+        return;
+    }
+
+
+    // Check money
+
+    if (money < price) {
+
+        showMessage(
+            "❌ You need $" +
+            price.toLocaleString() +
+            " to buy the " +
+            vehicleName +
+            ".",
+            true
+        );
+
+        return;
+    }
+
+
+    // Prevent buying the same vehicle
+    // for no reason.
+
+    if (v7Vehicle === vehicleName) {
+
+        showMessage(
+            "You already own this vehicle."
+        );
+
+        return;
+    }
+
+
+    // Pay for vehicle
+
+    money -= price;
+
+
+    // Save vehicle
+
+    v7Vehicle =
+        vehicleName;
+
+    v7VehicleValue =
+        price;
+
+    v7TransportLevel =
+        vehicle.level;
+
+
+    // Increase reputation slightly
+
+    if (
+        typeof reputation !== "undefined"
+    ) {
+
+        reputation += vehicle.level;
+
+    }
+
+
+    // Story
+
+    if (
+        typeof document.getElementById("story")
+        !== "undefined"
+    ) {
+
+        const storyElement =
+            document.getElementById("story");
+
+
+        if (storyElement) {
+
+            storyElement.textContent =
+                "You bought a " +
+                vehicleName +
+                ". " +
+                vehicle.opportunity;
+
+        }
+
+    }
+
+
+    showMessage(
+        "🚗 You bought a " +
+        vehicleName +
+        "!"
+    );
+
+
+    v7UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// VEHICLE OPPORTUNITIES
+// ========================================
+
+function v7UpdateOpportunities() {
+
+    const container =
+        document.getElementById(
+            "v7Opportunities"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (v7Vehicle === "None") {
+
+        container.innerHTML =
+            "<p>🚶 You currently travel on foot.</p>";
+
+        return;
+    }
+
+
+    let html = "";
+
+
+    if (v7TransportLevel >= 1) {
+
+        html +=
+            "<p>🚲 Basic transportation unlocked.</p>";
+
+    }
+
+
+    if (v7TransportLevel >= 2) {
+
+        html +=
+            "<p>🏍️ Delivery and transport jobs unlocked.</p>";
+
+    }
+
+
+    if (v7TransportLevel >= 3) {
+
+        html +=
+            "<p>🚗 Business meetings unlocked.</p>";
+
+    }
+
+
+    if (v7TransportLevel >= 4) {
+
+        html +=
+            "<p>🏎️ Luxury networking opportunities unlocked.</p>";
+
+    }
+
+
+    if (v7TransportLevel >= 5) {
+
+        html +=
+            "<p>🏁 Elite entrepreneur opportunities unlocked.</p>";
+
+    }
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+// ========================================
+// UPDATE V7 SCREEN
+// ========================================
+
+function v7UpdateScreen() {
+
+    const vehicleElement =
+        document.getElementById(
+            "v7Vehicle"
+        );
+
+
+    const valueElement =
+        document.getElementById(
+            "v7VehicleValue"
+        );
+
+
+    const levelElement =
+        document.getElementById(
+            "v7TransportLevel"
+        );
+
+
+    if (vehicleElement) {
+
+        vehicleElement.textContent =
+            v7Vehicle;
+
+    }
+
+
+    if (valueElement) {
+
+        valueElement.textContent =
+            v7VehicleValue.toLocaleString();
+
+    }
+
+
+    if (levelElement) {
+
+        levelElement.textContent =
+            v7TransportLevel;
+
+    }
+
+
+    v7UpdateOpportunities();
+
+}
+
+
+// ========================================
+// V7 INITIALIZATION
+// ========================================
+
+v7UpdateScreen();
     
 </script>
 
