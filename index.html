@@ -773,6 +773,159 @@
     </button>
 
 </div>
+
+        <!-- ========================================
+     FROM NOTHING V9
+     BANKING & INVESTMENTS
+========================================= -->
+
+<div class="panel">
+
+    <h2>🏦 BANK & INVESTMENTS</h2>
+
+    <p>
+        Put your money to work. Save, invest,
+        borrow and build your financial empire.
+    </p>
+
+    <div style="
+        background:#101010;
+        padding:18px;
+        border-radius:12px;
+        margin-bottom:15px;
+    ">
+
+        <h3>💰 FINANCIAL STATUS</h3>
+
+        <p>
+            Cash:
+            $<strong id="v9Cash">0</strong>
+        </p>
+
+        <p>
+            Bank Balance:
+            $<strong id="v9BankBalance">0</strong>
+        </p>
+
+        <p>
+            Investments:
+            $<strong id="v9InvestmentValue">0</strong>
+        </p>
+
+        <p>
+            Debt:
+            $<strong id="v9Debt">0</strong>
+        </p>
+
+        <p>
+            Financial Level:
+            <strong id="v9FinancialLevel">0</strong>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>🏦 BANK</h3>
+
+    <input
+        id="v9BankAmount"
+        type="number"
+        min="1"
+        placeholder="Enter amount"
+        style="
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            margin-bottom:8px;
+        "
+    >
+
+    <button
+        onclick="v9Deposit()"
+        style="width:100%;margin-bottom:7px;">
+        💵 Deposit Money
+    </button>
+
+    <button
+        onclick="v9Withdraw()"
+        style="width:100%;margin-bottom:7px;">
+        💰 Withdraw Money
+    </button>
+
+    <button
+        onclick="v9CollectInterest()"
+        style="width:100%;">
+        🏦 Collect Bank Interest
+    </button>
+
+    <hr>
+
+    <h3>📈 INVESTMENTS</h3>
+
+    <input
+        id="v9InvestmentAmount"
+        type="number"
+        min="1"
+        placeholder="Investment amount"
+        style="
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            margin-bottom:8px;
+        "
+    >
+
+    <button
+        onclick="v9Invest()"
+        style="width:100%;margin-bottom:7px;">
+        📈 Invest Money
+    </button>
+
+    <button
+        onclick="v9GrowInvestments()"
+        style="width:100%;">
+        📊 Update Investments
+    </button>
+
+    <p id="v9InvestmentMessage"
+       style="
+       color:#aaa;
+       margin-top:12px;">
+        Your investments are waiting.
+    </p>
+
+    <hr>
+
+    <h3>💳 LOANS</h3>
+
+    <button
+        onclick="v9TakeLoan(10000)"
+        style="width:100%;margin-bottom:7px;">
+        💳 Borrow $10,000
+    </button>
+
+    <button
+        onclick="v9TakeLoan(100000)"
+        style="width:100%;margin-bottom:7px;">
+        💳 Borrow $100,000
+    </button>
+
+    <button
+        onclick="v9TakeLoan(1000000)"
+        style="width:100%;margin-bottom:7px;">
+        💳 Borrow $1,000,000
+    </button>
+
+    <button
+        onclick="v9RepayLoan()"
+        style="width:100%;">
+        💵 Repay Loan
+    </button>
+
+</div>
         
     <button onclick="work()">
         💼 Work
@@ -3465,6 +3618,675 @@ function v8UpdateScreen() {
 // ========================================
 
 v8UpdateScreen();
+
+// ========================================
+// FROM NOTHING V9
+// BANKING & INVESTMENTS
+// ========================================
+
+// V9 ONLY VARIABLES
+// Do not rename these to existing game variables.
+
+let v9BankBalance = 0;
+let v9InvestmentValue = 0;
+let v9Debt = 0;
+let v9FinancialLevel = 0;
+let v9LastInterest = 0;
+
+
+// ========================================
+// BANK INTEREST
+// ========================================
+
+const v9BankInterestRate = 0.02;
+
+
+// ========================================
+// DEPOSIT
+// ========================================
+
+function v9Deposit() {
+
+    const input =
+        document.getElementById(
+            "v9BankAmount"
+        );
+
+    if (!input) {
+        return;
+    }
+
+    const amount =
+        Number(input.value);
+
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+
+        showMessage(
+            "Enter a valid amount.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (typeof money === "undefined") {
+
+        showMessage(
+            "Game money system could not be found.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (money < amount) {
+
+        showMessage(
+            "❌ You don't have enough cash.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= amount;
+
+    v9BankBalance += amount;
+
+
+    input.value = "";
+
+
+    showMessage(
+        "🏦 Deposited $" +
+        amount.toLocaleString()
+    );
+
+
+    v9UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// WITHDRAW
+// ========================================
+
+function v9Withdraw() {
+
+    const input =
+        document.getElementById(
+            "v9BankAmount"
+        );
+
+    if (!input) {
+        return;
+    }
+
+
+    const amount =
+        Number(input.value);
+
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+
+        showMessage(
+            "Enter a valid amount.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (v9BankBalance < amount) {
+
+        showMessage(
+            "❌ You don't have enough money in the bank.",
+            true
+        );
+
+        return;
+    }
+
+
+    v9BankBalance -= amount;
+
+    money += amount;
+
+
+    input.value = "";
+
+
+    showMessage(
+        "💰 Withdrawn $" +
+        amount.toLocaleString()
+    );
+
+
+    v9UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// COLLECT BANK INTEREST
+// ========================================
+
+function v9CollectInterest() {
+
+    if (v9BankBalance <= 0) {
+
+        showMessage(
+            "You need money in the bank first.",
+            true
+        );
+
+        return;
+    }
+
+
+    const interest =
+        Math.floor(
+            v9BankBalance *
+            v9BankInterestRate
+        );
+
+
+    if (interest <= 0) {
+
+        showMessage(
+            "Your balance is too small to generate interest yet.",
+            true
+        );
+
+        return;
+    }
+
+
+    v9BankBalance += interest;
+
+    v9LastInterest = interest;
+
+
+    money += interest;
+
+
+    showMessage(
+        "🏦 You earned $" +
+        interest.toLocaleString() +
+        " in interest!"
+    );
+
+
+    v9UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// INVEST MONEY
+// ========================================
+
+function v9Invest() {
+
+    const input =
+        document.getElementById(
+            "v9InvestmentAmount"
+        );
+
+    if (!input) {
+        return;
+    }
+
+
+    const amount =
+        Number(input.value);
+
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+
+        showMessage(
+            "Enter a valid investment amount.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (money < amount) {
+
+        showMessage(
+            "❌ You don't have enough cash to invest.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= amount;
+
+    v9InvestmentValue += amount;
+
+
+    input.value = "";
+
+
+    const message =
+        document.getElementById(
+            "v9InvestmentMessage"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            "📈 You invested $" +
+            amount.toLocaleString() +
+            ". Your money is now working for you.";
+
+    }
+
+
+    showMessage(
+        "📈 Investment created: $" +
+        amount.toLocaleString()
+    );
+
+
+    v9CalculateLevel();
+
+
+    v9UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// INVESTMENT GROWTH
+// ========================================
+
+function v9GrowInvestments() {
+
+    if (v9InvestmentValue <= 0) {
+
+        showMessage(
+            "You don't have any investments yet.",
+            true
+        );
+
+        return;
+    }
+
+
+    const chance =
+        Math.random();
+
+
+    let change = 0;
+
+
+    if (chance < 0.70) {
+
+        // Profit
+
+        change =
+            Math.floor(
+                v9InvestmentValue * 0.05
+            );
+
+        v9InvestmentValue += change;
+
+
+        showMessage(
+            "📈 Investments grew by $" +
+            change.toLocaleString()
+        );
+
+
+    } else if (chance < 0.90) {
+
+        // Small loss
+
+        change =
+            Math.floor(
+                v9InvestmentValue * 0.03
+            );
+
+        v9InvestmentValue =
+            Math.max(
+                0,
+                v9InvestmentValue - change
+            );
+
+
+        showMessage(
+            "📉 Investments fell by $" +
+            change.toLocaleString(),
+            true
+        );
+
+
+    } else {
+
+        // Big loss
+
+        change =
+            Math.floor(
+                v9InvestmentValue * 0.10
+            );
+
+        v9InvestmentValue =
+            Math.max(
+                0,
+                v9InvestmentValue - change
+            );
+
+
+        showMessage(
+            "⚠️ Market crash! You lost $" +
+            change.toLocaleString(),
+            true
+        );
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "v9InvestmentMessage"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            "Current investments: $" +
+            v9InvestmentValue.toLocaleString();
+
+    }
+
+
+    v9CalculateLevel();
+
+    v9UpdateScreen();
+
+}
+
+
+// ========================================
+// TAKE LOAN
+// ========================================
+
+function v9TakeLoan(amount) {
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+        return;
+    }
+
+
+    const maximumDebt =
+        10000000;
+
+
+    if (
+        v9Debt + amount >
+        maximumDebt
+    ) {
+
+        showMessage(
+            "❌ You cannot borrow more than $10,000,000.",
+            true
+        );
+
+        return;
+    }
+
+
+    v9Debt += amount;
+
+    money += amount;
+
+
+    showMessage(
+        "💳 Loan received: $" +
+        amount.toLocaleString()
+    );
+
+
+    v9CalculateLevel();
+
+    v9UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// REPAY LOAN
+// ========================================
+
+function v9RepayLoan() {
+
+    if (v9Debt <= 0) {
+
+        showMessage(
+            "You don't have any debt."
+        );
+
+        return;
+    }
+
+
+    if (money <= 0) {
+
+        showMessage(
+            "You don't have enough cash to repay your loan.",
+            true
+        );
+
+        return;
+    }
+
+
+    const repayment =
+        Math.min(
+            money,
+            v9Debt
+        );
+
+
+    money -= repayment;
+
+    v9Debt -= repayment;
+
+
+    showMessage(
+        "💵 Loan repayment: $" +
+        repayment.toLocaleString()
+    );
+
+
+    v9CalculateLevel();
+
+    v9UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// FINANCIAL LEVEL
+// ========================================
+
+function v9CalculateLevel() {
+
+    const totalAssets =
+        v9BankBalance +
+        v9InvestmentValue;
+
+
+    if (totalAssets >= 10000000) {
+
+        v9FinancialLevel = 6;
+
+    } else if (totalAssets >= 1000000) {
+
+        v9FinancialLevel = 5;
+
+    } else if (totalAssets >= 100000) {
+
+        v9FinancialLevel = 4;
+
+    } else if (totalAssets >= 25000) {
+
+        v9FinancialLevel = 3;
+
+    } else if (totalAssets >= 5000) {
+
+        v9FinancialLevel = 2;
+
+    } else if (totalAssets > 0) {
+
+        v9FinancialLevel = 1;
+
+    } else {
+
+        v9FinancialLevel = 0;
+
+    }
+
+}
+
+
+// ========================================
+// UPDATE V9 SCREEN
+// ========================================
+
+function v9UpdateScreen() {
+
+    v9CalculateLevel();
+
+
+    const cash =
+        document.getElementById(
+            "v9Cash"
+        );
+
+
+    const bank =
+        document.getElementById(
+            "v9BankBalance"
+        );
+
+
+    const investments =
+        document.getElementById(
+            "v9InvestmentValue"
+        );
+
+
+    const debt =
+        document.getElementById(
+            "v9Debt"
+        );
+
+
+    const level =
+        document.getElementById(
+            "v9FinancialLevel"
+        );
+
+
+    if (cash) {
+
+        cash.textContent =
+            typeof money !== "undefined"
+            ? money.toLocaleString()
+            : "0";
+
+    }
+
+
+    if (bank) {
+
+        bank.textContent =
+            v9BankBalance.toLocaleString();
+
+    }
+
+
+    if (investments) {
+
+        investments.textContent =
+            v9InvestmentValue.toLocaleString();
+
+    }
+
+
+    if (debt) {
+
+        debt.textContent =
+            v9Debt.toLocaleString();
+
+    }
+
+
+    if (level) {
+
+        level.textContent =
+            v9FinancialLevel;
+
+    }
+
+}
+
+
+// ========================================
+// V9 STARTUP
+// ========================================
+
+v9UpdateScreen();
     
 </script>
 
