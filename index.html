@@ -1871,6 +1871,155 @@ No achievements yet.
 </div>
 
 </div>
+
+        <!-- =========================================
+     FROM NOTHING V17
+     NPC RELATIONSHIP SYSTEM
+========================================= -->
+
+<div id="v17Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:22000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:700px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V17
+</div>
+
+<h1 id="v17NpcName" style="color:#ffd700;">
+NPC
+</h1>
+
+<h3 id="v17NpcRole">
+Character
+</h3>
+
+<p id="v17NpcDescription"
+style="line-height:1.8;">
+</p>
+
+<div style="
+background:#101010;
+padding:15px;
+border-radius:10px;
+margin:15px 0;
+">
+
+<p>
+❤️ Relationship:
+<strong id="v17Relationship">0</strong>
+</p>
+
+<div style="
+height:12px;
+background:#444;
+border-radius:10px;
+overflow:hidden;
+">
+
+<div id="v17RelationshipBar"
+style="
+height:100%;
+width:50%;
+background:#ffd700;
+">
+</div>
+
+</div>
+
+<p>
+🤝 Loyalty:
+<strong id="v17Loyalty">50</strong>
+</p>
+
+<p>
+💼 Status:
+<strong id="v17Status">
+Stranger
+</strong>
+</p>
+
+</div>
+
+<div id="v17Actions"></div>
+
+<button
+onclick="v17Close()"
+style="
+width:100%;
+margin-top:15px;
+">
+Close
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V17 PEOPLE PANEL
+========================================= -->
+
+<div class="panel">
+
+<h2>👥 PEOPLE IN YOUR LIFE</h2>
+
+<p>
+The people you meet can change your future.
+Build relationships carefully.
+</p>
+
+<div id="v17NpcList"></div>
+
+</div>
+
+
+<!-- =========================================
+     V17 RELATIONSHIP SUMMARY
+========================================= -->
+
+<div class="panel">
+
+<h2>❤️ RELATIONSHIP STATUS</h2>
+
+<p>
+❤️ Friends:
+<strong id="v17FriendsCount">0</strong>
+</p>
+
+<p>
+🤝 Partners:
+<strong id="v17PartnersCount">0</strong>
+</p>
+
+<p>
+😡 Rivals:
+<strong id="v17RivalsCount">0</strong>
+</p>
+
+<p>
+👥 Total Contacts:
+<strong id="v17ContactsCount">0</strong>
+</p>
+
+</div>
    
     <button onclick="work()">
         💼 Work
@@ -11405,6 +11554,1219 @@ name +
 // ========================================
 
 v16Update();
+
+// ========================================
+// FROM NOTHING V17
+// NPC RELATIONSHIP SYSTEM
+// ========================================
+
+// IMPORTANT:
+// V17 uses unique variable names.
+// Do NOT redeclare old variables.
+
+let v17SelectedNpc = "";
+
+
+// ========================================
+// NPC DATA
+// ========================================
+
+const v17NPCs = {
+
+Ama: {
+
+name: "Ama",
+
+role: "Friend",
+
+description:
+"Ama is one of the first people you met. " +
+"She is friendly, hardworking and believes in your potential.",
+
+relationship: 35,
+
+loyalty: 60,
+
+status: "Friend",
+
+friend: true,
+
+partner: false,
+
+rival: false
+
+},
+
+
+Johnson: {
+
+name: "Johnson",
+
+role: "Businessman",
+
+description:
+"Johnson is an experienced businessman. " +
+"He can introduce you to powerful business opportunities.",
+
+relationship: 15,
+
+loyalty: 45,
+
+status: "Business Contact",
+
+friend: false,
+
+partner: false,
+
+rival: false
+
+},
+
+
+Kojo: {
+
+name: "Kojo",
+
+role: "Rival",
+
+description:
+"Kojo doubts your ability to succeed. " +
+"He can become either your greatest rival or an unlikely ally.",
+
+relationship: -20,
+
+loyalty: 20,
+
+status: "Rival",
+
+friend: false,
+
+partner: false,
+
+rival: true
+
+},
+
+
+Kwame: {
+
+name: "Kwame",
+
+role: "Investor",
+
+description:
+"Kwame is a wealthy investor looking for ambitious people. " +
+"A strong relationship could unlock major investments.",
+
+relationship: 5,
+
+loyalty: 40,
+
+status: "Investor",
+
+friend: false,
+
+partner: false,
+
+rival: false
+
+}
+
+};
+
+
+// ========================================
+// OPEN NPC
+// ========================================
+
+function v17OpenNPC(name) {
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+v17SelectedNpc =
+name;
+
+
+const panel =
+document.getElementById(
+"v17Panel"
+);
+
+if (panel) {
+
+panel.style.display =
+"flex";
+
+}
+
+
+const npcName =
+document.getElementById(
+"v17NpcName"
+);
+
+const role =
+document.getElementById(
+"v17NpcRole"
+);
+
+const description =
+document.getElementById(
+"v17NpcDescription"
+);
+
+
+if (npcName) {
+
+npcName.textContent =
+npc.name;
+
+}
+
+
+if (role) {
+
+role.textContent =
+npc.role;
+
+}
+
+
+if (description) {
+
+description.textContent =
+npc.description;
+
+}
+
+
+v17UpdatePanel();
+
+}
+
+
+// ========================================
+// CLOSE NPC
+// ========================================
+
+function v17Close() {
+
+const panel =
+document.getElementById(
+"v17Panel"
+);
+
+if (panel) {
+
+panel.style.display =
+"none";
+
+}
+
+}
+
+
+// ========================================
+// CHANGE RELATIONSHIP
+// ========================================
+
+function v17ChangeRelationship(
+name,
+amount
+) {
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+npc.relationship +=
+amount;
+
+
+npc.relationship =
+Math.max(
+-100,
+Math.min(
+100,
+npc.relationship
+)
+);
+
+
+v17UpdateStatus(name);
+
+v17RenderNPCs();
+
+}
+
+
+// ========================================
+// CHANGE LOYALTY
+// ========================================
+
+function v17ChangeLoyalty(
+name,
+amount
+) {
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+npc.loyalty +=
+amount;
+
+
+npc.loyalty =
+Math.max(
+0,
+Math.min(
+100,
+npc.loyalty
+)
+);
+
+
+v17UpdateStatus(name);
+
+}
+
+
+// ========================================
+// TALK
+// ========================================
+
+function v17Talk() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+let message = "";
+
+
+if (npc.relationship >= 70) {
+
+message =
+npc.name +
+": I completely believe in you. " +
+"Let's build something great together.";
+
+v17ChangeRelationship(
+name,
+5
+);
+
+}
+
+else if (npc.relationship >= 30) {
+
+message =
+npc.name +
+": It's good to see you. " +
+"We're becoming good friends.";
+
+v17ChangeRelationship(
+name,
+3
+);
+
+}
+
+else if (npc.relationship >= 0) {
+
+message =
+npc.name +
+": We should get to know each other better.";
+
+v17ChangeRelationship(
+name,
+2
+);
+
+}
+
+else {
+
+message =
+npc.name +
+": I'm not sure I trust you yet.";
+
+v17ChangeRelationship(
+name,
+-1
+);
+
+}
+
+
+showMessage(message);
+
+v17UpdatePanel();
+
+}
+
+
+// ========================================
+// GIVE GIFT
+// ========================================
+
+function v17GiveGift() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+let giftCost =
+100;
+
+
+if (
+typeof money !== "undefined" &&
+money >= giftCost
+) {
+
+money -=
+giftCost;
+
+v17ChangeRelationship(
+name,
+10
+);
+
+v17ChangeLoyalty(
+name,
+5
+);
+
+showMessage(
+"🎁 You gave " +
+npc.name +
+" a gift. Relationship improved!"
+);
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+else {
+
+showMessage(
+"❌ You need $100 to buy a gift."
+);
+
+}
+
+
+v17UpdatePanel();
+
+}
+
+
+// ========================================
+// HELP NPC
+// ========================================
+
+function v17HelpNpc() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+v17ChangeRelationship(
+name,
+15
+);
+
+v17ChangeLoyalty(
+name,
+10
+);
+
+
+if (
+typeof money !== "undefined" &&
+money >= 50
+) {
+
+money -= 50;
+
+}
+
+
+showMessage(
+"❤️ You helped " +
+npc.name +
+". They will remember your kindness."
+);
+
+
+v17UpdatePanel();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// BUSINESS PARTNERSHIP
+// ========================================
+
+function v17BusinessDeal() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+if (npc.relationship < 50) {
+
+showMessage(
+"🔒 You need a relationship of 50+."
+);
+
+return;
+
+}
+
+
+if (npc.loyalty < 40) {
+
+showMessage(
+"🔒 This person does not trust you enough."
+);
+
+return;
+
+}
+
+
+npc.partner =
+true;
+
+npc.friend =
+true;
+
+npc.status =
+"Business Partner";
+
+
+v17ChangeRelationship(
+name,
+10
+);
+
+
+showMessage(
+"🤝 " +
+npc.name +
+" has become your business partner!"
+);
+
+
+v17UpdatePanel();
+
+v17RenderNPCs();
+
+}
+
+
+// ========================================
+// BECOME FRIEND
+// ========================================
+
+function v17BecomeFriend() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+if (npc.relationship < 40) {
+
+showMessage(
+"🔒 Relationship must reach 40."
+);
+
+return;
+
+}
+
+
+npc.friend =
+true;
+
+npc.rival =
+false;
+
+npc.status =
+"Friend";
+
+
+v17ChangeRelationship(
+name,
+5
+);
+
+
+showMessage(
+"❤️ You and " +
+npc.name +
+" are now close friends."
+);
+
+
+v17UpdatePanel();
+
+v17RenderNPCs();
+
+}
+
+
+// ========================================
+// RIVAL
+// ========================================
+
+function v17ChallengeRival() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+npc.rival =
+true;
+
+npc.friend =
+false;
+
+npc.partner =
+false;
+
+npc.status =
+"Rival";
+
+
+v17ChangeRelationship(
+name,
+-15
+);
+
+
+showMessage(
+"😡 You have challenged " +
+npc.name +
+". A rivalry has begun."
+);
+
+
+v17UpdatePanel();
+
+v17RenderNPCs();
+
+}
+
+
+// ========================================
+// SPECIAL OPPORTUNITIES
+// ========================================
+
+function v17SpecialOpportunity() {
+
+const name =
+v17SelectedNpc;
+
+const npc =
+v17NPCs[name];
+
+if (!npc) {
+
+return;
+
+}
+
+
+if (npc.relationship < 70) {
+
+showMessage(
+"🔒 Reach relationship level 70 to unlock this opportunity."
+);
+
+return;
+
+}
+
+
+if (name === "Ama") {
+
+v17GiveMoney(250);
+
+showMessage(
+"❤️ Ama helped you find a new opportunity. +$250"
+);
+
+}
+
+
+if (name === "Johnson") {
+
+v17GiveMoney(1000);
+
+showMessage(
+"💼 Johnson introduced you to a major client. +$1,000"
+);
+
+}
+
+
+if (name === "Kwame") {
+
+v17GiveMoney(5000);
+
+showMessage(
+"💰 Kwame invested $5,000 into your future!"
+);
+
+}
+
+
+if (name === "Kojo") {
+
+v17ReconcileKojo();
+
+}
+
+}
+
+
+// ========================================
+// KOJO RECONCILIATION
+// ========================================
+
+function v17ReconcileKojo() {
+
+const npc =
+v17NPCs.Kojo;
+
+npc.rival =
+false;
+
+npc.friend =
+true;
+
+npc.relationship =
+70;
+
+npc.loyalty =
+70;
+
+npc.status =
+"Former Rival";
+
+
+showMessage(
+"🤝 You and Kojo have settled your differences!"
+);
+
+v17RenderNPCs();
+
+}
+
+
+// ========================================
+// MONEY HELPER
+// ========================================
+
+function v17GiveMoney(amount) {
+
+if (
+typeof money !== "undefined"
+) {
+
+money +=
+amount;
+
+if (money < 0) {
+
+money = 0;
+
+}
+
+}
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// NPC STATUS
+// ========================================
+
+function v17GetStatus(npc) {
+
+if (npc.relationship >= 80) {
+
+return "Best Friend";
+
+}
+
+if (npc.relationship >= 60) {
+
+return "Close Friend";
+
+}
+
+if (npc.relationship >= 40) {
+
+return "Friend";
+
+}
+
+if (npc.relationship >= 10) {
+
+return "Contact";
+
+}
+
+if (npc.relationship >= 0) {
+
+return "Acquaintance";
+
+}
+
+if (npc.relationship >= -40) {
+
+return "Disliked";
+
+}
+
+return "Rival";
+
+}
+
+
+// ========================================
+// UPDATE NPC PANEL
+// ========================================
+
+function v17UpdatePanel() {
+
+const npc =
+v17NPCs[
+v17SelectedNpc
+];
+
+if (!npc) {
+
+return;
+
+}
+
+
+const relationship =
+document.getElementById(
+"v17Relationship"
+);
+
+const loyalty =
+document.getElementById(
+"v17Loyalty"
+);
+
+const status =
+document.getElementById(
+"v17Status"
+);
+
+const bar =
+document.getElementById(
+"v17RelationshipBar"
+);
+
+const actions =
+document.getElementById(
+"v17Actions"
+);
+
+
+if (relationship) {
+
+relationship.textContent =
+npc.relationship;
+
+}
+
+
+if (loyalty) {
+
+loyalty.textContent =
+npc.loyalty;
+
+}
+
+
+if (status) {
+
+status.textContent =
+npc.status;
+
+}
+
+
+if (bar) {
+
+const percentage =
+(npc.relationship + 100) / 2;
+
+bar.style.width =
+percentage + "%";
+
+}
+
+
+if (actions) {
+
+actions.innerHTML = "";
+
+
+const buttons = [
+
+[
+"💬 Talk",
+"v17Talk()"
+],
+
+[
+"🎁 Give Gift — $100",
+"v17GiveGift()"
+],
+
+[
+"❤️ Help",
+"v17HelpNpc()"
+],
+
+[
+"🤝 Become Friends",
+"v17BecomeFriend()"
+],
+
+[
+"💼 Business Partnership",
+"v17BusinessDeal()"
+],
+
+[
+"⭐ Special Opportunity",
+"v17SpecialOpportunity()"
+],
+
+[
+"😡 Challenge Rival",
+"v17ChallengeRival()"
+]
+
+];
+
+
+buttons.forEach(
+function(item) {
+
+const button =
+document.createElement(
+"button"
+);
+
+button.textContent =
+item[0];
+
+button.style.width =
+"100%";
+
+button.style.marginBottom =
+"7px";
+
+button.setAttribute(
+"onclick",
+item[1]
+);
+
+actions.appendChild(
+button
+);
+
+}
+
+);
+
+}
+
+}
+
+
+// ========================================
+// RENDER NPC LIST
+// ========================================
+
+function v17RenderNPCs() {
+
+const list =
+document.getElementById(
+"v17NpcList"
+);
+
+if (!list) {
+
+return;
+
+}
+
+
+list.innerHTML = "";
+
+
+Object.keys(
+v17NPCs
+).forEach(
+function(name) {
+
+const npc =
+v17NPCs[name];
+
+const button =
+document.createElement(
+"button"
+);
+
+button.style.width =
+"100%";
+
+button.style.marginBottom =
+"8px";
+
+button.textContent =
+npc.name +
+" — " +
+npc.role +
+" | ❤️ " +
+npc.relationship +
+" | " +
+v17GetStatus(npc);
+
+
+button.onclick =
+function() {
+
+v17OpenNPC(name);
+
+};
+
+
+list.appendChild(
+button
+);
+
+}
+
+);
+
+
+v17UpdateSummary();
+
+}
+
+
+// ========================================
+// SUMMARY
+// ========================================
+
+function v17UpdateSummary() {
+
+let friends = 0;
+
+let partners = 0;
+
+let rivals = 0;
+
+let contacts = 0;
+
+
+Object.keys(
+v17NPCs
+).forEach(
+function(name) {
+
+const npc =
+v17NPCs[name];
+
+
+if (npc.friend) {
+
+friends++;
+
+}
+
+
+if (npc.partner) {
+
+partners++;
+
+}
+
+
+if (npc.rival) {
+
+rivals++;
+
+}
+
+
+if (npc.relationship >= 10) {
+
+contacts++;
+
+}
+
+}
+
+);
+
+
+const elements = {
+
+"v17FriendsCount":
+friends,
+
+"v17PartnersCount":
+partners,
+
+"v17RivalsCount":
+rivals,
+
+"v17ContactsCount":
+contacts
+
+};
+
+
+Object.keys(
+elements
+).forEach(
+function(id) {
+
+const element =
+document.getElementById(id);
+
+if (element) {
+
+element.textContent =
+elements[id];
+
+}
+
+}
+
+);
+
+}
+
+
+// ========================================
+// STARTUP
+// ========================================
+
+v17RenderNPCs();
     
 </script>
 
