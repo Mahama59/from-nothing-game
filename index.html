@@ -2851,6 +2851,194 @@ style="width:100%;">
 </button>
 
 </div>
+
+<!-- =========================================
+     FROM NOTHING V22
+     ADVANCED COMPANY MANAGEMENT
+========================================= -->
+
+<div id="v22Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:27000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:800px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V22
+</div>
+
+<h1 style="color:#ffd700;">
+🏢 ADVANCED COMPANY MANAGEMENT
+</h1>
+
+<p>
+Build a team, improve productivity and turn your company
+into a powerful money-making machine.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+">
+
+<h2>📊 COMPANY PERFORMANCE</h2>
+
+<p>
+👥 Employees:
+<strong id="v22EmployeeCount">0</strong>
+</p>
+
+<p>
+📈 Productivity:
+<strong id="v22Productivity">0%</strong>
+</p>
+
+<p>
+💰 Daily Revenue:
+<strong id="v22Revenue">$0</strong>
+</p>
+
+<p>
+💸 Daily Salaries:
+<strong id="v22Salaries">$0</strong>
+</p>
+
+<p>
+💎 Daily Profit:
+<strong id="v22Profit">$0</strong>
+</p>
+
+<p>
+⭐ Company Level:
+<strong id="v22CompanyLevel">1</strong>
+</p>
+
+<p>
+🏆 Company Reputation:
+<strong id="v22CompanyReputation">0</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h2>👥 YOUR TEAM</h2>
+
+<div id="v22Employees">
+No employees hired yet.
+</div>
+
+<hr>
+
+<h2>➕ HIRE EMPLOYEES</h2>
+
+<button
+onclick="v22HireEmployee('worker')"
+style="width:100%;">
+👷 Hire Worker — $500
+</button>
+
+<button
+onclick="v22HireEmployee('manager')"
+style="width:100%;margin-top:7px;">
+👨‍💼 Hire Manager — $2,500
+</button>
+
+<button
+onclick="v22HireEmployee('executive')"
+style="width:100%;margin-top:7px;">
+💼 Hire Executive — $10,000
+</button>
+
+<hr>
+
+<h2>🎓 TRAINING</h2>
+
+<button
+onclick="v22TrainEmployees()"
+style="width:100%;">
+📚 Train Employees — $1,000
+</button>
+
+<hr>
+
+<h2>📊 COMPANY ACTIONS</h2>
+
+<button
+onclick="v22RunCompany()"
+style="width:100%;">
+▶️ Run Company
+</button>
+
+<button
+onclick="v22PaySalaries()"
+style="width:100%;margin-top:7px;">
+💵 Pay Salaries
+</button>
+
+<button
+onclick="v22PromoteEmployee()"
+style="width:100%;margin-top:7px;">
+⭐ Promote Employee
+</button>
+
+<button
+onclick="v22Close()"
+style="width:100%;margin-top:20px;">
+Close Company
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V22 DASHBOARD
+========================================= -->
+
+<div class="panel">
+
+<h2>👥 EMPLOYEE MANAGEMENT</h2>
+
+<p>
+Your business is growing. You can now hire people
+to work for you.
+</p>
+
+<p>
+👥 Employees:
+<strong id="v22DashboardEmployees">0</strong>
+</p>
+
+<p>
+📈 Productivity:
+<strong id="v22DashboardProductivity">0%</strong>
+</p>
+
+<button
+onclick="v22Open()"
+style="width:100%;">
+👥 Open Employee Management
+</button>
+
+</div>
         
     <button onclick="work()">
         💼 Work
@@ -17405,6 +17593,1095 @@ v21UpdateDashboard();
 // ========================================
 
 v21Render();
+
+   // ========================================
+// FROM NOTHING V22
+// ADVANCED COMPANY MANAGEMENT
+// ========================================
+
+// IMPORTANT:
+// V22 DOES NOT create another money variable.
+// It uses the existing money variable.
+
+let v22Employees = [];
+
+let v22CompanyLevel = 1;
+
+let v22CompanyReputation = 0;
+
+let v22TotalRevenue = 0;
+
+let v22TotalSalaries = 0;
+
+
+// ========================================
+// EMPLOYEE TYPES
+// ========================================
+
+const v22EmployeeTypes = {
+
+worker: {
+
+name: "Worker",
+
+emoji: "👷",
+
+hireCost: 500,
+
+salary: 50,
+
+productivity: 10,
+
+experience: 1
+
+},
+
+manager: {
+
+name: "Manager",
+
+emoji: "👨‍💼",
+
+hireCost: 2500,
+
+salary: 150,
+
+productivity: 30,
+
+experience: 3
+
+},
+
+executive: {
+
+name: "Executive",
+
+emoji: "💼",
+
+hireCost: 10000,
+
+salary: 500,
+
+productivity: 70,
+
+experience: 5
+
+}
+
+};
+
+
+// ========================================
+// OPEN
+// ========================================
+
+function v22Open() {
+
+const panel =
+document.getElementById("v22Panel");
+
+if (panel) {
+
+panel.style.display = "flex";
+
+}
+
+v22Render();
+
+}
+
+
+// ========================================
+// CLOSE
+// ========================================
+
+function v22Close() {
+
+const panel =
+document.getElementById("v22Panel");
+
+if (panel) {
+
+panel.style.display = "none";
+
+}
+
+}
+
+
+// ========================================
+// HIRE EMPLOYEE
+// ========================================
+
+function v22HireEmployee(type) {
+
+const data =
+v22EmployeeTypes[type];
+
+if (!data) {
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < data.hireCost) {
+
+showMessage(
+"❌ You need $" +
+data.hireCost.toLocaleString() +
+" to hire a " +
+data.name +
+"."
+);
+
+return;
+
+}
+
+
+money -= data.hireCost;
+
+
+const employee = {
+
+id:
+Date.now() +
+Math.floor(
+Math.random() * 1000
+),
+
+type: type,
+
+name:
+data.name +
+" #" +
+(v22Employees.length + 1),
+
+level: 1,
+
+experience:
+data.experience,
+
+productivity:
+data.productivity,
+
+salary:
+data.salary
+
+};
+
+
+v22Employees.push(
+employee
+);
+
+
+v22CompanyReputation += 2;
+
+
+showMessage(
+"🎉 Hired " +
+data.name +
+" successfully!"
+);
+
+
+v22Render();
+
+v22UpdateMain();
+
+}
+
+
+// ========================================
+// TRAIN EMPLOYEES
+// ========================================
+
+function v22TrainEmployees() {
+
+if (
+v22Employees.length === 0
+) {
+
+showMessage(
+"❌ You have no employees to train."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+const trainingCost =
+1000;
+
+
+if (money < trainingCost) {
+
+showMessage(
+"❌ You need $1,000 for employee training."
+);
+
+return;
+
+}
+
+
+money -=
+trainingCost;
+
+
+v22Employees.forEach(
+function(employee) {
+
+employee.level += 1;
+
+employee.experience += 5;
+
+employee.productivity += 5;
+
+employee.productivity =
+Math.min(
+100,
+employee.productivity
+);
+
+}
+);
+
+
+v22CompanyReputation += 5;
+
+
+showMessage(
+"🎓 Your employees completed training!"
+);
+
+
+v22Render();
+
+v22UpdateMain();
+
+}
+
+
+// ========================================
+// PROMOTE EMPLOYEE
+// ========================================
+
+function v22PromoteEmployee() {
+
+if (
+v22Employees.length === 0
+) {
+
+showMessage(
+"❌ You don't have any employees."
+);
+
+return;
+
+}
+
+
+const index =
+Number(
+prompt(
+"Enter employee number to promote:\n" +
+v22Employees
+.map(
+function(employee, i) {
+
+return (
+(i + 1) +
+". " +
+employee.name
+);
+
+}
+)
+.join("\n")
+)
+) - 1;
+
+
+if (
+index < 0 ||
+index >= v22Employees.length
+) {
+
+return;
+
+}
+
+
+const employee =
+v22Employees[index];
+
+
+if (
+employee.type ===
+"executive"
+) {
+
+showMessage(
+"⭐ This employee is already an Executive."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+const promotionCost =
+employee.type ===
+"worker"
+?
+1500
+:
+5000;
+
+
+if (money < promotionCost) {
+
+showMessage(
+"❌ Promotion costs $" +
+promotionCost.toLocaleString() +
+"."
+);
+
+return;
+
+}
+
+
+money -=
+promotionCost;
+
+
+if (
+employee.type ===
+"worker"
+) {
+
+employee.type =
+"manager";
+
+employee.salary =
+150;
+
+employee.productivity +=
+20;
+
+}
+else {
+
+employee.type =
+"executive";
+
+employee.salary =
+500;
+
+employee.productivity +=
+30;
+
+}
+
+
+employee.level += 1;
+
+employee.productivity =
+Math.min(
+100,
+employee.productivity
+);
+
+
+v22CompanyReputation +=
+5;
+
+
+showMessage(
+"⭐ " +
+employee.name +
+" has been promoted!"
+);
+
+
+v22Render();
+
+v22UpdateMain();
+
+}
+
+
+// ========================================
+// CALCULATE PRODUCTIVITY
+// ========================================
+
+function v22CalculateProductivity() {
+
+if (
+v22Employees.length === 0
+) {
+
+return 0;
+
+}
+
+
+let total = 0;
+
+
+v22Employees.forEach(
+function(employee) {
+
+total +=
+employee.productivity;
+
+}
+);
+
+
+const average =
+total /
+v22Employees.length;
+
+
+return Math.min(
+100,
+Math.floor(
+average
+)
+);
+
+}
+
+
+// ========================================
+// CALCULATE REVENUE
+// ========================================
+
+function v22CalculateRevenue() {
+
+if (
+v22Employees.length === 0
+) {
+
+return 0;
+
+}
+
+
+const productivity =
+v22CalculateProductivity();
+
+
+let baseRevenue = 0;
+
+
+v22Employees.forEach(
+function(employee) {
+
+if (
+employee.type ===
+"worker"
+) {
+
+baseRevenue +=
+100;
+
+}
+
+else if (
+employee.type ===
+"manager"
+) {
+
+baseRevenue +=
+350;
+
+}
+
+else if (
+employee.type ===
+"executive"
+) {
+
+baseRevenue +=
+1000;
+
+}
+
+});
+
+
+const revenue =
+Math.floor(
+baseRevenue *
+(
+productivity /
+100
+)
+);
+
+
+return revenue;
+
+}
+
+
+// ========================================
+// CALCULATE SALARIES
+// ========================================
+
+function v22CalculateSalaries() {
+
+let total = 0;
+
+
+v22Employees.forEach(
+function(employee) {
+
+total +=
+employee.salary;
+
+});
+
+
+return total;
+
+}
+
+
+// ========================================
+// RUN COMPANY
+// ========================================
+
+function v22RunCompany() {
+
+if (
+v22Employees.length === 0
+) {
+
+showMessage(
+"❌ Hire employees before running your company."
+);
+
+return;
+
+}
+
+
+const revenue =
+v22CalculateRevenue();
+
+
+const salaries =
+v22CalculateSalaries();
+
+
+const profit =
+Math.max(
+0,
+revenue -
+salaries
+);
+
+
+if (
+typeof money !== "undefined"
+) {
+
+money +=
+profit;
+
+}
+
+
+v22TotalRevenue +=
+revenue;
+
+v22TotalSalaries +=
+salaries;
+
+
+if (
+profit > 0
+) {
+
+v22CompanyReputation +=
+2;
+
+}
+
+
+if (
+v22CompanyReputation >=
+25
+) {
+
+v22CompanyLevel = 2;
+
+}
+
+if (
+v22CompanyReputation >=
+50
+) {
+
+v22CompanyLevel = 3;
+
+}
+
+if (
+v22CompanyReputation >=
+100
+) {
+
+v22CompanyLevel = 4;
+
+}
+
+if (
+v22CompanyReputation >=
+200
+) {
+
+v22CompanyLevel = 5;
+
+}
+
+
+showMessage(
+"🏢 Company ran successfully! Profit: $" +
+profit.toLocaleString()
+);
+
+
+v22Render();
+
+v22UpdateMain();
+
+}
+
+
+// ========================================
+// PAY SALARIES
+// ========================================
+
+function v22PaySalaries() {
+
+const salaries =
+v22CalculateSalaries();
+
+
+if (
+salaries <= 0
+) {
+
+showMessage(
+"💰 No salaries are currently due."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < salaries) {
+
+showMessage(
+"❌ You need $" +
+salaries.toLocaleString() +
+" to pay employee salaries."
+);
+
+return;
+
+}
+
+
+money -=
+salaries;
+
+
+showMessage(
+"💵 Employee salaries paid: $" +
+salaries.toLocaleString()
+);
+
+
+v22Render();
+
+v22UpdateMain();
+
+}
+
+
+// ========================================
+// EMPLOYEE LIST
+// ========================================
+
+function v22RenderEmployees() {
+
+const container =
+document.getElementById(
+"v22Employees"
+);
+
+if (!container) {
+
+return;
+
+}
+
+
+if (
+v22Employees.length === 0
+) {
+
+container.innerHTML =
+"No employees hired yet.";
+
+return;
+
+}
+
+
+container.innerHTML = "";
+
+
+v22Employees.forEach(
+function(employee, index) {
+
+const box =
+document.createElement(
+"div"
+);
+
+
+box.style.background =
+"#101010";
+
+box.style.padding =
+"15px";
+
+box.style.borderRadius =
+"10px";
+
+box.style.marginBottom =
+"10px";
+
+
+const data =
+v22EmployeeTypes[
+employee.type
+];
+
+
+box.innerHTML =
+
+"<h3>" +
+
+data.emoji +
+" " +
+employee.name +
+
+"</h3>" +
+
+"<p>" +
+
+"Position: <strong>" +
+data.name +
+"</strong>" +
+
+"</p>" +
+
+"<p>" +
+
+"Level: <strong>" +
+employee.level +
+"</strong>" +
+
+"</p>" +
+
+"<p>" +
+
+"Experience: <strong>" +
+employee.experience +
+"</strong>" +
+
+"</p>" +
+
+"<p>" +
+
+"Productivity: <strong>" +
+employee.productivity +
+"%</strong>" +
+
+"</p>" +
+
+"<p>" +
+
+"Salary: <strong>$" +
+employee.salary.toLocaleString() +
+"</strong>" +
+
+"</p>";
+
+
+container.appendChild(
+box
+);
+
+}
+);
+
+}
+
+
+// ========================================
+// RENDER PERFORMANCE
+// ========================================
+
+function v22RenderPerformance() {
+
+const employeeCount =
+document.getElementById(
+"v22EmployeeCount"
+);
+
+const productivity =
+document.getElementById(
+"v22Productivity"
+);
+
+const revenue =
+document.getElementById(
+"v22Revenue"
+);
+
+const salaries =
+document.getElementById(
+"v22Salaries"
+);
+
+const profit =
+document.getElementById(
+"v22Profit"
+);
+
+const level =
+document.getElementById(
+"v22CompanyLevel"
+);
+
+const reputation =
+document.getElementById(
+"v22CompanyReputation"
+);
+
+
+const totalEmployees =
+v22Employees.length;
+
+
+const productivityValue =
+v22CalculateProductivity();
+
+
+const revenueValue =
+v22CalculateRevenue();
+
+
+const salaryValue =
+v22CalculateSalaries();
+
+
+const profitValue =
+Math.max(
+0,
+revenueValue -
+salaryValue
+);
+
+
+if (employeeCount) {
+
+employeeCount.textContent =
+totalEmployees;
+
+}
+
+
+if (productivity) {
+
+productivity.textContent =
+productivityValue +
+"%";
+
+}
+
+
+if (revenue) {
+
+revenue.textContent =
+"$" +
+revenueValue.toLocaleString();
+
+}
+
+
+if (salaries) {
+
+salaries.textContent =
+"$" +
+salaryValue.toLocaleString();
+
+}
+
+
+if (profit) {
+
+profit.textContent =
+"$" +
+profitValue.toLocaleString();
+
+}
+
+
+if (level) {
+
+level.textContent =
+v22CompanyLevel;
+
+}
+
+
+if (reputation) {
+
+reputation.textContent =
+v22CompanyReputation;
+
+}
+
+}
+
+
+// ========================================
+// DASHBOARD
+// ========================================
+
+function v22UpdateDashboard() {
+
+const employees =
+document.getElementById(
+"v22DashboardEmployees"
+);
+
+const productivity =
+document.getElementById(
+"v22DashboardProductivity"
+);
+
+
+if (employees) {
+
+employees.textContent =
+v22Employees.length;
+
+}
+
+
+if (productivity) {
+
+productivity.textContent =
+v22CalculateProductivity() +
+"%";
+
+}
+
+}
+
+
+// ========================================
+// MAIN RENDER
+// ========================================
+
+function v22Render() {
+
+v22RenderEmployees();
+
+v22RenderPerformance();
+
+v22UpdateDashboard();
+
+}
+
+
+// ========================================
+// UPDATE MAIN GAME
+// ========================================
+
+function v22UpdateMain() {
+
+if (
+typeof updateScreen ===
+"function"
+) {
+
+updateScreen();
+
+}
+
+v22Render();
+
+}
+
+
+// ========================================
+// START V22
+// ========================================
+
+v22Render();
     
 </script>
 
