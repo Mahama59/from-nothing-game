@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROM NOTHING</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #101010;
+            color: white;
+        }
+
+        .game {
+            max-width: 800px;
+            margin: auto;
+            min-height: 100vh;
+            background: #1e1e1e;
+        }
+
+        header {
+            background: #080808;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #ffd700;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #ffd700;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 12px;
+        }
+
+        .stat {
+            background: #303030;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat strong {
+            display: block;
+            color: #ffd700;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .panel {
+            background: #292929;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 8px;
+            background: #ffd700;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: white;
+        }
+
+        .message {
+            text-align: center;
+            color: #90ee90;
+            font-weight: bold;
+            min-height: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        #creation {
+            position: fixed;
+            inset: 0;
+            background: #080808;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .creation-box {
+            width: 90%;
+            max-width: 500px;
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .creation-box h1 {
+            color: #ffd700;
+        }
+
+        @media(max-width:600px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="creation">
+    <div class="creation-box">
+        <h1>FROM NOTHING</h1>
+
+        <h2>Build Your Life</h2>
+
+        <p>
+            You start with nothing.
+            Your choices will determine your future.
+        </p>
+
+        <input
+            id="playerName"
+            type="text"
+            placeholder="Enter your name"
+        >
+
+        <button onclick="startGame('worker')">
+            💪 HARD WORKER
+        </button>
+
+        <button onclick="startGame('smart')">
+            🧠 INTELLIGENT
+        </button>
+
+        <button onclick="startGame('social')">
+            🤝 SOCIAL
+        </button>
+    </div>
+</div>
+
+<div class="game">
+
+<header>
+    <h1>FROM NOTHING</h1>
+    <p>From the streets to $1,000,000,000</p>
+</header>
+
+<div class="stats">
+
+    <div class="stat">
+        💰 Money
+        <strong>$<span id="money">0</span></strong>
+    </div>
+
+    <div class="stat">
+        ⚡ Energy
+        <strong><span id="energy">100</span></strong>
+    </div>
+
+    <div class="stat">
+        ❤️ Health
+        <strong><span id="health">100</span></strong>
+    </div>
+
+    <div class="stat">
+        ⭐ Level
+        <strong><span id="level">1</span></strong>
+    </div>
+
+</div>
+
+<div class="content">
+
+<div class="message" id="message"></div>
+
+<div class="panel">
+
+    <h2>👤 CHARACTER</h2>
+
+    <p>
+        Name:
+        <strong id="characterName">Unknown</strong>
+    </p>
+
+    <p>
+        Career:
+        <strong id="career">Unemployed</strong>
+    </p>
+
+    <p>
+        Strength:
+        <strong id="strength">1</strong>
+    </p>
+
+    <p>
+        Intelligence:
+        <strong id="intelligence">1</strong>
+    </p>
+
+    <p>
+        Charisma:
+        <strong id="charisma">1</strong>
+    </p>
+
+</div>
+
+<div class="panel">
+
+    <h2>📖 STORY</h2>
+
+    <h3 id="chapter">
+        Chapter 1 — The Beginning
+    </h3>
+
+    <p id="story">
+        You wake up on the street.
+        You have no money, no house and no job.
+        Your journey begins today.
+    </p>
+
+</div>
+
+<div class="panel">
+
+    <h2>⚡ ACTIONS</h2>
+
+    <button onclick="work()">
+        💼 Work
+    </button>
+
+    <button onclick="study()">
+        🎓 Study
+    </button>
+
+    <button onclick="network()">
+        🤝 Network
+    </button>
+
+    <button onclick="sleep()">
+        😴 Sleep
+    </button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+// ========================================
+// FROM NOTHING — MAIN VARIABLES
+// ========================================
+
+let playerName = "";
+let background = "";
+
+let strength = 1;
+let intelligence = 1;
+let charisma = 1;
+
+let money = 0;
+let energy = 100;
+let health = 100;
+
+let level = 1;
+let xp = 0;
+
+let career = "Unemployed";
+
+
+// ========================================
+// UPDATE SCREEN
+// ========================================
+
+function updateScreen() {
+
+    document.getElementById("money").textContent = money;
+
+    document.getElementById("energy").textContent = energy;
+
+    document.getElementById("health").textContent = health;
+
+    document.getElementById("level").textContent = level;
+
+    document.getElementById("characterName").textContent =
+        playerName;
+
+    document.getElementById("career").textContent =
+        career;
+
+    document.getElementById("strength").textContent =
+        strength;
+
+    document.getElementById("intelligence").textContent =
+        intelligence;
+
+    document.getElementById("charisma").textContent =
+        charisma;
+}
+
+
+// ========================================
+// START GAME
+// ========================================
+
+function startGame(type) {
+
+    playerName =
+        document.getElementById("playerName").value.trim();
+
+    if (playerName === "") {
+
+        alert("Please enter your name.");
+
+        return;
+    }
+
+    background = type;
+
+    if (type === "worker") {
+
+        strength = 3;
+        intelligence = 1;
+        charisma = 1;
+
+    }
+
+    if (type === "smart") {
+
+        strength = 1;
+        intelligence = 3;
+        charisma = 1;
+
+    }
+
+    if (type === "social") {
+
+        strength = 1;
+        intelligence = 1;
+        charisma = 3;
+
+    }
+
+    document.getElementById("creation").style.display =
+        "none";
+
+    document.getElementById("story").textContent =
+        "Welcome " + playerName +
+        ". You have nothing, but your journey starts now.";
+
+    showMessage(
+        "Your journey has begun!"
+    );
+
+    updateScreen();
+}
+
+
+// ========================================
+// MESSAGE
+// ========================================
+
+function showMessage(text) {
+
+    document.getElementById("message").textContent =
+        text;
+}
+
+
+// ========================================
+// WORK
+// ========================================
+
+function work() {
+
+    if (energy < 20) {
+
+        showMessage(
+            "You are too tired. Sleep first."
+        );
+
+        return;
+    }
+
+    let earnings = 10;
+
+    if (strength >= 3) {
+
+        earnings = 20;
+
+    }
+
+    money += earnings;
+
+    energy -= 20;
+
+    xp += 20;
+
+    document.getElementById("story").textContent =
+        "You worked hard and earned $" +
+        earnings +
+        ".";
+
+    showMessage(
+        "+$" + earnings + " | +20 XP"
+    );
+
+    checkLevel();
+
+    updateScreen();
+}
+
+
+// ========================================
+// STUDY
+// ========================================
+
+function study() {
+
+    if (energy < 20) {
+
+        showMessage(
+            "You are too tired to study."
+        );
+
+        return;
+    }
+
+    intelligence++;
+
+    energy -= 20;
+
+    xp += 30;
+
+    showMessage(
+        "+1 Intelligence | +30 XP"
+    );
+
+    document.getElementById("story").textContent =
+        "You spend time learning a valuable skill.";
+
+    checkLevel();
+
+    updateScreen();
+}
+
+
+// ========================================
+// NETWORK
+// ========================================
+
+function network() {
+
+    if (energy < 15) {
+
+        showMessage(
+            "You need more energy."
+        );
+
+        return;
+    }
+
+    charisma++;
+
+    energy -= 15;
+
+    xp += 20;
+
+    showMessage(
+        "+1 Charisma | +20 XP"
+    );
+
+    document.getElementById("story").textContent =
+        "You meet new people and build relationships.";
+
+    checkLevel();
+
+    updateScreen();
+}
+
+
+// ========================================
+// SLEEP
+// ========================================
+
+function sleep() {
+
+    energy += 50;
+
+    if (energy > 100) {
+
+        energy = 100;
+
+    }
+
+    document.getElementById("story").textContent =
+        "You sleep on the street and wake up ready to continue.";
+
+    showMessage(
+        "+50 Energy"
+    );
+
+    updateScreen();
+}
+
+
+// ========================================
+// LEVEL SYSTEM
+// ========================================
+
+function checkLevel() {
+
+    if (xp >= 100) {
+
+        xp -= 100;
+
+        level++;
+
+        showMessage(
+            "🎉 LEVEL UP! You are now Level " +
+            level
+        );
+
+    }
+}
+
+</script>
+
+</body>
+</html>
