@@ -2020,7 +2020,838 @@ Build relationships carefully.
 </p>
 
 </div>
-   
+
+    <!-- =========================================
+     FROM NOTHING V18
+     BUSINESS EMPIRE
+========================================= -->
+
+<div id="v18Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:23000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:750px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V18
+</div>
+
+<h1 style="color:#ffd700;">
+🏢 BUSINESS EMPIRE
+</h1>
+
+<p>
+Stop working only for money.
+Build companies that make money for you.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+">
+
+<p>
+💰 Business Cash:
+<strong id="v18Cash">$0</strong>
+</p>
+
+<p>
+🏢 Companies:
+<strong id="v18CompanyCount">0</strong>
+</p>
+
+<p>
+📈 Daily Revenue:
+<strong id="v18Revenue">$0</strong>
+</p>
+
+<p>
+💸 Daily Expenses:
+<strong id="v18Expenses">$0</strong>
+</p>
+
+<p>
+💎 Business Value:
+<strong id="v18Value">$0</strong>
+</p>
+
+<p>
+⭐ Business Level:
+<strong id="v18Level">1</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h2>🚀 START A BUSINESS</h2>
+
+<button onclick="v18CreateBusiness('Food')"
+style="width:100%;">
+🍔 Food Business — $1,000
+</button>
+
+<button onclick="v18CreateBusiness('Clothing')"
+style="width:100%;margin-top:7px;">
+👕 Clothing Business — $5,000
+</button>
+
+<button onclick="v18CreateBusiness('Transport')"
+style="width:100%;margin-top:7px;">
+🚕 Transport Business — $10,000
+</button>
+
+<button onclick="v18CreateBusiness('Technology')"
+style="width:100%;margin-top:7px;">
+💻 Technology Company — $25,000
+</button>
+
+<button onclick="v18CreateBusiness('Finance')"
+style="width:100%;margin-top:7px;">
+🏦 Finance Company — $100,000
+</button>
+
+<hr>
+
+<h2>🏢 YOUR COMPANIES</h2>
+
+<div id="v18CompanyList">
+No companies yet.
+</div>
+
+<hr>
+
+<h2>📊 BUSINESS ACTIONS</h2>
+
+<button onclick="v18RunBusinesses()"
+style="width:100%;">
+▶️ Run All Businesses
+</button>
+
+<button onclick="v18UpgradeBusinesses()"
+style="width:100%;margin-top:7px;">
+⬆️ Upgrade Businesses
+</button>
+
+<button onclick="v18CollectRevenue()"
+style="width:100%;margin-top:7px;">
+💰 Collect Revenue
+</button>
+
+<button onclick="v18ExpandBusiness()"
+style="width:100%;margin-top:7px;">
+🌍 Expand Business
+</button>
+
+<button onclick="v18Close()"
+style="width:100%;margin-top:20px;">
+Close
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V18 BUSINESS DASHBOARD
+========================================= -->
+
+<div class="panel">
+
+<h2>🏢 BUSINESS EMPIRE</h2>
+
+<p>
+Build companies and create income that works for you.
+</p>
+
+<p>
+💰 Revenue:
+<strong id="v18DashboardRevenue">$0</strong>
+</p>
+
+<p>
+💎 Business Value:
+<strong id="v18DashboardValue">$0</strong>
+</p>
+
+<button
+onclick="v18Open()"
+style="width:100%;">
+🏢 Open Business Empire
+</button>
+
+</div>
+
+        <!-- =========================================
+     FROM NOTHING V19
+     FINANCIAL EMPIRE
+========================================= -->
+
+<div id="v19Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:24000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:750px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V19
+</div>
+
+<h1 style="color:#ffd700;">
+💎 FINANCIAL EMPIRE
+</h1>
+
+<p>
+Everything you own contributes to your net worth.
+</p>
+
+<div style="
+background:#101010;
+padding:20px;
+border-radius:12px;
+text-align:center;
+">
+
+<h2>💎 NET WORTH</h2>
+
+<h1 id="v19NetWorth"
+style="color:#ffd700;">
+$0
+</h1>
+
+<p>
+Rank:
+<strong id="v19Rank">
+Street Beginner
+</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h2>💰 FINANCIAL STATUS</h2>
+
+<p>
+💵 Cash:
+<strong id="v19Cash">$0</strong>
+</p>
+
+<p>
+🏦 Bank:
+<strong id="v19Bank">$0</strong>
+</p>
+
+<p>
+📈 Investments:
+<strong id="v19InvestmentValue">$0</strong>
+</p>
+
+<p>
+💳 Debt:
+<strong id="v19Debt">$0</strong>
+</p>
+
+<hr>
+
+<h2>🏠 ASSETS</h2>
+
+<p>
+🏠 Properties:
+<strong id="v19PropertyValue">$0</strong>
+</p>
+
+<p>
+🚗 Vehicles:
+<strong id="v19VehicleValue">$0</strong>
+</p>
+
+<p>
+🏢 Businesses:
+<strong id="v19BusinessValue">$0</strong>
+</p>
+
+<hr>
+
+<h2>🏦 BANK</h2>
+
+<input
+id="v19BankAmount"
+type="number"
+placeholder="Enter amount"
+style="
+width:100%;
+padding:13px;
+margin-bottom:8px;
+border-radius:8px;
+border:none;
+">
+
+<button
+onclick="v19Deposit()"
+style="width:100%;">
+🏦 Deposit Money
+</button>
+
+<button
+onclick="v19Withdraw()"
+style="
+width:100%;
+margin-top:7px;
+">
+💵 Withdraw Money
+</button>
+
+<button
+onclick="v19CollectInterest()"
+style="
+width:100%;
+margin-top:7px;
+">
+💰 Collect Bank Interest
+</button>
+
+<hr>
+
+<h2>📈 INVESTMENTS</h2>
+
+<input
+id="v19InvestmentAmount"
+type="number"
+placeholder="Investment amount"
+style="
+width:100%;
+padding:13px;
+margin-bottom:8px;
+border-radius:8px;
+border:none;
+">
+
+<button
+onclick="v19Invest()"
+style="width:100%;">
+📈 Invest Money
+</button>
+
+<button
+onclick="v19UpdateInvestments()"
+style="
+width:100%;
+margin-top:7px;
+">
+📊 Update Investments
+</button>
+
+<hr>
+
+<h2>💳 LOANS</h2>
+
+<button
+onclick="v19TakeLoan(10000)"
+style="width:100%;">
+💳 Borrow $10,000
+</button>
+
+<button
+onclick="v19TakeLoan(100000)"
+style="
+width:100%;
+margin-top:7px;
+">
+💳 Borrow $100,000
+</button>
+
+<button
+onclick="v19TakeLoan(1000000)"
+style="
+width:100%;
+margin-top:7px;
+">
+💳 Borrow $1,000,000
+</button>
+
+<input
+id="v19RepayAmount"
+type="number"
+placeholder="Repayment amount"
+style="
+width:100%;
+padding:13px;
+margin-top:8px;
+border-radius:8px;
+border:none;
+">
+
+<button
+onclick="v19RepayLoan()"
+style="
+width:100%;
+margin-top:7px;
+">
+💵 Repay Loan
+</button>
+
+<hr>
+
+<h2>🏆 FINANCIAL PROGRESS</h2>
+
+<p>
+Goal: <strong>$1,000,000,000</strong>
+</p>
+
+<div style="
+background:#444;
+height:18px;
+border-radius:20px;
+overflow:hidden;
+">
+
+<div
+id="v19Progress"
+style="
+height:100%;
+width:0%;
+background:#ffd700;
+">
+</div>
+
+</div>
+
+<p id="v19ProgressText">
+0%
+</p>
+
+<button
+onclick="v19Close()"
+style="
+width:100%;
+margin-top:20px;
+">
+Close
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V19 DASHBOARD BUTTON
+========================================= -->
+
+<div class="panel">
+
+<h2>💎 FINANCIAL EMPIRE</h2>
+
+<p>
+Build your net worth and work toward
+<strong>$1,000,000,000</strong>.
+</p>
+
+<p>
+Net Worth:
+<strong id="v19DashboardNetWorth">
+$0
+</strong>
+</p>
+
+<button
+onclick="v19Open()"
+style="width:100%;">
+💎 Open Financial Dashboard
+</button>
+
+</div>
+
+        <!-- =========================================
+     FROM NOTHING V20
+     CITY & WORLD EXPANSION
+========================================= -->
+
+<div id="v20Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:25000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:750px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V20
+</div>
+
+<h1 style="color:#ffd700;">
+🌍 WORLD EXPANSION
+</h1>
+
+<p>
+Your empire is growing. Travel to new cities,
+discover opportunities and expand your influence.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+">
+
+<p>
+📍 Current City:
+<strong id="v20CurrentCity">
+Accra
+</strong>
+</p>
+
+<p>
+🌍 Cities Unlocked:
+<strong id="v20CitiesUnlocked">
+1
+</strong>
+</p>
+
+<p>
+⭐ Global Reputation:
+<strong id="v20GlobalReputation">
+0
+</strong>
+</p>
+
+<p>
+🌎 Expansion Level:
+<strong id="v20ExpansionLevel">
+1
+</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h2>🏙️ CITIES</h2>
+
+<div id="v20CityList"></div>
+
+<hr>
+
+<h2>✈️ TRAVEL</h2>
+
+<p id="v20TravelMessage">
+Choose a city to travel there.
+</p>
+
+<hr>
+
+<h2>🏢 CITY OPPORTUNITIES</h2>
+
+<div id="v20CityOpportunities">
+Travel to another city to discover opportunities.
+</div>
+
+<button
+onclick="v20Close()"
+style="
+width:100%;
+margin-top:20px;
+">
+Close World Map
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V20 WORLD DASHBOARD
+========================================= -->
+
+<div class="panel">
+
+<h2>🌍 WORLD EXPANSION</h2>
+
+<p>
+Expand your empire across cities and countries.
+</p>
+
+<p>
+📍 City:
+<strong id="v20DashboardCity">
+Accra
+</strong>
+</p>
+
+<p>
+🌍 Global Reputation:
+<strong id="v20DashboardReputation">
+0
+</strong>
+</p>
+
+<button
+onclick="v20Open()"
+style="width:100%;">
+🌍 Open World Map
+</button>
+
+</div> 
+
+        <!-- =========================================
+     FROM NOTHING V21
+     BANKING & STOCK MARKET
+========================================= -->
+
+<div id="v21Panel" style="
+position:fixed;
+inset:0;
+background:#050505ee;
+z-index:26000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+overflow:auto;
+">
+
+<div style="
+width:100%;
+max-width:800px;
+background:#202020;
+border:2px solid #ffd700;
+border-radius:16px;
+padding:25px;
+box-shadow:0 0 40px #000;
+">
+
+<div style="color:#888;">
+FROM NOTHING — V21
+</div>
+
+<h1 style="color:#ffd700;">
+🏦 BANK & STOCK MARKET
+</h1>
+
+<p>
+Turn your money into investments and build your financial empire.
+</p>
+
+<div style="
+background:#101010;
+padding:18px;
+border-radius:12px;
+">
+
+<h2>💰 FINANCIAL STATUS</h2>
+
+<p>
+Cash:
+<strong id="v21Cash">$0</strong>
+</p>
+
+<p>
+Bank:
+<strong id="v21Bank">$0</strong>
+</p>
+
+<p>
+Investments:
+<strong id="v21Investments">$0</strong>
+</p>
+
+<p>
+Debt:
+<strong id="v21Debt">$0</strong>
+</p>
+
+<p>
+Net Financial Wealth:
+<strong id="v21FinancialWealth">$0</strong>
+</p>
+
+</div>
+
+<hr>
+
+<h2>🏦 BANK</h2>
+
+<input
+id="v21BankAmount"
+type="number"
+placeholder="Enter amount"
+style="
+width:100%;
+padding:14px;
+margin-bottom:8px;
+border-radius:8px;
+border:none;
+">
+
+<button
+onclick="v21Deposit()"
+style="width:100%;">
+💵 Deposit Money
+</button>
+
+<button
+onclick="v21Withdraw()"
+style="width:100%;margin-top:6px;">
+💰 Withdraw Money
+</button>
+
+<button
+onclick="v21CollectInterest()"
+style="width:100%;margin-top:6px;">
+🏦 Collect Bank Interest
+</button>
+
+<p>
+Interest Rate:
+<strong>2% daily</strong>
+</p>
+
+<hr>
+
+<h2>📈 STOCK MARKET</h2>
+
+<p id="v21MarketStatus">
+The market is open.
+</p>
+
+<div id="v21StockList"></div>
+
+<button
+onclick="v21UpdateMarket()"
+style="width:100%;margin-top:10px;">
+📊 Update Market
+</button>
+
+<hr>
+
+<h2>💼 YOUR COMPANY IPO</h2>
+
+<p id="v21IPOStatus">
+Your company is not publicly traded.
+</p>
+
+<button
+onclick="v21LaunchIPO()"
+style="width:100%;">
+🚀 Launch Company IPO
+</button>
+
+<hr>
+
+<h2>💳 LOANS</h2>
+
+<button
+onclick="v21TakeLoan(10000)"
+style="width:100%;">
+💳 Borrow $10,000
+</button>
+
+<button
+onclick="v21TakeLoan(100000)"
+style="width:100%;margin-top:6px;">
+💳 Borrow $100,000
+</button>
+
+<button
+onclick="v21TakeLoan(1000000)"
+style="width:100%;margin-top:6px;">
+💳 Borrow $1,000,000
+</button>
+
+<button
+onclick="v21RepayLoan()"
+style="width:100%;margin-top:6px;">
+💵 Repay Loan
+</button>
+
+<button
+onclick="v21Close()"
+style="width:100%;margin-top:20px;">
+Close Market
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================================
+     V21 DASHBOARD
+========================================= -->
+
+<div class="panel">
+
+<h2>🏦 BANK & INVESTMENTS</h2>
+
+<p>
+Put your money to work. Save, invest, borrow and build your
+financial empire.
+</p>
+
+<p>
+💰 Bank:
+<strong id="v21DashboardBank">$0</strong>
+</p>
+
+<p>
+📈 Investments:
+<strong id="v21DashboardInvestments">$0</strong>
+</p>
+
+<button
+onclick="v21Open()"
+style="width:100%;">
+📈 Open Bank & Stock Market
+</button>
+
+</div>
+        
     <button onclick="work()">
         💼 Work
     </button>
@@ -12767,6 +13598,3813 @@ elements[id];
 // ========================================
 
 v17RenderNPCs();
+
+// ========================================
+// FROM NOTHING V18
+// BUSINESS EMPIRE
+// ========================================
+
+// V18 uses unique names.
+// Do not rename these to old variables.
+
+let v18Companies = [];
+
+let v18BusinessCash = 0;
+
+let v18BusinessLevel = 1;
+
+let v18TotalRevenue = 0;
+
+let v18TotalExpenses = 0;
+
+let v18TotalValue = 0;
+
+
+// ========================================
+// BUSINESS TYPES
+// ========================================
+
+const v18BusinessTypes = {
+
+Food: {
+name: "Food Business",
+icon: "🍔",
+cost: 1000,
+revenue: 150,
+expense: 50,
+value: 1500
+},
+
+Clothing: {
+name: "Clothing Business",
+icon: "👕",
+cost: 5000,
+revenue: 600,
+expense: 200,
+value: 7500
+},
+
+Transport: {
+name: "Transport Business",
+icon: "🚕",
+cost: 10000,
+revenue: 1200,
+expense: 400,
+value: 15000
+},
+
+Technology: {
+name: "Technology Company",
+icon: "💻",
+cost: 25000,
+revenue: 3500,
+expense: 1200,
+value: 40000
+},
+
+Finance: {
+name: "Finance Company",
+icon: "🏦",
+cost: 100000,
+revenue: 15000,
+expense: 5000,
+value: 160000
+}
+
+};
+
+
+// ========================================
+// OPEN V18
+// ========================================
+
+function v18Open() {
+
+const panel =
+document.getElementById("v18Panel");
+
+if (panel) {
+
+panel.style.display = "flex";
+
+}
+
+v18Render();
+
+}
+
+
+// ========================================
+// CLOSE V18
+// ========================================
+
+function v18Close() {
+
+const panel =
+document.getElementById("v18Panel");
+
+if (panel) {
+
+panel.style.display = "none";
+
+}
+
+}
+
+
+// ========================================
+// CREATE BUSINESS
+// ========================================
+
+function v18CreateBusiness(type) {
+
+const business =
+v18BusinessTypes[type];
+
+if (!business) {
+
+return;
+
+}
+
+
+// Use existing game money.
+
+if (
+typeof money === "undefined"
+) {
+
+showMessage("Game money system not found.");
+
+return;
+
+}
+
+
+if (money < business.cost) {
+
+showMessage(
+"❌ You need $" +
+business.cost.toLocaleString() +
+" to start this business."
+);
+
+return;
+
+}
+
+
+money -= business.cost;
+
+
+const company = {
+
+id:
+Date.now(),
+
+type:
+type,
+
+name:
+business.name,
+
+icon:
+business.icon,
+
+revenue:
+business.revenue,
+
+expense:
+business.expense,
+
+value:
+business.value,
+
+level:
+1,
+
+employees:
+0,
+
+expansions:
+0,
+
+active:
+true
+
+};
+
+
+v18Companies.push(company);
+
+
+v18BusinessCash +=
+business.cost;
+
+
+showMessage(
+"🎉 You started a " +
+business.name +
+"!"
+);
+
+
+v18Recalculate();
+
+v18Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// RUN BUSINESSES
+// ========================================
+
+function v18RunBusinesses() {
+
+if (v18Companies.length === 0) {
+
+showMessage(
+"❌ You don't own any businesses yet."
+);
+
+return;
+
+}
+
+
+let revenue = 0;
+
+let expenses = 0;
+
+
+v18Companies.forEach(
+function(company) {
+
+if (!company.active) {
+
+return;
+
+}
+
+revenue +=
+company.revenue *
+company.level;
+
+expenses +=
+company.expense *
+company.level;
+
+});
+
+
+const profit =
+revenue - expenses;
+
+
+v18BusinessCash +=
+profit;
+
+
+v18TotalRevenue =
+revenue;
+
+v18TotalExpenses =
+expenses;
+
+
+if (profit > 0) {
+
+showMessage(
+"📈 Your businesses generated $" +
+profit.toLocaleString() +
+" profit."
+);
+
+}
+else {
+
+showMessage(
+"⚠️ Your businesses lost $" +
+Math.abs(profit).toLocaleString()
+);
+
+}
+
+
+v18Recalculate();
+
+v18Render();
+
+}
+
+
+// ========================================
+// COLLECT REVENUE
+// ========================================
+
+function v18CollectRevenue() {
+
+if (v18BusinessCash <= 0) {
+
+showMessage(
+"💰 Your business has no cash available."
+);
+
+return;
+
+}
+
+
+const amount =
+v18BusinessCash;
+
+
+v18BusinessCash = 0;
+
+
+if (
+typeof money !== "undefined"
+) {
+
+money += amount;
+
+}
+
+
+showMessage(
+"💰 You collected $" +
+amount.toLocaleString() +
+" from your businesses."
+);
+
+
+v18Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// UPGRADE BUSINESSES
+// ========================================
+
+function v18UpgradeBusinesses() {
+
+if (v18Companies.length === 0) {
+
+showMessage(
+"❌ You need a business first."
+);
+
+return;
+
+}
+
+
+const upgradeCost =
+10000;
+
+
+if (
+typeof money === "undefined" ||
+money < upgradeCost
+) {
+
+showMessage(
+"❌ You need $10,000 to upgrade."
+);
+
+return;
+
+}
+
+
+money -=
+upgradeCost;
+
+
+v18Companies.forEach(
+function(company) {
+
+company.level += 1;
+
+company.revenue =
+Math.floor(
+company.revenue * 1.25
+);
+
+company.expense =
+Math.floor(
+company.expense * 1.15
+);
+
+company.value =
+Math.floor(
+company.value * 1.5
+);
+
+});
+
+
+v18BusinessLevel += 1;
+
+
+showMessage(
+"⬆️ Your businesses have been upgraded!"
+);
+
+
+v18Recalculate();
+
+v18Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// EXPAND BUSINESS
+// ========================================
+
+function v18ExpandBusiness() {
+
+if (v18Companies.length === 0) {
+
+showMessage(
+"❌ Start a business first."
+);
+
+return;
+
+}
+
+
+const expansionCost =
+25000;
+
+
+if (
+typeof money === "undefined" ||
+money < expansionCost
+) {
+
+showMessage(
+"❌ You need $25,000 to expand."
+);
+
+return;
+
+}
+
+
+money -=
+expansionCost;
+
+
+v18Companies.forEach(
+function(company) {
+
+company.expansions += 1;
+
+company.revenue =
+Math.floor(
+company.revenue * 1.5
+);
+
+company.value =
+Math.floor(
+company.value * 1.75
+);
+
+});
+
+
+showMessage(
+"🌍 Your businesses expanded!"
+);
+
+
+v18Recalculate();
+
+v18Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// RECALCULATE
+// ========================================
+
+function v18Recalculate() {
+
+let revenue = 0;
+
+let expenses = 0;
+
+let value = 0;
+
+
+v18Companies.forEach(
+function(company) {
+
+revenue +=
+company.revenue *
+company.level;
+
+expenses +=
+company.expense *
+company.level;
+
+value +=
+company.value;
+
+});
+
+
+v18TotalRevenue =
+revenue;
+
+v18TotalExpenses =
+expenses;
+
+v18TotalValue =
+value;
+
+
+if (
+v18Companies.length > 0
+) {
+
+v18BusinessLevel =
+Math.max(
+1,
+Math.floor(
+value / 10000
+) + 1
+);
+
+}
+
+}
+
+
+// ========================================
+// RENDER
+// ========================================
+
+function v18Render() {
+
+v18Recalculate();
+
+
+const cash =
+document.getElementById(
+"v18Cash"
+);
+
+const count =
+document.getElementById(
+"v18CompanyCount"
+);
+
+const revenue =
+document.getElementById(
+"v18Revenue"
+);
+
+const expenses =
+document.getElementById(
+"v18Expenses"
+);
+
+const value =
+document.getElementById(
+"v18Value"
+);
+
+const level =
+document.getElementById(
+"v18Level"
+);
+
+
+if (cash) {
+
+cash.textContent =
+"$" +
+v18BusinessCash.toLocaleString();
+
+}
+
+if (count) {
+
+count.textContent =
+v18Companies.length;
+
+}
+
+if (revenue) {
+
+revenue.textContent =
+"$" +
+v18TotalRevenue.toLocaleString();
+
+}
+
+if (expenses) {
+
+expenses.textContent =
+"$" +
+v18TotalExpenses.toLocaleString();
+
+}
+
+if (value) {
+
+value.textContent =
+"$" +
+v18TotalValue.toLocaleString();
+
+}
+
+if (level) {
+
+level.textContent =
+v18BusinessLevel;
+
+}
+
+
+// Dashboard
+
+const dashboardRevenue =
+document.getElementById(
+"v18DashboardRevenue"
+);
+
+const dashboardValue =
+document.getElementById(
+"v18DashboardValue"
+);
+
+
+if (dashboardRevenue) {
+
+dashboardRevenue.textContent =
+"$" +
+v18TotalRevenue.toLocaleString();
+
+}
+
+
+if (dashboardValue) {
+
+dashboardValue.textContent =
+"$" +
+v18TotalValue.toLocaleString();
+
+}
+
+
+v18RenderCompanies();
+
+}
+
+
+// ========================================
+// RENDER COMPANIES
+// ========================================
+
+function v18RenderCompanies() {
+
+const list =
+document.getElementById(
+"v18CompanyList"
+);
+
+if (!list) {
+
+return;
+
+}
+
+
+if (v18Companies.length === 0) {
+
+list.innerHTML =
+"<p>No companies yet.</p>";
+
+return;
+
+}
+
+
+list.innerHTML = "";
+
+
+v18Companies.forEach(
+function(company, index) {
+
+const box =
+document.createElement("div");
+
+
+box.style.background =
+"#101010";
+
+box.style.padding =
+"15px";
+
+box.style.borderRadius =
+"10px";
+
+box.style.marginBottom =
+"10px";
+
+
+box.innerHTML =
+
+"<h3>" +
+company.icon +
+" " +
+company.name +
+"</h3>" +
+
+"<p>⭐ Level: <strong>" +
+company.level +
+"</strong></p>" +
+
+"<p>👥 Employees: <strong>" +
+company.employees +
+"</strong></p>" +
+
+"<p>📈 Revenue: <strong>$" +
+(
+company.revenue *
+company.level
+).toLocaleString() +
+"</strong>/day</p>" +
+
+"<p>💸 Expenses: <strong>$" +
+(
+company.expense *
+company.level
+).toLocaleString() +
+"</strong>/day</p>" +
+
+"<p>💎 Value: <strong>$" +
+company.value.toLocaleString() +
+"</strong></p>" +
+
+"<p>🌍 Expansions: <strong>" +
+company.expansions +
+"</strong></p>";
+
+
+list.appendChild(box);
+
+}
+
+);
+
+
+// ========================================
+// UPDATE SCREEN
+// ========================================
+
+v18Render();
+
+    // ========================================
+// FROM NOTHING V19
+// FINANCIAL EMPIRE
+// ========================================
+
+// V19 uses unique variables.
+// Do NOT create another money variable.
+
+let v19BankBalance = 0;
+
+let v19Investments = 0;
+
+let v19DebtAmount = 0;
+
+let v19FinancialLevel = 0;
+
+let v19LastInvestmentChange = 0;
+
+
+// ========================================
+// OPEN / CLOSE
+// ========================================
+
+function v19Open() {
+
+const panel =
+document.getElementById("v19Panel");
+
+if (panel) {
+
+panel.style.display = "flex";
+
+}
+
+v19Update();
+
+}
+
+
+function v19Close() {
+
+const panel =
+document.getElementById("v19Panel");
+
+if (panel) {
+
+panel.style.display = "none";
+
+}
+
+}
+
+
+// ========================================
+// BANK DEPOSIT
+// ========================================
+
+function v19Deposit() {
+
+const input =
+document.getElementById(
+"v19BankAmount"
+);
+
+const amount =
+Number(input.value);
+
+
+if (!amount || amount <= 0) {
+
+showMessage(
+"❌ Enter a valid amount."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < amount) {
+
+showMessage(
+"❌ You don't have enough cash."
+);
+
+return;
+
+}
+
+
+money -= amount;
+
+v19BankBalance += amount;
+
+
+input.value = "";
+
+
+showMessage(
+"🏦 You deposited $" +
+amount.toLocaleString() +
+" into the bank."
+);
+
+
+v19Update();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// BANK WITHDRAW
+// ========================================
+
+function v19Withdraw() {
+
+const input =
+document.getElementById(
+"v19BankAmount"
+);
+
+const amount =
+Number(input.value);
+
+
+if (!amount || amount <= 0) {
+
+showMessage(
+"❌ Enter a valid amount."
+);
+
+return;
+
+}
+
+
+if (v19BankBalance < amount) {
+
+showMessage(
+"❌ You don't have enough money in the bank."
+);
+
+return;
+
+}
+
+
+v19BankBalance -= amount;
+
+
+if (
+typeof money !== "undefined"
+) {
+
+money += amount;
+
+}
+
+
+input.value = "";
+
+
+showMessage(
+"💵 You withdrew $" +
+amount.toLocaleString() +
+"."
+);
+
+
+v19Update();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// BANK INTEREST
+// ========================================
+
+function v19CollectInterest() {
+
+if (v19BankBalance <= 0) {
+
+showMessage(
+"🏦 Your bank balance is $0."
+);
+
+return;
+
+}
+
+
+const interest =
+Math.floor(
+v19BankBalance * 0.02
+);
+
+
+v19BankBalance +=
+interest;
+
+
+showMessage(
+"💰 You earned $" +
+interest.toLocaleString() +
+" in bank interest."
+);
+
+
+v19Update();
+
+}
+
+
+// ========================================
+// INVEST MONEY
+// ========================================
+
+function v19Invest() {
+
+const input =
+document.getElementById(
+"v19InvestmentAmount"
+);
+
+const amount =
+Number(input.value);
+
+
+if (!amount || amount <= 0) {
+
+showMessage(
+"❌ Enter a valid investment."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < amount) {
+
+showMessage(
+"❌ You don't have enough cash."
+);
+
+return;
+
+}
+
+
+money -= amount;
+
+v19Investments += amount;
+
+
+v19LastInvestmentChange =
+Date.now();
+
+
+input.value = "";
+
+
+showMessage(
+"📈 You invested $" +
+amount.toLocaleString() +
+"."
+);
+
+
+v19Update();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// UPDATE INVESTMENTS
+// ========================================
+
+function v19UpdateInvestments() {
+
+if (v19Investments <= 0) {
+
+showMessage(
+"📊 You have no investments yet."
+);
+
+return;
+
+}
+
+
+const change =
+Math.random();
+
+
+let percentage;
+
+
+if (change < 0.25) {
+
+percentage = -0.08;
+
+}
+else if (change < 0.55) {
+
+percentage = 0.03;
+
+}
+else if (change < 0.80) {
+
+percentage = 0.07;
+
+}
+else {
+
+percentage = 0.15;
+
+}
+
+
+const difference =
+Math.floor(
+v19Investments * percentage
+);
+
+
+v19Investments +=
+difference;
+
+
+if (v19Investments < 0) {
+
+v19Investments = 0;
+
+}
+
+
+if (difference >= 0) {
+
+showMessage(
+"📈 Your investments gained $" +
+difference.toLocaleString() +
+"."
+);
+
+}
+else {
+
+showMessage(
+"📉 Your investments lost $" +
+Math.abs(difference).toLocaleString() +
+"."
+);
+
+
+}
+
+
+v19LastInvestmentChange =
+Date.now();
+
+
+v19Update();
+
+}
+
+
+// ========================================
+// TAKE LOAN
+// ========================================
+
+function v19TakeLoan(amount) {
+
+if (v19DebtAmount > 0) {
+
+showMessage(
+"❌ Repay your existing loan first."
+);
+
+return;
+
+}
+
+
+v19DebtAmount +=
+amount;
+
+
+if (
+typeof money !== "undefined"
+) {
+
+money += amount;
+
+}
+
+
+showMessage(
+"💳 You borrowed $" +
+amount.toLocaleString() +
+"."
+);
+
+
+v19Update();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// REPAY LOAN
+// ========================================
+
+function v19RepayLoan() {
+
+const input =
+document.getElementById(
+"v19RepayAmount"
+);
+
+const amount =
+Number(input.value);
+
+
+if (!amount || amount <= 0) {
+
+showMessage(
+"❌ Enter a valid amount."
+);
+
+return;
+
+}
+
+
+if (v19DebtAmount <= 0) {
+
+showMessage(
+"✅ You have no debt."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < amount) {
+
+showMessage(
+"❌ You don't have enough cash."
+);
+
+return;
+
+}
+
+
+const payment =
+Math.min(
+amount,
+v19DebtAmount
+);
+
+
+money -= payment;
+
+v19DebtAmount -= payment;
+
+
+input.value = "";
+
+
+showMessage(
+"💵 You repaid $" +
+payment.toLocaleString() +
+"."
+);
+
+
+v19Update();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// GET PROPERTY VALUE
+// ========================================
+
+function v19GetPropertyValue() {
+
+let total = 0;
+
+
+// V18/V19 compatible property systems.
+
+if (
+typeof properties !== "undefined"
+) {
+
+if (
+Array.isArray(properties)
+) {
+
+properties.forEach(
+function(property) {
+
+if (
+typeof property === "object" &&
+property.value
+) {
+
+total +=
+Number(property.value);
+
+}
+
+});
+
+}
+
+}
+
+
+if (
+typeof v19PropertyValue !== "undefined"
+) {
+
+total +=
+Number(v19PropertyValue) || 0;
+
+}
+
+
+return total;
+
+}
+
+
+// ========================================
+// GET VEHICLE VALUE
+// ========================================
+
+function v19GetVehicleValue() {
+
+if (
+typeof vehicle !== "undefined"
+) {
+
+if (vehicle === "Supercar") {
+
+return 1000000;
+
+}
+
+if (vehicle === "Luxury Car") {
+
+return 100000;
+
+}
+
+if (vehicle === "Car") {
+
+return 10000;
+
+}
+
+if (vehicle === "Motorcycle") {
+
+return 2000;
+
+}
+
+if (vehicle === "Bicycle") {
+
+return 100;
+
+}
+
+}
+
+
+return 0;
+
+}
+
+
+// ========================================
+// GET BUSINESS VALUE
+// ========================================
+
+function v19GetBusinessValue() {
+
+let value = 0;
+
+
+// V18 businesses
+
+if (
+typeof v18TotalValue !== "undefined"
+) {
+
+value +=
+Number(v18TotalValue) || 0;
+
+}
+
+
+// Existing business system
+
+if (
+typeof businesses !== "undefined"
+) {
+
+if (
+Array.isArray(businesses)
+) {
+
+businesses.forEach(
+function(business) {
+
+if (
+typeof business === "object"
+) {
+
+value +=
+Number(
+business.value || 0
+);
+
+}
+
+});
+
+}
+
+}
+
+
+return value;
+
+}
+
+
+// ========================================
+// CALCULATE NET WORTH
+// ========================================
+
+function v19CalculateNetWorth() {
+
+let cash = 0;
+
+
+if (
+typeof money !== "undefined"
+) {
+
+cash =
+Number(money) || 0;
+
+}
+
+
+const propertyValue =
+v19GetPropertyValue();
+
+
+const vehicleValue =
+v19GetVehicleValue();
+
+
+const businessValue =
+v19GetBusinessValue();
+
+
+const netWorth =
+
+cash +
+
+v19BankBalance +
+
+v19Investments +
+
+propertyValue +
+
+vehicleValue +
+
+businessValue -
+
+v19DebtAmount;
+
+
+return Math.max(
+0,
+Math.floor(netWorth)
+);
+
+}
+
+
+// ========================================
+// FINANCIAL RANK
+// ========================================
+
+function v19GetRank(netWorth) {
+
+if (netWorth >= 1000000000) {
+
+return "👑 Billionaire";
+
+}
+
+if (netWorth >= 100000000) {
+
+return "🌍 Global Tycoon";
+
+}
+
+if (netWorth >= 10000000) {
+
+return "💎 Multi-Millionaire";
+
+}
+
+if (netWorth >= 1000000) {
+
+return "🏆 Millionaire";
+
+}
+
+if (netWorth >= 500000) {
+
+return "💼 Business Owner";
+
+}
+
+if (netWorth >= 100000) {
+
+return "🏢 Entrepreneur";
+
+}
+
+if (netWorth >= 25000) {
+
+return "📈 Investor";
+
+}
+
+if (netWorth >= 5000) {
+
+return "💰 Wealth Builder";
+
+}
+
+return "🚶 Street Beginner";
+
+}
+
+
+// ========================================
+// FINANCIAL LEVEL
+// ========================================
+
+function v19CalculateLevel(netWorth) {
+
+if (netWorth >= 1000000000) {
+
+return 10;
+
+}
+
+if (netWorth >= 100000000) {
+
+return 9;
+
+}
+
+if (netWorth >= 10000000) {
+
+return 8;
+
+}
+
+if (netWorth >= 1000000) {
+
+return 7;
+
+}
+
+if (netWorth >= 500000) {
+
+return 6;
+
+}
+
+if (netWorth >= 100000) {
+
+return 5;
+
+}
+
+if (netWorth >= 25000) {
+
+return 4;
+
+}
+
+if (netWorth >= 5000) {
+
+return 3;
+
+}
+
+if (netWorth >= 1000) {
+
+return 2;
+
+}
+
+return 1;
+
+}
+
+
+// ========================================
+// UPDATE V19
+// ========================================
+
+function v19Update() {
+
+const netWorth =
+v19CalculateNetWorth();
+
+
+v19FinancialLevel =
+v19CalculateLevel(netWorth);
+
+
+const elements = {
+
+v19NetWorth:
+"$" +
+netWorth.toLocaleString(),
+
+v19Rank:
+v19GetRank(netWorth),
+
+v19Cash:
+"$" +
+(
+typeof money !== "undefined"
+?
+Number(money) || 0
+:
+0
+).toLocaleString(),
+
+v19Bank:
+"$" +
+v19BankBalance.toLocaleString(),
+
+v19InvestmentValue:
+"$" +
+v19Investments.toLocaleString(),
+
+v19Debt:
+"$" +
+v19DebtAmount.toLocaleString(),
+
+v19PropertyValue:
+"$" +
+v19GetPropertyValue().toLocaleString(),
+
+v19VehicleValue:
+"$" +
+v19GetVehicleValue().toLocaleString(),
+
+v19BusinessValue:
+"$" +
+v19GetBusinessValue().toLocaleString(),
+
+v19DashboardNetWorth:
+"$" +
+netWorth.toLocaleString()
+
+};
+
+
+Object.keys(elements).forEach(
+function(id) {
+
+const element =
+document.getElementById(id);
+
+if (element) {
+
+element.textContent =
+elements[id];
+
+}
+
+});
+
+
+// Billion-dollar progress
+
+const goal =
+1000000000;
+
+
+const progress =
+Math.min(
+100,
+(netWorth / goal) * 100
+);
+
+
+const progressBar =
+document.getElementById(
+"v19Progress"
+);
+
+const progressText =
+document.getElementById(
+"v19ProgressText"
+);
+
+
+if (progressBar) {
+
+progressBar.style.width =
+progress + "%";
+
+}
+
+
+if (progressText) {
+
+progressText.textContent =
+progress.toFixed(2) +
+"%";
+
+}
+
+
+// Billionaire achievement
+
+if (netWorth >= goal) {
+
+showMessage(
+"👑 CONGRATULATIONS! " +
+"You have reached $1,000,000,000!"
+);
+
+}
+
+}
+
+    // ========================================
+// FROM NOTHING V20
+// CITY & WORLD EXPANSION
+// ========================================
+
+// V20 uses unique variable names.
+// Do NOT create another money variable.
+
+let v20CurrentCity = "Accra";
+
+let v20GlobalReputation = 0;
+
+let v20ExpansionLevel = 1;
+
+let v20UnlockedCities = [
+"Accra"
+];
+
+
+// ========================================
+// CITY DATABASE
+// ========================================
+
+const v20Cities = {
+
+Accra: {
+
+name: "Accra",
+
+country: "Ghana",
+
+level: 1,
+
+unlockCost: 0,
+
+travelCost: 0,
+
+description:
+"Your journey began here. " +
+"The city is full of small businesses " +
+"and new opportunities."
+
+},
+
+Kumasi: {
+
+name: "Kumasi",
+
+country: "Ghana",
+
+level: 2,
+
+unlockCost: 5000,
+
+travelCost: 500,
+
+description:
+"A growing commercial city with " +
+"strong opportunities in trade and manufacturing."
+
+},
+
+Lagos: {
+
+name: "Lagos",
+
+country: "Nigeria",
+
+level: 3,
+
+unlockCost: 25000,
+
+travelCost: 2000,
+
+description:
+"A huge business centre filled with " +
+"entrepreneurs, investors and competitors."
+
+},
+
+Nairobi: {
+
+name: "Nairobi",
+
+country: "Kenya",
+
+level: 4,
+
+unlockCost: 100000,
+
+travelCost: 5000,
+
+description:
+"A major African business hub where " +
+"technology and international business are growing."
+
+},
+
+London: {
+
+name: "London",
+
+country: "United Kingdom",
+
+level: 5,
+
+unlockCost: 1000000,
+
+travelCost: 25000,
+
+description:
+"A global financial centre with access " +
+"to major investors and international markets."
+
+},
+
+Dubai: {
+
+name: "Dubai",
+
+country: "United Arab Emirates",
+
+level: 6,
+
+unlockCost: 10000000,
+
+travelCost: 100000,
+
+description:
+"A wealthy international business hub " +
+"where luxury, trade and investment dominate."
+
+},
+
+NewYork: {
+
+name: "New York",
+
+country: "United States",
+
+level: 7,
+
+unlockCost: 100000000,
+
+travelCost: 500000,
+
+description:
+"One of the world's biggest financial and " +
+"business centres. Only powerful entrepreneurs thrive here."
+
+}
+
+};
+
+
+// ========================================
+// OPEN WORLD MAP
+// ========================================
+
+function v20Open() {
+
+const panel =
+document.getElementById(
+"v20Panel"
+);
+
+if (panel) {
+
+panel.style.display =
+"flex";
+
+}
+
+v20Render();
+
+}
+
+
+// ========================================
+// CLOSE
+// ========================================
+
+function v20Close() {
+
+const panel =
+document.getElementById(
+"v20Panel"
+);
+
+if (panel) {
+
+panel.style.display =
+"none";
+
+}
+
+}
+
+
+// ========================================
+// UNLOCK CITY
+// ========================================
+
+function v20UnlockCity(cityKey) {
+
+const city =
+v20Cities[cityKey];
+
+if (!city) {
+
+return;
+
+}
+
+
+if (
+v20UnlockedCities.includes(
+cityKey
+)
+) {
+
+showMessage(
+"🔓 " +
+city.name +
+" is already unlocked."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < city.unlockCost) {
+
+showMessage(
+"❌ You need $" +
+city.unlockCost.toLocaleString() +
+" to unlock " +
+city.name +
+"."
+);
+
+return;
+
+}
+
+
+money -=
+city.unlockCost;
+
+
+v20UnlockedCities.push(
+cityKey
+);
+
+
+v20ExpansionLevel =
+Math.max(
+v20ExpansionLevel,
+city.level
+);
+
+
+v20GlobalReputation +=
+10;
+
+
+showMessage(
+"🌍 " +
+city.name +
+" has been unlocked!"
+);
+
+
+v20Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// TRAVEL
+// ========================================
+
+function v20Travel(cityKey) {
+
+const city =
+v20Cities[cityKey];
+
+if (!city) {
+
+return;
+
+}
+
+
+if (
+!v20UnlockedCities.includes(
+cityKey
+)
+) {
+
+showMessage(
+"🔒 Unlock this city first."
+);
+
+return;
+
+}
+
+
+if (
+v20CurrentCity === cityKey
+) {
+
+showMessage(
+"📍 You are already in " +
+city.name +
+"."
+);
+
+return;
+
+}
+
+
+if (
+typeof money === "undefined"
+) {
+
+return;
+
+}
+
+
+if (money < city.travelCost) {
+
+showMessage(
+"❌ You need $" +
+city.travelCost.toLocaleString() +
+" to travel to " +
+city.name +
+"."
+);
+
+return;
+
+}
+
+
+money -=
+city.travelCost;
+
+
+v20CurrentCity =
+cityKey;
+
+
+v20GlobalReputation +=
+5;
+
+
+showMessage(
+"✈️ You travelled to " +
+city.name +
+", " +
+city.country +
+"."
+);
+
+
+v20Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// CITY OPPORTUNITY
+// ========================================
+
+function v20CityOpportunity() {
+
+const city =
+v20Cities[
+v20CurrentCity
+];
+
+if (!city) {
+
+return;
+
+}
+
+
+const rewards = {
+
+Accra: 250,
+
+Kumasi: 1000,
+
+Lagos: 5000,
+
+Nairobi: 15000,
+
+London: 50000,
+
+Dubai: 250000,
+
+NewYork: 1000000
+
+};
+
+
+const reward =
+rewards[
+v20CurrentCity
+] || 250;
+
+
+if (
+typeof money !== "undefined"
+) {
+
+money +=
+reward;
+
+}
+
+
+v20GlobalReputation +=
+3;
+
+
+showMessage(
+"🏢 You discovered a business opportunity in " +
+city.name +
+"! +$" +
+reward.toLocaleString()
+);
+
+
+v20Render();
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// CITY BUSINESS EXPANSION
+// ========================================
+
+function v20ExpandBusinessToCity() {
+
+if (
+typeof v18Companies === "undefined" ||
+v18Companies.length === 0
+) {
+
+showMessage(
+"❌ You need a business before expanding."
+);
+
+return;
+
+}
+
+
+const expansionCost =
+5000 *
+v20Cities[
+v20CurrentCity
+].level;
+
+
+if (
+typeof money === "undefined" ||
+money < expansionCost
+) {
+
+showMessage(
+"❌ You need $" +
+expansionCost.toLocaleString() +
+" to expand your business here."
+);
+
+return;
+
+}
+
+
+money -=
+expansionCost;
+
+
+v18Companies.forEach(
+function(company) {
+
+company.expansions += 1;
+
+company.revenue =
+Math.floor(
+company.revenue * 1.20
+);
+
+company.value =
+Math.floor(
+company.value * 1.30
+);
+
+});
+
+
+v20GlobalReputation +=
+15;
+
+
+showMessage(
+"🌍 Your business expanded into " +
+v20Cities[v20CurrentCity].name +
+"!"
+);
+
+
+v20Render();
+
+
+if (
+typeof v18Render === "function"
+) {
+
+v18Render();
+
+}
+
+
+if (
+typeof updateScreen === "function"
+) {
+
+updateScreen();
+
+}
+
+}
+
+
+// ========================================
+// CITY STATUS
+// ========================================
+
+function v20GetCityStatus(cityKey) {
+
+if (
+v20CurrentCity === cityKey
+) {
+
+return "📍 You Are Here";
+
+}
+
+
+if (
+v20UnlockedCities.includes(
+cityKey
+)
+) {
+
+return "✈️ Travel";
+
+}
+
+
+return (
+"🔓 Unlock — $" +
+v20Cities[cityKey]
+.unlockCost.toLocaleString()
+);
+
+}
+
+
+// ========================================
+// RENDER CITY LIST
+// ========================================
+
+function v20RenderCities() {
+
+const list =
+document.getElementById(
+"v20CityList"
+);
+
+if (!list) {
+
+return;
+
+}
+
+
+list.innerHTML = "";
+
+
+Object.keys(
+v20Cities
+).forEach(
+function(cityKey) {
+
+const city =
+v20Cities[cityKey];
+
+
+const box =
+document.createElement(
+"div"
+);
+
+
+box.style.background =
+"#101010";
+
+box.style.padding =
+"15px";
+
+box.style.borderRadius =
+"10px";
+
+box.style.marginBottom =
+"10px";
+
+
+let buttonHTML = "";
+
+
+if (
+v20UnlockedCities.includes(
+cityKey
+)
+) {
+
+buttonHTML =
+
+"<button " +
+"onclick=\"v20Travel('" +
+cityKey +
+"')\" " +
+"style=\"width:100%;\">" +
+
+(
+v20CurrentCity === cityKey
+?
+"📍 Current Location"
+:
+"✈️ Travel to " +
+city.name
+) +
+
+"</button>";
+
+}
+else {
+
+buttonHTML =
+
+"<button " +
+"onclick=\"v20UnlockCity('" +
+cityKey +
+"')\" " +
+"style=\"width:100%;\">" +
+
+"🔓 Unlock — $" +
+city.unlockCost.toLocaleString() +
+
+"</button>";
+
+}
+
+
+box.innerHTML =
+
+"<h3>" +
+city.name +
+"</h3>" +
+
+"<p>" +
+city.country +
+" • Expansion Level " +
+city.level +
+"</p>" +
+
+"<p>" +
+city.description +
+"</p>" +
+
+"<p>✈️ Travel Cost: $" +
+city.travelCost.toLocaleString() +
+"</p>" +
+
+buttonHTML;
+
+
+list.appendChild(
+box
+);
+
+}
+
+);
+
+}
+
+
+// ========================================
+// RENDER OPPORTUNITIES
+// ========================================
+
+function v20RenderOpportunities() {
+
+const element =
+document.getElementById(
+"v20CityOpportunities"
+);
+
+if (!element) {
+
+return;
+
+}
+
+
+const city =
+v20Cities[
+v20CurrentCity
+];
+
+
+element.innerHTML =
+
+"<h3>📍 " +
+city.name +
+"</h3>" +
+
+"<p>" +
+city.description +
+"</p>" +
+
+"<button " +
+"onclick=\"v20CityOpportunity()\" " +
+"style=\"width:100%;\">" +
+
+"💼 Discover Business Opportunity" +
+
+"</button>" +
+
+"<button " +
+"onclick=\"v20ExpandBusinessToCity()\" " +
+"style=\"width:100%;margin-top:7px;\">" +
+
+"🌍 Expand Business Here" +
+
+"</button>";
+
+}
+
+
+// ========================================
+// UPDATE DASHBOARD
+// ========================================
+
+function v20UpdateDashboard() {
+
+const currentCity =
+document.getElementById(
+"v20CurrentCity"
+);
+
+const unlocked =
+document.getElementById(
+"v20CitiesUnlocked"
+);
+
+const reputation =
+document.getElementById(
+"v20GlobalReputation"
+);
+
+const level =
+document.getElementById(
+"v20ExpansionLevel"
+);
+
+
+if (currentCity) {
+
+currentCity.textContent =
+v20Cities[
+v20CurrentCity
+].name;
+
+}
+
+
+if (unlocked) {
+
+unlocked.textContent =
+v20UnlockedCities.length;
+
+}
+
+
+if (reputation) {
+
+reputation.textContent =
+v20GlobalReputation;
+
+}
+
+
+if (level) {
+
+level.textContent =
+v20ExpansionLevel;
+
+}
+
+
+const dashboardCity =
+document.getElementById(
+"v20DashboardCity"
+);
+
+const dashboardRep =
+document.getElementById(
+"v20DashboardReputation"
+);
+
+
+if (dashboardCity) {
+
+dashboardCity.textContent =
+v20Cities[
+v20CurrentCity
+].name;
+
+}
+
+
+if (dashboardRep) {
+
+dashboardRep.textContent =
+v20GlobalReputation;
+
+}
+
+}
+
+
+// ========================================
+// MAIN RENDER
+// ========================================
+
+function v20Render() {
+
+v20UpdateDashboard();
+
+v20RenderCities();
+
+v20RenderOpportunities();
+
+}
+
+
+// ========================================
+// START V20
+// ========================================
+
+v20Render();
+
+      // ========================================
+// FROM NOTHING V21
+// BANKING & STOCK MARKET
+// ========================================
+
+// IMPORTANT:
+// V21 uses the EXISTING money variable.
+// Do NOT create another money variable.
+
+let v21BankBalance = 0;
+
+let v21InvestmentBalance = 0;
+
+let v21Debt = 0;
+
+let v21LastInterestDay = 1;
+
+let v21IPOActive = false;
+
+let v21IPOValue = 0;
+
+
+// ========================================
+// STOCK DATABASE
+// ========================================
+
+const v21Stocks = {
+
+AFRICOM: {
+name: "AfriCom",
+price: 100,
+owned: 0
+},
+
+TECHGH: {
+name: "Tech Ghana",
+price: 250,
+owned: 0
+},
+
+GLOBE: {
+name: "Global Holdings",
+price: 500,
+owned: 0
+},
+
+BUILD: {
+name: "Build Corp",
+price: 750,
+owned: 0
+},
+
+MEGA: {
+name: "Mega Industries",
+price: 1500,
+owned: 0
+}
+
+};
+
+
+// ========================================
+// OPEN MARKET
+// ========================================
+
+function v21Open() {
+
+const panel =
+document.getElementById("v21Panel");
+
+if (panel) {
+
+panel.style.display = "flex";
+
+}
+
+v21Render();
+
+}
+
+
+// ========================================
+// CLOSE MARKET
+// ========================================
+
+function v21Close() {
+
+const panel =
+document.getElementById("v21Panel");
+
+if (panel) {
+
+panel.style.display = "none";
+
+}
+
+}
+
+
+// ========================================
+// DEPOSIT
+// ========================================
+
+function v21Deposit() {
+
+const input =
+document.getElementById("v21BankAmount");
+
+const amount =
+Number(input.value);
+
+
+if (!amount || amount <= 0) {
+
+showMessage("❌ Enter a valid amount.");
+
+return;
+
+}
+
+
+if (money < amount) {
+
+showMessage("❌ You don't have enough cash.");
+
+return;
+
+}
+
+
+money -= amount;
+
+v21BankBalance += amount;
+
+
+input.value = "";
+
+
+showMessage(
+"🏦 Deposited $" +
+amount.toLocaleString() +
+" into the bank."
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// WITHDRAW
+// ========================================
+
+function v21Withdraw() {
+
+const input =
+document.getElementById("v21BankAmount");
+
+const amount =
+Number(input.value);
+
+
+if (!amount || amount <= 0) {
+
+showMessage("❌ Enter a valid amount.");
+
+return;
+
+}
+
+
+if (v21BankBalance < amount) {
+
+showMessage("❌ Insufficient bank balance.");
+
+return;
+
+}
+
+
+v21BankBalance -= amount;
+
+money += amount;
+
+
+input.value = "";
+
+
+showMessage(
+"💰 Withdrawn $" +
+amount.toLocaleString() +
+"."
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// BANK INTEREST
+// ========================================
+
+function v21CollectInterest() {
+
+let currentDay =
+typeof day !== "undefined"
+? day
+: 1;
+
+
+if (
+currentDay <=
+v21LastInterestDay
+) {
+
+showMessage(
+"🏦 You have already collected today's interest."
+);
+
+return;
+
+}
+
+
+const interest =
+Math.floor(
+v21BankBalance * 0.02
+);
+
+
+if (interest <= 0) {
+
+showMessage(
+"💰 Your bank balance is too low to generate interest."
+);
+
+return;
+
+}
+
+
+v21BankBalance += interest;
+
+v21LastInterestDay =
+currentDay;
+
+
+showMessage(
+"🏦 Bank interest collected: +$" +
+interest.toLocaleString()
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// BUY STOCK
+// ========================================
+
+function v21BuyStock(symbol) {
+
+const stock =
+v21Stocks[symbol];
+
+if (!stock) {
+
+return;
+
+}
+
+
+const quantity =
+Number(
+prompt(
+"How many shares of " +
+stock.name +
+" do you want to buy?"
+)
+);
+
+
+if (!quantity || quantity <= 0) {
+
+return;
+
+}
+
+
+const cost =
+Math.floor(
+stock.price *
+quantity
+);
+
+
+if (money < cost) {
+
+showMessage(
+"❌ You need $" +
+cost.toLocaleString() +
+" to buy these shares."
+);
+
+return;
+
+}
+
+
+money -= cost;
+
+stock.owned += quantity;
+
+v21InvestmentBalance += cost;
+
+
+showMessage(
+"📈 Bought " +
+quantity +
+" shares of " +
+stock.name +
+"."
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// SELL STOCK
+// ========================================
+
+function v21SellStock(symbol) {
+
+const stock =
+v21Stocks[symbol];
+
+if (!stock) {
+
+return;
+
+}
+
+
+if (stock.owned <= 0) {
+
+showMessage(
+"❌ You don't own any shares of " +
+stock.name +
+"."
+);
+
+return;
+
+}
+
+
+const quantity =
+Number(
+prompt(
+"How many shares of " +
+stock.name +
+" do you want to sell?"
+)
+);
+
+
+if (!quantity || quantity <= 0) {
+
+return;
+
+}
+
+
+if (quantity > stock.owned) {
+
+showMessage(
+"❌ You don't own that many shares."
+);
+
+return;
+
+}
+
+
+const revenue =
+Math.floor(
+stock.price *
+quantity
+);
+
+
+stock.owned -= quantity;
+
+money += revenue;
+
+v21InvestmentBalance =
+Math.max(
+0,
+v21InvestmentBalance -
+revenue
+);
+
+
+showMessage(
+"💵 Sold " +
+quantity +
+" shares of " +
+stock.name +
+" for $" +
+revenue.toLocaleString() +
+"."
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// UPDATE MARKET
+// ========================================
+
+function v21UpdateMarket() {
+
+Object.keys(
+v21Stocks
+).forEach(
+function(symbol) {
+
+const stock =
+v21Stocks[symbol];
+
+const change =
+Math.floor(
+Math.random() * 31
+) - 15;
+
+stock.price =
+Math.max(
+10,
+Math.floor(
+stock.price *
+(1 + change / 100)
+)
+);
+
+}
+);
+
+
+const news =
+document.getElementById(
+"v21MarketStatus"
+);
+
+if (news) {
+
+news.textContent =
+"📊 Market prices have changed. Some stocks rose and others fell.";
+
+}
+
+
+showMessage(
+"📊 Stock market updated."
+);
+
+
+v21Render();
+
+}
+
+
+// ========================================
+// COMPANY IPO
+// ========================================
+
+function v21LaunchIPO() {
+
+if (v21IPOActive) {
+
+showMessage(
+"🚀 Your company is already publicly traded."
+);
+
+return;
+
+}
+
+
+let companyCount = 0;
+
+let companyValue = 0;
+
+
+if (
+typeof v18Companies !== "undefined"
+) {
+
+companyCount =
+v18Companies.length;
+
+
+v18Companies.forEach(
+function(company) {
+
+companyValue +=
+Number(
+company.value || 0
+);
+
+});
+
+}
+
+
+if (companyCount <= 0) {
+
+showMessage(
+"❌ You need at least one company before launching an IPO."
+);
+
+return;
+
+}
+
+
+if (companyValue < 10000) {
+
+showMessage(
+"❌ Your company must be worth at least $10,000."
+);
+
+return;
+
+}
+
+
+v21IPOActive = true;
+
+v21IPOValue =
+Math.floor(
+companyValue
+);
+
+
+v21InvestmentBalance +=
+v21IPOValue;
+
+
+showMessage(
+"🚀 IPO launched! Your company is now publicly traded."
+);
+
+
+v21Render();
+
+}
+
+
+// ========================================
+// TAKE LOAN
+// ========================================
+
+function v21TakeLoan(amount) {
+
+if (!amount || amount <= 0) {
+
+return;
+
+}
+
+
+if (v21Debt > 0) {
+
+showMessage(
+"❌ Repay your existing loan before taking another."
+);
+
+return;
+
+}
+
+
+money += amount;
+
+v21Debt += amount;
+
+
+showMessage(
+"💳 You borrowed $" +
+amount.toLocaleString() +
+"."
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// REPAY LOAN
+// ========================================
+
+function v21RepayLoan() {
+
+if (v21Debt <= 0) {
+
+showMessage(
+"✅ You have no outstanding loan."
+);
+
+return;
+
+}
+
+
+const amount =
+Number(
+prompt(
+"Enter amount to repay. Maximum: $" +
+v21Debt.toLocaleString()
+)
+);
+
+
+if (!amount || amount <= 0) {
+
+return;
+
+}
+
+
+if (amount > v21Debt) {
+
+showMessage(
+"❌ You cannot repay more than your debt."
+);
+
+return;
+
+}
+
+
+if (money < amount) {
+
+showMessage(
+"❌ You don't have enough cash."
+);
+
+return;
+
+}
+
+
+money -= amount;
+
+v21Debt -= amount;
+
+
+showMessage(
+"💵 Loan repayment: $" +
+amount.toLocaleString()
+);
+
+
+v21Render();
+
+v21UpdateMain();
+
+}
+
+
+// ========================================
+// RENDER STOCKS
+// ========================================
+
+function v21RenderStocks() {
+
+const container =
+document.getElementById(
+"v21StockList"
+);
+
+if (!container) {
+
+return;
+
+}
+
+
+container.innerHTML = "";
+
+
+Object.keys(
+v21Stocks
+).forEach(
+function(symbol) {
+
+const stock =
+v21Stocks[symbol];
+
+
+const box =
+document.createElement(
+"div"
+);
+
+
+box.style.background =
+"#101010";
+
+box.style.padding =
+"15px";
+
+box.style.borderRadius =
+"10px";
+
+box.style.marginBottom =
+"10px";
+
+
+box.innerHTML =
+
+"<h3>📊 " +
+stock.name +
+"</h3>" +
+
+"<p>" +
+"Symbol: " +
+symbol +
+"</p>" +
+
+"<p>" +
+"Price: <strong>$" +
+stock.price.toLocaleString() +
+"</strong>" +
+"</p>" +
+
+"<p>" +
+"Shares Owned: <strong>" +
+stock.owned +
+"</strong>" +
+"</p>" +
+
+"<button " +
+"onclick=\"v21BuyStock('" +
+symbol +
+"')\" " +
+"style=\"width:100%;\">" +
+
+"📈 Buy Shares" +
+
+"</button>" +
+
+"<button " +
+"onclick=\"v21SellStock('" +
+symbol +
+"')\" " +
+"style=\"width:100%;margin-top:6px;\">" +
+
+"💵 Sell Shares" +
+
+"</button>";
+
+
+container.appendChild(box);
+
+}
+
+);
+
+}
+
+
+// ========================================
+// RENDER IPO
+// ========================================
+
+function v21RenderIPO() {
+
+const status =
+document.getElementById(
+"v21IPOStatus"
+);
+
+if (!status) {
+
+return;
+
+}
+
+
+if (!v21IPOActive) {
+
+status.textContent =
+"Your company is not publicly traded.";
+
+return;
+
+}
+
+
+status.innerHTML =
+
+"🚀 IPO ACTIVE<br>" +
+
+"Company Market Value: <strong>$" +
+
+v21IPOValue.toLocaleString() +
+
+"</strong>";
+
+}
+
+
+// ========================================
+// RENDER FINANCIAL STATUS
+// ========================================
+
+function v21RenderFinancials() {
+
+const cash =
+document.getElementById(
+"v21Cash"
+);
+
+const bank =
+document.getElementById(
+"v21Bank"
+);
+
+const investments =
+document.getElementById(
+"v21Investments"
+);
+
+const debt =
+document.getElementById(
+"v21Debt"
+);
+
+const wealth =
+document.getElementById(
+"v21FinancialWealth"
+);
+
+
+if (cash) {
+
+cash.textContent =
+"$" +
+Number(
+money || 0
+).toLocaleString();
+
+}
+
+
+if (bank) {
+
+bank.textContent =
+"$" +
+v21BankBalance.toLocaleString();
+
+}
+
+
+if (investments) {
+
+let stockValue = 0;
+
+
+Object.keys(
+v21Stocks
+).forEach(
+function(symbol) {
+
+const stock =
+v21Stocks[symbol];
+
+stockValue +=
+stock.price *
+stock.owned;
+
+});
+
+
+const totalInvestments =
+stockValue +
+(v21IPOActive
+? v21IPOValue
+: 0);
+
+
+investments.textContent =
+"$" +
+totalInvestments.toLocaleString();
+
+}
+
+
+if (debt) {
+
+debt.textContent =
+"$" +
+v21Debt.toLocaleString();
+
+}
+
+
+if (wealth) {
+
+let stockValue = 0;
+
+
+Object.keys(
+v21Stocks
+).forEach(
+function(symbol) {
+
+const stock =
+v21Stocks[symbol];
+
+stockValue +=
+stock.price *
+stock.owned;
+
+});
+
+
+const totalWealth =
+Number(money || 0) +
+v21BankBalance +
+stockValue +
+(v21IPOActive
+? v21IPOValue
+: 0) -
+v21Debt;
+
+
+wealth.textContent =
+"$" +
+Math.floor(
+totalWealth
+).toLocaleString();
+
+}
+
+}
+
+
+// ========================================
+// DASHBOARD
+// ========================================
+
+function v21UpdateDashboard() {
+
+const bank =
+document.getElementById(
+"v21DashboardBank"
+);
+
+const investments =
+document.getElementById(
+"v21DashboardInvestments"
+);
+
+
+if (bank) {
+
+bank.textContent =
+"$" +
+v21BankBalance.toLocaleString();
+
+}
+
+
+if (investments) {
+
+let value = 0;
+
+
+Object.keys(
+v21Stocks
+).forEach(
+function(symbol) {
+
+value +=
+v21Stocks[symbol].price *
+v21Stocks[symbol].owned;
+
+});
+
+
+if (v21IPOActive) {
+
+value +=
+v21IPOValue;
+
+}
+
+
+investments.textContent =
+"$" +
+Math.floor(value).toLocaleString();
+
+}
+
+}
+
+
+// ========================================
+// MAIN RENDER
+// ========================================
+
+function v21Render() {
+
+v21RenderFinancials();
+
+v21RenderStocks();
+
+v21RenderIPO();
+
+v21UpdateDashboard();
+
+}
+
+
+// ========================================
+// START V21
+// ========================================
+
+v21Render();
     
 </script>
 
