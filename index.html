@@ -926,6 +926,233 @@
     </button>
 
 </div>
+
+<!-- ========================================
+     FROM NOTHING V10
+     WORLD & CITY EXPANSION
+========================================= -->
+
+<div class="panel">
+
+    <h2>🌍 WORLD EXPANSION</h2>
+
+    <p>
+        Your empire is growing. Travel to new cities,
+        discover opportunities and expand your influence.
+    </p>
+
+    <div style="
+        background:#101010;
+        padding:18px;
+        border-radius:12px;
+        margin-bottom:15px;
+    ">
+
+        <h3>📍 CURRENT LOCATION</h3>
+
+        <p>
+            City:
+            <strong id="v10CurrentCity">
+                Accra
+            </strong>
+        </p>
+
+        <p>
+            🌍 Cities Unlocked:
+            <strong id="v10CitiesUnlocked">
+                1
+            </strong>
+        </p>
+
+        <p>
+            ⭐ Global Reputation:
+            <strong id="v10GlobalReputation">
+                0
+            </strong>
+        </p>
+
+        <p>
+            🌎 Expansion Level:
+            <strong id="v10ExpansionLevel">
+                1
+            </strong>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>🏙️ CITIES</h3>
+
+    <div id="v10CityList"></div>
+
+    <hr>
+
+    <h3>✈️ TRAVEL</h3>
+
+    <p id="v10TravelMessage">
+        Choose a city to travel there.
+    </p>
+
+    <hr>
+
+    <h3>🏢 CITY OPPORTUNITIES</h3>
+
+    <div id="v10CityOpportunities">
+        Explore your current city to discover opportunities.
+    </div>
+
+</div>
+
+<!-- ========================================
+     FROM NOTHING V11
+     GLOBAL BUSINESS EMPIRE
+========================================= -->
+
+<div class="panel">
+
+    <h2>🌍 GLOBAL BUSINESS EMPIRE</h2>
+
+    <p>
+        Expand your businesses across the world,
+        hire employees and build a global empire.
+    </p>
+
+    <div style="
+        background:#101010;
+        padding:18px;
+        border-radius:12px;
+        margin-bottom:15px;
+    ">
+
+        <h3>🏢 EMPIRE STATUS</h3>
+
+        <p>
+            Companies:
+            <strong id="v11CompanyCount">0</strong>
+        </p>
+
+        <p>
+            Global Employees:
+            <strong id="v11EmployeeCount">0</strong>
+        </p>
+
+        <p>
+            Daily Revenue:
+            $<strong id="v11DailyRevenue">0</strong>
+        </p>
+
+        <p>
+            Daily Expenses:
+            $<strong id="v11DailyExpenses">0</strong>
+        </p>
+
+        <p>
+            Daily Profit:
+            $<strong id="v11DailyProfit">0</strong>
+        </p>
+
+        <p>
+            🌟 Company Reputation:
+            <strong id="v11CompanyReputation">0</strong>
+        </p>
+
+        <p>
+            🌍 Global Rank:
+            <strong id="v11GlobalRank">
+                Local Business
+            </strong>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>🏢 CREATE COMPANY</h3>
+
+    <button
+        onclick="v11CreateCompany('Restaurant',1000)"
+        style="width:100%;margin-bottom:7px;">
+        🍔 Restaurant — $1,000
+    </button>
+
+    <button
+        onclick="v11CreateCompany('Clothing',5000)"
+        style="width:100%;margin-bottom:7px;">
+        👕 Clothing — $5,000
+    </button>
+
+    <button
+        onclick="v11CreateCompany('Transport',10000)"
+        style="width:100%;margin-bottom:7px;">
+        🚕 Transport — $10,000
+    </button>
+
+    <button
+        onclick="v11CreateCompany('Technology',25000)"
+        style="width:100%;margin-bottom:7px;">
+        💻 Technology — $25,000
+    </button>
+
+    <button
+        onclick="v11CreateCompany('Finance',100000)"
+        style="width:100%;">
+        🏦 Finance — $100,000
+    </button>
+
+    <hr>
+
+    <h3>🏢 YOUR GLOBAL COMPANIES</h3>
+
+    <div id="v11CompanyList">
+        No companies yet.
+    </div>
+
+    <hr>
+
+    <h3>👥 HIRE EMPLOYEES</h3>
+
+    <button
+        onclick="v11HireEmployee(1)"
+        style="width:100%;margin-bottom:7px;">
+        👷 Worker — $500
+    </button>
+
+    <button
+        onclick="v11HireEmployee(2)"
+        style="width:100%;margin-bottom:7px;">
+        👨‍💼 Manager — $2,500
+    </button>
+
+    <button
+        onclick="v11HireEmployee(3)"
+        style="width:100%;">
+        💼 Executive — $10,000
+    </button>
+
+    <hr>
+
+    <h3>📈 BUSINESS ACTIONS</h3>
+
+    <button
+        onclick="v11RunEmpire()"
+        style="width:100%;margin-bottom:7px;">
+        ▶️ Run Global Empire
+    </button>
+
+    <button
+        onclick="v11TrainEmployees()"
+        style="width:100%;margin-bottom:7px;">
+        🎓 Train Employees — $1,000
+    </button>
+
+    <button
+        onclick="v11ExpandCompany()"
+        style="width:100%;">
+        🌍 Expand To Current City
+    </button>
+
+</div>
         
     <button onclick="work()">
         💼 Work
@@ -4287,6 +4514,1469 @@ function v9UpdateScreen() {
 // ========================================
 
 v9UpdateScreen();
+
+// ========================================
+// FROM NOTHING V10
+// WORLD & CITY EXPANSION
+// ========================================
+
+// V10 VARIABLES
+// All variables use the v10_ prefix.
+
+let v10CurrentCity = "Accra";
+let v10GlobalReputation = 0;
+let v10ExpansionLevel = 1;
+let v10UnlockedCities = ["Accra"];
+
+
+// ========================================
+// CITY DATA
+// ========================================
+
+const v10Cities = {
+
+    Accra: {
+        country: "Ghana",
+        travelCost: 0,
+        unlockCost: 0,
+        level: 1,
+        opportunity:
+            "Your journey began here. The city is full of small businesses and new opportunities."
+    },
+
+    Kumasi: {
+        country: "Ghana",
+        travelCost: 100,
+        unlockCost: 5000,
+        level: 2,
+        opportunity:
+            "Kumasi offers growing trade, manufacturing and transportation opportunities."
+    },
+
+    Lagos: {
+        country: "Nigeria",
+        travelCost: 500,
+        unlockCost: 25000,
+        level: 3,
+        opportunity:
+            "Lagos is a huge commercial centre. Bigger markets and bigger risks await."
+    },
+
+    Nairobi: {
+        country: "Kenya",
+        travelCost: 1000,
+        unlockCost: 100000,
+        level: 4,
+        opportunity:
+            "Nairobi gives you access to technology, finance and international business."
+    },
+
+    London: {
+        country: "United Kingdom",
+        travelCost: 5000,
+        unlockCost: 1000000,
+        level: 5,
+        opportunity:
+            "London opens the door to major international investors and corporations."
+    },
+
+    Dubai: {
+        country: "United Arab Emirates",
+        travelCost: 10000,
+        unlockCost: 10000000,
+        level: 6,
+        opportunity:
+            "Dubai is a global business centre. Your empire is entering elite territory."
+    },
+
+    NewYork: {
+        country: "United States",
+        travelCost: 25000,
+        unlockCost: 100000000,
+        level: 7,
+        opportunity:
+            "New York puts you among some of the world's biggest companies and investors."
+    }
+
+};
+
+
+// ========================================
+// OPEN / EXPLORE CITY
+// ========================================
+
+function v10ExploreCity(cityName) {
+
+    const city =
+        v10Cities[cityName];
+
+
+    if (!city) {
+
+        showMessage(
+            "City not found.",
+            true
+        );
+
+        return;
+    }
+
+
+    const unlocked =
+        v10UnlockedCities.includes(
+            cityName
+        );
+
+
+    if (!unlocked) {
+
+        if (
+            typeof money === "undefined"
+        ) {
+
+            showMessage(
+                "Game money system could not be found.",
+                true
+            );
+
+            return;
+        }
+
+
+        if (money < city.unlockCost) {
+
+            showMessage(
+                "❌ You need $" +
+                city.unlockCost.toLocaleString() +
+                " to unlock " +
+                cityName +
+                ".",
+                true
+            );
+
+            return;
+        }
+
+
+        money -= city.unlockCost;
+
+        v10UnlockedCities.push(
+            cityName
+        );
+
+
+        showMessage(
+            "🌍 " +
+            cityName +
+            " has been unlocked!"
+        );
+
+    }
+
+
+    v10TravelToCity(cityName);
+
+}
+
+
+// ========================================
+// TRAVEL
+// ========================================
+
+function v10TravelToCity(cityName) {
+
+    const city =
+        v10Cities[cityName];
+
+
+    if (!city) {
+        return;
+    }
+
+
+    if (
+        !v10UnlockedCities.includes(
+            cityName
+        )
+    ) {
+
+        showMessage(
+            "Unlock this city first.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (
+        typeof money === "undefined"
+    ) {
+
+        showMessage(
+            "Game money system could not be found.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (
+        cityName !== v10CurrentCity
+    ) {
+
+        if (
+            money < city.travelCost
+        ) {
+
+            showMessage(
+                "❌ You need $" +
+                city.travelCost.toLocaleString() +
+                " for the trip.",
+                true
+            );
+
+            return;
+        }
+
+
+        money -= city.travelCost;
+
+    }
+
+
+    v10CurrentCity =
+        cityName;
+
+
+    v10GlobalReputation +=
+        city.level;
+
+
+    v10CalculateExpansionLevel();
+
+
+    const storyElement =
+        document.getElementById("story");
+
+
+    if (storyElement) {
+
+        storyElement.textContent =
+            "You have arrived in " +
+            cityName +
+            ", " +
+            city.country +
+            ". " +
+            city.opportunity;
+
+    }
+
+
+    const locationElement =
+        document.getElementById("location");
+
+
+    if (locationElement) {
+
+        locationElement.textContent =
+            cityName;
+
+    }
+
+
+    const travelMessage =
+        document.getElementById(
+            "v10TravelMessage"
+        );
+
+
+    if (travelMessage) {
+
+        travelMessage.textContent =
+            "📍 You are now in " +
+            cityName +
+            ", " +
+            city.country +
+            ".";
+
+    }
+
+
+    showMessage(
+        "✈️ Welcome to " +
+        cityName +
+        "!"
+    );
+
+
+    v10UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// EXPANSION LEVEL
+// ========================================
+
+function v10CalculateExpansionLevel() {
+
+    const numberOfCities =
+        v10UnlockedCities.length;
+
+
+    if (
+        numberOfCities >= 7
+    ) {
+
+        v10ExpansionLevel = 7;
+
+    } else if (
+        numberOfCities >= 6
+    ) {
+
+        v10ExpansionLevel = 6;
+
+    } else if (
+        numberOfCities >= 5
+    ) {
+
+        v10ExpansionLevel = 5;
+
+    } else if (
+        numberOfCities >= 4
+    ) {
+
+        v10ExpansionLevel = 4;
+
+    } else if (
+        numberOfCities >= 3
+    ) {
+
+        v10ExpansionLevel = 3;
+
+    } else if (
+        numberOfCities >= 2
+    ) {
+
+        v10ExpansionLevel = 2;
+
+    } else {
+
+        v10ExpansionLevel = 1;
+
+    }
+
+}
+
+
+// ========================================
+// CITY LIST
+// ========================================
+
+function v10UpdateCityList() {
+
+    const container =
+        document.getElementById(
+            "v10CityList"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    let html = "";
+
+
+    for (
+        const cityName in v10Cities
+    ) {
+
+        const city =
+            v10Cities[cityName];
+
+
+        const unlocked =
+            v10UnlockedCities.includes(
+                cityName
+            );
+
+
+        const current =
+            v10CurrentCity === cityName;
+
+
+        let buttonText = "";
+
+
+        if (current) {
+
+            buttonText =
+                "📍 You Are Here";
+
+        } else if (unlocked) {
+
+            buttonText =
+                "✈️ Travel — $" +
+                city.travelCost.toLocaleString();
+
+        } else {
+
+            buttonText =
+                "🔓 Unlock — $" +
+                city.unlockCost.toLocaleString();
+
+        }
+
+
+        html +=
+            "<div style=\"" +
+            "background:#303030;" +
+            "padding:14px;" +
+            "border-radius:10px;" +
+            "margin-bottom:8px;\">" +
+
+            "<h3>" +
+            cityName +
+            "</h3>" +
+
+            "<p>" +
+            city.country +
+            " • Expansion Level " +
+            city.level +
+            "</p>" +
+
+            "<button " +
+            "onclick=\"v10ExploreCity('" +
+            cityName +
+            "')\" " +
+            "style=\"width:100%;\">" +
+
+            buttonText +
+
+            "</button>" +
+
+            "</div>";
+
+    }
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+// ========================================
+// CITY OPPORTUNITIES
+// ========================================
+
+function v10UpdateOpportunities() {
+
+    const container =
+        document.getElementById(
+            "v10CityOpportunities"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const city =
+        v10Cities[
+            v10CurrentCity
+        ];
+
+
+    if (!city) {
+        return;
+    }
+
+
+    let html =
+        "<h3>📍 " +
+        v10CurrentCity +
+        "</h3>" +
+
+        "<p>" +
+        city.opportunity +
+        "</p>";
+
+
+    if (
+        city.level >= 2
+    ) {
+
+        html +=
+            "<p>🚚 Trade opportunities are available.</p>";
+
+    }
+
+
+    if (
+        city.level >= 3
+    ) {
+
+        html +=
+            "<p>🏢 Large business opportunities are available.</p>";
+
+    }
+
+
+    if (
+        city.level >= 4
+    ) {
+
+        html +=
+            "<p>💻 International technology opportunities are available.</p>";
+
+    }
+
+
+    if (
+        city.level >= 5
+    ) {
+
+        html +=
+            "<p>💎 Elite investors may notice your empire.</p>";
+
+    }
+
+
+    if (
+        city.level >= 6
+    ) {
+
+        html +=
+            "<p>🌍 Global expansion opportunities unlocked.</p>";
+
+    }
+
+
+    if (
+        city.level >= 7
+    ) {
+
+        html +=
+            "<p>🏆 You are operating at the highest current expansion level.</p>";
+
+    }
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+// ========================================
+// UPDATE V10 SCREEN
+// ========================================
+
+function v10UpdateScreen() {
+
+    v10CalculateExpansionLevel();
+
+
+    const currentCity =
+        document.getElementById(
+            "v10CurrentCity"
+        );
+
+
+    const citiesUnlocked =
+        document.getElementById(
+            "v10CitiesUnlocked"
+        );
+
+
+    const reputation =
+        document.getElementById(
+            "v10GlobalReputation"
+        );
+
+
+    const level =
+        document.getElementById(
+            "v10ExpansionLevel"
+        );
+
+
+    if (currentCity) {
+
+        currentCity.textContent =
+            v10CurrentCity;
+
+    }
+
+
+    if (citiesUnlocked) {
+
+        citiesUnlocked.textContent =
+            v10UnlockedCities.length;
+
+    }
+
+
+    if (reputation) {
+
+        reputation.textContent =
+            v10GlobalReputation;
+
+    }
+
+
+    if (level) {
+
+        level.textContent =
+            v10ExpansionLevel;
+
+    }
+
+
+    v10UpdateCityList();
+
+    v10UpdateOpportunities();
+
+}
+
+
+// ========================================
+// V10 STARTUP
+// ========================================
+
+v10UpdateScreen();
+
+// ========================================
+// FROM NOTHING V11
+// GLOBAL BUSINESS EMPIRE
+// ========================================
+
+// IMPORTANT:
+// All V11 variables use the v11_ prefix.
+// Do NOT create another money, heat,
+// career, playerName, or storyFlags variable.
+
+let v11Companies = [];
+let v11Employees = [];
+let v11CompanyReputation = 0;
+let v11DailyRevenue = 0;
+let v11DailyExpenses = 0;
+let v11DailyProfit = 0;
+
+
+// ========================================
+// COMPANY DATA
+// ========================================
+
+const v11CompanyTypes = {
+    Restaurant: {
+        revenue: 300,
+        expense: 100
+    },
+
+    Clothing: {
+        revenue: 800,
+        expense: 250
+    },
+
+    Transport: {
+        revenue: 1200,
+        expense: 400
+    },
+
+    Technology: {
+        revenue: 3000,
+        expense: 1000
+    },
+
+    Finance: {
+        revenue: 7000,
+        expense: 2500
+    }
+};
+
+
+// ========================================
+// CREATE COMPANY
+// ========================================
+
+function v11CreateCompany(type, cost) {
+
+    if (!v11CompanyTypes[type]) {
+        return;
+    }
+
+    if (
+        typeof money === "undefined"
+    ) {
+
+        showMessage(
+            "Game money system could not be found.",
+            true
+        );
+
+        return;
+    }
+
+    if (money < cost) {
+
+        showMessage(
+            "❌ You need $" +
+            cost.toLocaleString() +
+            " to create this company.",
+            true
+        );
+
+        return;
+    }
+
+    money -= cost;
+
+    const company = {
+
+        id:
+            Date.now() +
+            Math.floor(Math.random() * 1000),
+
+        name:
+            type +
+            " Company " +
+            (v11Companies.length + 1),
+
+        type:
+            type,
+
+        city:
+            typeof v10CurrentCity !== "undefined"
+            ? v10CurrentCity
+            : "Accra",
+
+        level: 1,
+
+        employees: 0,
+
+        revenue:
+            v11CompanyTypes[type].revenue,
+
+        expenses:
+            v11CompanyTypes[type].expense
+
+    };
+
+    v11Companies.push(company);
+
+    v11CompanyReputation += 5;
+
+    showMessage(
+        "🏢 " +
+        company.name +
+        " has been created!"
+    );
+
+    v11UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// HIRE EMPLOYEE
+// ========================================
+
+function v11HireEmployee(level) {
+
+    let cost = 0;
+    let role = "";
+
+    if (level === 1) {
+
+        cost = 500;
+        role = "Worker";
+
+    } else if (level === 2) {
+
+        cost = 2500;
+        role = "Manager";
+
+    } else if (level === 3) {
+
+        cost = 10000;
+        role = "Executive";
+
+    } else {
+
+        return;
+    }
+
+
+    if (
+        typeof money === "undefined"
+    ) {
+
+        showMessage(
+            "Game money system could not be found.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (money < cost) {
+
+        showMessage(
+            "❌ You need $" +
+            cost.toLocaleString() +
+            " to hire a " +
+            role +
+            ".",
+            true
+        );
+
+        return;
+    }
+
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ Create a company before hiring employees.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= cost;
+
+
+    const employee = {
+
+        id:
+            Date.now() +
+            Math.floor(Math.random() * 1000),
+
+        role:
+            role,
+
+        level:
+            level,
+
+        productivity:
+            level * 10,
+
+        company:
+            v11Companies[
+                0
+            ].id
+
+    };
+
+
+    v11Employees.push(
+        employee
+    );
+
+
+    v11Companies[0].employees++;
+
+
+    showMessage(
+        "👥 " +
+        role +
+        " hired successfully!"
+    );
+
+
+    v11UpdateScreen();
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// RUN GLOBAL EMPIRE
+// ========================================
+
+function v11RunEmpire() {
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ You don't own any companies yet.",
+            true
+        );
+
+        return;
+    }
+
+
+    let totalRevenue = 0;
+    let totalExpenses = 0;
+
+
+    v11Companies.forEach(
+        function(company) {
+
+            const employeeBonus =
+                1 +
+                (
+                    company.employees *
+                    0.05
+                );
+
+
+            const levelBonus =
+                1 +
+                (
+                    (company.level - 1) *
+                    0.15
+                );
+
+
+            const revenue =
+                Math.floor(
+                    company.revenue *
+                    employeeBonus *
+                    levelBonus
+                );
+
+
+            const expenses =
+                Math.floor(
+                    company.expenses +
+                    (
+                        company.employees *
+                        50
+                    )
+                );
+
+
+            totalRevenue +=
+                revenue;
+
+            totalExpenses +=
+                expenses;
+
+        }
+    );
+
+
+    const profit =
+        totalRevenue -
+        totalExpenses;
+
+
+    v11DailyRevenue =
+        totalRevenue;
+
+    v11DailyExpenses =
+        totalExpenses;
+
+    v11DailyProfit =
+        profit;
+
+
+    if (
+        typeof money !== "undefined"
+    ) {
+
+        money += profit;
+
+    }
+
+
+    if (profit > 0) {
+
+        v11CompanyReputation += 2;
+
+        showMessage(
+            "📈 Your global empire earned $" +
+            profit.toLocaleString() +
+            "!"
+        );
+
+    } else {
+
+        v11CompanyReputation =
+            Math.max(
+                0,
+                v11CompanyReputation - 1
+            );
+
+        showMessage(
+            "📉 Your empire lost $" +
+            Math.abs(profit).toLocaleString(),
+            true
+        );
+
+    }
+
+
+    v11UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// TRAIN EMPLOYEES
+// ========================================
+
+function v11TrainEmployees() {
+
+    if (
+        v11Employees.length === 0
+    ) {
+
+        showMessage(
+            "❌ You don't have any employees.",
+            true
+        );
+
+        return;
+    }
+
+
+    const trainingCost =
+        1000;
+
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+
+    if (
+        money < trainingCost
+    ) {
+
+        showMessage(
+            "❌ You need $1,000 for training.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -=
+        trainingCost;
+
+
+    v11Employees.forEach(
+        function(employee) {
+
+            employee.productivity +=
+                5;
+
+        }
+    );
+
+
+    v11CompanyReputation += 3;
+
+
+    showMessage(
+        "🎓 Your employees have been trained!"
+    );
+
+
+    v11UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// EXPAND COMPANY
+// ========================================
+
+function v11ExpandCompany() {
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        showMessage(
+            "❌ Create a company first.",
+            true
+        );
+
+        return;
+    }
+
+
+    const city =
+        typeof v10CurrentCity !== "undefined"
+        ? v10CurrentCity
+        : "Accra";
+
+
+    const company =
+        v11Companies[0];
+
+
+    if (
+        company.city === city
+    ) {
+
+        showMessage(
+            "🏢 Your company is already operating in " +
+            city + "."
+        );
+
+        return;
+    }
+
+
+    const expansionCost =
+        10000 *
+        company.level;
+
+
+    if (
+        typeof money === "undefined"
+    ) {
+        return;
+    }
+
+
+    if (
+        money < expansionCost
+    ) {
+
+        showMessage(
+            "❌ You need $" +
+            expansionCost.toLocaleString() +
+            " to expand.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -=
+        expansionCost;
+
+
+    company.city =
+        city;
+
+    company.level++;
+
+
+    v11CompanyReputation += 10;
+
+
+    showMessage(
+        "🌍 " +
+        company.name +
+        " expanded to " +
+        city +
+        "!"
+    );
+
+
+    v11UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+        updateScreen();
+    }
+
+}
+
+
+// ========================================
+// GLOBAL RANK
+// ========================================
+
+function v11GetGlobalRank() {
+
+    if (
+        v11CompanyReputation >= 500
+    ) {
+
+        return "🌎 Global Corporation";
+
+    }
+
+    if (
+        v11CompanyReputation >= 250
+    ) {
+
+        return "🏆 International Company";
+
+    }
+
+    if (
+        v11CompanyReputation >= 100
+    ) {
+
+        return "🌍 Global Business";
+
+    }
+
+    if (
+        v11CompanyReputation >= 50
+    ) {
+
+        return "🏢 Major Company";
+
+    }
+
+    if (
+        v11CompanyReputation >= 20
+    ) {
+
+        return "📈 Growing Company";
+
+    }
+
+    return "🏪 Local Business";
+
+}
+
+
+// ========================================
+// UPDATE COMPANY LIST
+// ========================================
+
+function v11UpdateCompanyList() {
+
+    const container =
+        document.getElementById(
+            "v11CompanyList"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        v11Companies.length === 0
+    ) {
+
+        container.innerHTML =
+            "No companies yet.";
+
+        return;
+    }
+
+
+    let html = "";
+
+
+    v11Companies.forEach(
+        function(company) {
+
+            html +=
+                "<div style=\"" +
+                "background:#303030;" +
+                "padding:15px;" +
+                "border-radius:10px;" +
+                "margin-bottom:8px;\">" +
+
+                "<h3>" +
+                company.name +
+                "</h3>" +
+
+                "<p>🏢 Type: " +
+                company.type +
+                "</p>" +
+
+                "<p>📍 City: " +
+                company.city +
+                "</p>" +
+
+                "<p>⭐ Level: " +
+                company.level +
+                "</p>" +
+
+                "<p>👥 Employees: " +
+                company.employees +
+                "</p>" +
+
+                "<p>💰 Base Revenue: $" +
+                company.revenue.toLocaleString() +
+                "</p>" +
+
+                "</div>";
+
+        }
+    );
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+// ========================================
+// UPDATE V11 SCREEN
+// ========================================
+
+function v11UpdateScreen() {
+
+    const companyCount =
+        document.getElementById(
+            "v11CompanyCount"
+        );
+
+
+    const employeeCount =
+        document.getElementById(
+            "v11EmployeeCount"
+        );
+
+
+    const revenue =
+        document.getElementById(
+            "v11DailyRevenue"
+        );
+
+
+    const expenses =
+        document.getElementById(
+            "v11DailyExpenses"
+        );
+
+
+    const profit =
+        document.getElementById(
+            "v11DailyProfit"
+        );
+
+
+    const reputation =
+        document.getElementById(
+            "v11CompanyReputation"
+        );
+
+
+    const rank =
+        document.getElementById(
+            "v11GlobalRank"
+        );
+
+
+    if (companyCount) {
+
+        companyCount.textContent =
+            v11Companies.length;
+
+    }
+
+
+    if (employeeCount) {
+
+        employeeCount.textContent =
+            v11Employees.length;
+
+    }
+
+
+    if (revenue) {
+
+        revenue.textContent =
+            v11DailyRevenue.toLocaleString();
+
+    }
+
+
+    if (expenses) {
+
+        expenses.textContent =
+            v11DailyExpenses.toLocaleString();
+
+    }
+
+
+    if (profit) {
+
+        profit.textContent =
+            v11DailyProfit.toLocaleString();
+
+    }
+
+
+    if (reputation) {
+
+        reputation.textContent =
+            v11CompanyReputation;
+
+    }
+
+
+    if (rank) {
+
+        rank.textContent =
+            v11GetGlobalRank();
+
+    }
+
+
+    v11UpdateCompanyList();
+
+}
+
+
+// ========================================
+// V11 STARTUP
+// ========================================
+
+v11UpdateScreen();
     
 </script>
 
