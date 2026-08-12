@@ -245,7 +245,50 @@
 
 </div>
 
+<!-- ========================================
+     V2 — JOBS & CAREER
+========================================= -->
+
 <div class="panel">
+
+    <h2>💼 JOB CENTER</h2>
+
+    <p>
+        Find work and build your career.
+    </p>
+
+    <p>
+        Current Job:
+        <strong id="jobName">Unemployed</strong>
+    </p>
+
+    <p>
+        Salary:
+        $<strong id="jobSalary">0</strong>
+    </p>
+
+    <p>
+        Experience:
+        <strong id="jobXP">0</strong>
+    </p>
+
+    <button onclick="findJob()">
+        🔎 Find A Job
+    </button>
+
+    <button onclick="workJob()">
+        💼 Work Job
+    </button>
+
+    <button onclick="getPaid()">
+        💵 Collect Salary
+    </button>
+
+    <button onclick="quitJob()">
+        🚪 Quit Job
+    </button>
+
+</div>
 
     <h2>⚡ ACTIONS</h2>
 
@@ -550,6 +593,270 @@ function checkLevel() {
     }
 }
 
+// ========================================
+// V2 — JOB SYSTEM
+// ========================================
+
+let jobName = "Unemployed";
+let jobSalary = 0;
+let jobXP = 0;
+let salaryReady = false;
+
+
+// ========================================
+// FIND JOB
+// ========================================
+
+function findJob() {
+
+    if (jobName !== "Unemployed") {
+
+        showMessage(
+            "You already have a job."
+        );
+
+        return;
+    }
+
+    if (intelligence >= 3) {
+
+        jobName = "Office Assistant";
+        jobSalary = 120;
+
+    } else if (strength >= 3) {
+
+        jobName = "Construction Worker";
+        jobSalary = 100;
+
+    } else if (charisma >= 3) {
+
+        jobName = "Sales Assistant";
+        jobSalary = 110;
+
+    } else {
+
+        jobName = "Street Worker";
+        jobSalary = 70;
+
+    }
+
+    career = jobName;
+
+    showMessage(
+        "🎉 You got a job as a " +
+        jobName +
+        "! Salary: $" +
+        jobSalary
+    );
+
+    document.getElementById("story").textContent =
+        "You finally have a job. " +
+        "This is your first real step toward building a better life.";
+
+    updateJobScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// WORK JOB
+// ========================================
+
+function workJob() {
+
+    if (jobName === "Unemployed") {
+
+        showMessage(
+            "You don't have a job yet."
+        );
+
+        return;
+    }
+
+    if (energy < 25) {
+
+        showMessage(
+            "You are too tired to work."
+        );
+
+        return;
+    }
+
+    energy -= 25;
+
+    jobXP += 10;
+
+    xp += 15;
+
+    salaryReady = true;
+
+    showMessage(
+        "💼 You completed a work shift. +10 Career XP"
+    );
+
+    document.getElementById("story").textContent =
+        "You worked hard and gained valuable experience.";
+
+    checkPromotion();
+
+    updateJobScreen();
+
+    checkLevel();
+
+    updateScreen();
+}
+
+
+// ========================================
+// COLLECT SALARY
+// ========================================
+
+function getPaid() {
+
+    if (jobName === "Unemployed") {
+
+        showMessage(
+            "You don't have a job."
+        );
+
+        return;
+    }
+
+    if (!salaryReady) {
+
+        showMessage(
+            "Work first before collecting your salary."
+        );
+
+        return;
+    }
+
+    money += jobSalary;
+
+    salaryReady = false;
+
+    showMessage(
+        "💵 Salary received: +$" +
+        jobSalary
+    );
+
+    updateScreen();
+}
+
+
+// ========================================
+// PROMOTIONS
+// ========================================
+
+function checkPromotion() {
+
+    if (
+        jobName === "Street Worker" &&
+        jobXP >= 50
+    ) {
+
+        jobName = "Market Worker";
+        jobSalary = 100;
+
+        showMessage(
+            "🎉 PROMOTION! You are now a Market Worker."
+        );
+    }
+
+    else if (
+        jobName === "Market Worker" &&
+        jobXP >= 100
+    ) {
+
+        jobName = "Store Supervisor";
+        jobSalary = 180;
+
+        showMessage(
+            "🎉 PROMOTION! You are now a Store Supervisor."
+        );
+    }
+
+    else if (
+        jobName === "Construction Worker" &&
+        jobXP >= 100
+    ) {
+
+        jobName = "Construction Supervisor";
+        jobSalary = 220;
+
+        showMessage(
+            "🎉 PROMOTION! You are now a Construction Supervisor."
+        );
+    }
+
+    else if (
+        jobName === "Office Assistant" &&
+        jobXP >= 100
+    ) {
+
+        jobName = "Office Manager";
+        jobSalary = 250;
+
+        showMessage(
+            "🎉 PROMOTION! You are now an Office Manager."
+        );
+    }
+
+    career = jobName;
+
+    updateJobScreen();
+}
+
+
+// ========================================
+// QUIT JOB
+// ========================================
+
+function quitJob() {
+
+    if (jobName === "Unemployed") {
+
+        showMessage(
+            "You don't have a job."
+        );
+
+        return;
+    }
+
+    jobName = "Unemployed";
+    jobSalary = 0;
+    jobXP = 0;
+    salaryReady = false;
+
+    career = "Unemployed";
+
+    showMessage(
+        "🚪 You left your job."
+    );
+
+    updateJobScreen();
+
+    updateScreen();
+}
+
+
+// ========================================
+// UPDATE JOB DISPLAY
+// ========================================
+
+function updateJobScreen() {
+
+    document.getElementById("jobName").textContent =
+        jobName;
+
+    document.getElementById("jobSalary").textContent =
+        jobSalary;
+
+    document.getElementById("jobXP").textContent =
+        jobXP;
+}
+    
 </script>
 
 </body>
