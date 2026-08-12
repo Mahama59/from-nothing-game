@@ -661,6 +661,118 @@
     </div>
 
 </div>
+
+<!-- ========================================
+     FROM NOTHING V8
+     PROPERTIES & REAL ESTATE
+========================================= -->
+
+<div class="panel">
+
+    <h2>🏠 REAL ESTATE</h2>
+
+    <p>
+        Build your wealth by buying properties.
+        Properties increase your net worth and can
+        generate income.
+    </p>
+
+    <div style="
+        background:#101010;
+        padding:18px;
+        border-radius:12px;
+        margin-bottom:15px;
+    ">
+
+        <h3>🏡 PROPERTY PORTFOLIO</h3>
+
+        <p>
+            Properties Owned:
+            <strong id="v8PropertyCount">0</strong>
+        </p>
+
+        <p>
+            Property Value:
+            $<strong id="v8PropertyValue">0</strong>
+        </p>
+
+        <p>
+            Daily Rent:
+            $<strong id="v8DailyRent">0</strong>
+        </p>
+
+        <p>
+            Real Estate Level:
+            <strong id="v8PropertyLevel">0</strong>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>🏠 AVAILABLE PROPERTIES</h3>
+
+    <button
+        onclick="v8BuyProperty('Small House')"
+        style="width:100%;margin-bottom:7px;">
+        🏠 Small House — $5,000
+    </button>
+
+    <button
+        onclick="v8BuyProperty('Apartment')"
+        style="width:100%;margin-bottom:7px;">
+        🏢 Apartment — $25,000
+    </button>
+
+    <button
+        onclick="v8BuyProperty('Villa')"
+        style="width:100%;margin-bottom:7px;">
+        🏡 Villa — $100,000
+    </button>
+
+    <button
+        onclick="v8BuyProperty('Mansion')"
+        style="width:100%;margin-bottom:7px;">
+        🏰 Mansion — $1,000,000
+    </button>
+
+    <button
+        onclick="v8BuyProperty('Office Building')"
+        style="width:100%;margin-bottom:7px;">
+        🏢 Office Building — $5,000,000
+    </button>
+
+    <button
+        onclick="v8BuyProperty('Skyscraper')"
+        style="width:100%;">
+        🌆 Skyscraper — $50,000,000
+    </button>
+
+    <hr>
+
+    <h3>📋 YOUR PROPERTIES</h3>
+
+    <div id="v8PropertyList">
+        You don't own any properties yet.
+    </div>
+
+    <hr>
+
+    <h3>💰 REAL ESTATE ACTIONS</h3>
+
+    <button
+        onclick="v8CollectRent()"
+        style="width:100%;margin-bottom:7px;">
+        💵 Collect Property Income
+    </button>
+
+    <button
+        onclick="v8UpgradeProperties()"
+        style="width:100%;">
+        🔨 Upgrade Properties — $10,000
+    </button>
+
+</div>
         
     <button onclick="work()">
         💼 Work
@@ -2835,6 +2947,524 @@ function v7UpdateScreen() {
 // ========================================
 
 v7UpdateScreen();
+
+// ========================================
+// FROM NOTHING V8
+// PROPERTIES & REAL ESTATE
+// ========================================
+
+// V8 uses its own prefix.
+// Do NOT create another money variable.
+
+let v8Properties = [];
+let v8PropertyValue = 0;
+let v8DailyRent = 0;
+let v8PropertyLevel = 0;
+
+
+// ========================================
+// PROPERTY DATA
+// ========================================
+
+const v8PropertyData = {
+
+    "Small House": {
+        price: 5000,
+        rent: 50,
+        level: 1
+    },
+
+    "Apartment": {
+        price: 25000,
+        rent: 200,
+        level: 2
+    },
+
+    "Villa": {
+        price: 100000,
+        rent: 750,
+        level: 3
+    },
+
+    "Mansion": {
+        price: 1000000,
+        rent: 5000,
+        level: 4
+    },
+
+    "Office Building": {
+        price: 5000000,
+        rent: 25000,
+        level: 5
+    },
+
+    "Skyscraper": {
+        price: 50000000,
+        rent: 250000,
+        level: 6
+    }
+
+};
+
+
+// ========================================
+// BUY PROPERTY
+// ========================================
+
+function v8BuyProperty(propertyName) {
+
+    const property =
+        v8PropertyData[propertyName];
+
+    if (!property) {
+
+        showMessage(
+            "Property not found.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (typeof money === "undefined") {
+
+        showMessage(
+            "Game money system could not be found.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (money < property.price) {
+
+        showMessage(
+            "❌ You need $" +
+            property.price.toLocaleString() +
+            " to buy this property.",
+            true
+        );
+
+        return;
+    }
+
+
+    // Pay for property
+
+    money -= property.price;
+
+
+    // Add property
+
+    v8Properties.push({
+        name: propertyName,
+        value: property.price,
+        rent: property.rent,
+        level: property.level
+    });
+
+
+    // Update totals
+
+    v8CalculateProperties();
+
+
+    // Reputation bonus
+
+    if (
+        typeof reputation !== "undefined"
+    ) {
+
+        reputation += property.level;
+
+    }
+
+
+    // Update story
+
+    const storyElement =
+        document.getElementById("story");
+
+    if (storyElement) {
+
+        storyElement.textContent =
+            "You purchased a " +
+            propertyName +
+            " for $" +
+            property.price.toLocaleString() +
+            ". Your real estate empire has begun.";
+
+    }
+
+
+    showMessage(
+        "🏠 Purchased " +
+        propertyName +
+        "!"
+    );
+
+
+    v8UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// CALCULATE PROPERTY TOTALS
+// ========================================
+
+function v8CalculateProperties() {
+
+    v8PropertyValue = 0;
+    v8DailyRent = 0;
+    v8PropertyLevel = 0;
+
+
+    for (
+        let i = 0;
+        i < v8Properties.length;
+        i++
+    ) {
+
+        const property =
+            v8Properties[i];
+
+
+        v8PropertyValue +=
+            property.value;
+
+
+        v8DailyRent +=
+            property.rent;
+
+
+        v8PropertyLevel +=
+            property.level;
+
+    }
+
+
+    if (
+        v8Properties.length > 0
+    ) {
+
+        v8PropertyLevel =
+            Math.max(
+                1,
+                Math.floor(
+                    v8PropertyLevel /
+                    v8Properties.length
+                )
+            );
+
+    }
+
+}
+
+
+// ========================================
+// COLLECT RENT
+// ========================================
+
+function v8CollectRent() {
+
+    if (
+        v8Properties.length === 0
+    ) {
+
+        showMessage(
+            "You don't own any properties yet.",
+            true
+        );
+
+        return;
+    }
+
+
+    money += v8DailyRent;
+
+
+    const storyElement =
+        document.getElementById("story");
+
+
+    if (storyElement) {
+
+        storyElement.textContent =
+            "Your properties generated $" +
+            v8DailyRent.toLocaleString() +
+            " in rental income. Your assets are beginning to work for you.";
+
+    }
+
+
+    showMessage(
+        "💵 +$" +
+        v8DailyRent.toLocaleString() +
+        " property income!"
+    );
+
+
+    v8UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// UPGRADE PROPERTIES
+// ========================================
+
+function v8UpgradeProperties() {
+
+    if (
+        v8Properties.length === 0
+    ) {
+
+        showMessage(
+            "Buy a property before upgrading it.",
+            true
+        );
+
+        return;
+    }
+
+
+    if (money < 10000) {
+
+        showMessage(
+            "You need $10,000 to upgrade your properties.",
+            true
+        );
+
+        return;
+    }
+
+
+    money -= 10000;
+
+
+    for (
+        let i = 0;
+        i < v8Properties.length;
+        i++
+    ) {
+
+        v8Properties[i].value =
+            Math.floor(
+                v8Properties[i].value * 1.10
+            );
+
+
+        v8Properties[i].rent =
+            Math.floor(
+                v8Properties[i].rent * 1.20
+            );
+
+    }
+
+
+    v8CalculateProperties();
+
+
+    const storyElement =
+        document.getElementById("story");
+
+
+    if (storyElement) {
+
+        storyElement.textContent =
+            "You invested $10,000 into improving your properties. Their value and rental income have increased.";
+
+    }
+
+
+    showMessage(
+        "🔨 Properties upgraded!"
+    );
+
+
+    v8UpdateScreen();
+
+
+    if (
+        typeof updateScreen === "function"
+    ) {
+
+        updateScreen();
+
+    }
+
+}
+
+
+// ========================================
+// PROPERTY LIST
+// ========================================
+
+function v8UpdatePropertyList() {
+
+    const list =
+        document.getElementById(
+            "v8PropertyList"
+        );
+
+
+    if (!list) {
+        return;
+    }
+
+
+    if (
+        v8Properties.length === 0
+    ) {
+
+        list.innerHTML =
+            "You don't own any properties yet.";
+
+        return;
+    }
+
+
+    let html = "";
+
+
+    for (
+        let i = 0;
+        i < v8Properties.length;
+        i++
+    ) {
+
+        const property =
+            v8Properties[i];
+
+
+        html +=
+            "<div style=\"" +
+            "background:#303030;" +
+            "padding:12px;" +
+            "margin-bottom:8px;" +
+            "border-radius:8px;\">" +
+
+            "<strong>🏠 " +
+            property.name +
+            "</strong>" +
+
+            "<br>" +
+
+            "Value: $" +
+            property.value.toLocaleString() +
+
+            "<br>" +
+
+            "Daily Income: $" +
+            property.rent.toLocaleString() +
+
+            "</div>";
+
+    }
+
+
+    list.innerHTML =
+        html;
+
+}
+
+
+// ========================================
+// UPDATE V8 SCREEN
+// ========================================
+
+function v8UpdateScreen() {
+
+    v8CalculateProperties();
+
+
+    const count =
+        document.getElementById(
+            "v8PropertyCount"
+        );
+
+
+    const value =
+        document.getElementById(
+            "v8PropertyValue"
+        );
+
+
+    const rent =
+        document.getElementById(
+            "v8DailyRent"
+        );
+
+
+    const level =
+        document.getElementById(
+            "v8PropertyLevel"
+        );
+
+
+    if (count) {
+
+        count.textContent =
+            v8Properties.length;
+
+    }
+
+
+    if (value) {
+
+        value.textContent =
+            v8PropertyValue.toLocaleString();
+
+    }
+
+
+    if (rent) {
+
+        rent.textContent =
+            v8DailyRent.toLocaleString();
+
+    }
+
+
+    if (level) {
+
+        level.textContent =
+            v8PropertyLevel;
+
+    }
+
+
+    v8UpdatePropertyList();
+
+}
+
+
+// ========================================
+// V8 STARTUP
+// ========================================
+
+v8UpdateScreen();
     
 </script>
 
